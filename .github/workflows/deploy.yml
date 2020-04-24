@@ -26,5 +26,8 @@ jobs:
           chmod 0755 ~/.ssh
           echo "${{secrets.DEPLOY_KEY}}" >~/.ssh/id_rsa
           chmod 0600 ~/.ssh/id_rsa
+      - name: Set remote
+        run: |
+          git remote set-url origin $(git remote show origin | grep "Fetch URL" | sed -e 's/.*: //' | sed -e 's/https:\/\/github.com\//git@github.com:/')
       - name: deploy
         run: mkdocs gh-deploy
