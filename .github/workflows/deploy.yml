@@ -28,8 +28,7 @@ jobs:
         working-directory: project
       - name: Build
         run: mkdocs build
-        with:
-          path: project
+        working-directory: project
       - name: Extract SSH key
         run: |
           mkdir -p ~/.ssh
