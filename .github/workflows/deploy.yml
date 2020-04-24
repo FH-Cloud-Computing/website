@@ -15,11 +15,22 @@ jobs:
           architecture: 'x64'
       - name: Checkout master
         uses: actions/checkout@v1
+        with:
+          path: project
+      - name: Checkout master
+        uses: actions/checkout@v1
+        with:
+          path: fh-cloud-computing.github.io
+          repository: fh-cloud-computing.github.io
       - name: Install
         run: |
           pip install -r requirements.txt
+        with:
+          path: project
       - name: Build
         run: mkdocs build
+        with:
+          path: project
       - name: Extract SSH key
         run: |
           mkdir -p ~/.ssh
@@ -29,5 +40,9 @@ jobs:
       - name: Set remote
         run: |
           git remote set-url origin $(git remote show origin | grep "Fetch URL" | sed -e 's/.*: //' | sed -e 's/https:\/\/github.com\//git@github.com:/')
+        with:
+          path: project
       - name: deploy
-        run: mkdocs gh-deploy
+        run: mkdocs gh-deploy --config-file ../project/mkdocs.yml --remote-branch master
+        with:
+          path: fh-cloud-computing.github.io
