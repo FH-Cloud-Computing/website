@@ -1,0 +1,30 @@
+site_name: Cloud Computing 2020
+nav:
+  - Welcome: index.md
+  - About the course:
+    - Grading: course/grading/index.md
+    - Deadlines: course/deadlines/index.md
+    - Testing: course/testing/index.md
+    - Getting help: course/help/index.md
+  - Lectures:
+    - 1. Introduction to the Cloud: lectures/1-cloud-intro/index.md
+    - 2. Cloud capabilities: lectures/2-capabilities/index.md
+    - 3. Infrastructure as a Service: lectures/3-iaas/index.md
+    - "4. Beyond IaaS: PaaS, SaaS": lectures/4-xaas/index.md
+    - 5. Cloud-native software development: lectures/5-cloud-native/index.md
+theme:
+  name: readthedocs
+plugins:
+  - macros
+  - exclude:
+      glob: []
+markdown_extensions:
+    - admonition
+    - markdown_include.include
+    - toc:
+        permalink: "#"
+        baselevel: 2
+        separator: "_"
+repo_url: https://github.com/fh-cloud-computing/website/
+repo_name: "GitHub"
+use_directory_urls: true
