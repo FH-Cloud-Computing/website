@@ -23,7 +23,7 @@ jobs:
       - name: Extract SSH key
         run: |
           mkdir -p ~/.ssh
-          chmod 0644 ~/.ssh
+          chmod 0755 ~/.ssh
           echo "${{secrets.DEPLOY_KEY}}" >~/.ssh/id_rsa
           chmod 0600 ~/.ssh/id_rsa
       - name: deploy
