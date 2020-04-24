@@ -25,8 +25,7 @@ jobs:
       - name: Install
         run: |
           pip install -r requirements.txt
-        with:
-          path: project
+        working-directory: project
       - name: Build
         run: mkdocs build
         with:
@@ -40,9 +39,7 @@ jobs:
       - name: Set remote
         run: |
           git remote set-url origin $(git remote show origin | grep "Fetch URL" | sed -e 's/.*: //' | sed -e 's/https:\/\/github.com\//git@github.com:/')
-        with:
-          path: project
+        working-directory: project
       - name: deploy
         run: mkdocs gh-deploy --config-file ../project/mkdocs.yml --remote-branch master
-        with:
-          path: fh-cloud-computing.github.io
+        working-directory: fh-cloud-computing.github.io
