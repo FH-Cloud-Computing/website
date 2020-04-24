@@ -1,0 +1,22 @@
+name: Publish docs via GitHub Pages
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Deploy docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v1
+      - name: Build
+        run: mkdocs build
+      - name: Extract SSH key
+        run: |
+          mkdir -p ~/.ssh
+          chmod 0644 ~/.ssh
+          echo "${secrets.DEPLOY_KEY}" >~/.ssh/id_rsa
+          chmod 0600 ~/.ssh/id_rsa
+      - name: deploy
+        run: mkdocs gh-deploy
