@@ -8,6 +8,12 @@ jobs:
     name: Deploy docs
     runs-on: ubuntu-latest
     steps:
+      - name: Extract SSH key
+        run: |
+          mkdir -p ~/.ssh
+          chmod 0755 ~/.ssh
+          echo "${{secrets.DEPLOY_KEY}}" >~/.ssh/id_rsa
+          chmod 0600 ~/.ssh/id_rsa
       - name: Install Python
         uses: actions/setup-python@v1
         with:
@@ -29,16 +35,10 @@ jobs:
       - name: Build
         run: mkdocs build
         working-directory: project
-      - name: Extract SSH key
-        run: |
-          mkdir -p ~/.ssh
-          chmod 0755 ~/.ssh
-          echo "${{secrets.DEPLOY_KEY}}" >~/.ssh/id_rsa
-          chmod 0600 ~/.ssh/id_rsa
       - name: Set remote
         run: |
           git remote set-url origin $(git remote show origin | grep "Fetch URL" | sed -e 's/.*: //' | sed -e 's/https:\/\/github.com\//git@github.com:/')
-        working-directory: project
+        working-directory: fh-cloud-computing.github.io
       - name: deploy
         run: mkdocs gh-deploy --config-file ../project/mkdocs.yml --remote-branch master
         working-directory: fh-cloud-computing.github.io
