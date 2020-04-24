@@ -20,11 +20,11 @@ jobs:
           python-version: '3.x'
           architecture: 'x64'
       - name: Checkout master
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           path: project
       - name: Checkout master
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           path: fh-cloud-computing.github.io
           repository: fh-cloud-computing/fh-cloud-computing.github.io
