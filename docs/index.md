@@ -14,7 +14,7 @@ E-mail: [peter.wenzl@edu.fh-campuswien.ac.at](mailto:peter.wenzl@edu.fh-campuswi
 - Ericsson Austria
 - mobilkom Austria
 - Oracle Austria GmBH (CGBU)
-- Frequentis
+- Frequentis AG
 
 ### Janos Pasztor
 
