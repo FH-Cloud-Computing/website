@@ -79,3 +79,7 @@ Secondary coor:
 .md-typeset .note>.admonition-title, .md-typeset .note>summary {
   background-color: var(--md-accent-fg-color--light)
 }
+
+.md-typeset a {
+    color: var(--md-accent-fg-color);
+}

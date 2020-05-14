@@ -107,3 +107,9 @@ Providers on the internet exchange data about which network they are hosting usi
 [Border Gateway Protocol](https://en.wikipedia.org/wiki/Border_Gateway_Protocol). Each providers router announces the
 IP address ranges they are hosting to their peer providers, who in turn forward these announcements in an aggregated
 form to other providers.
+
+TBD explain tiers
+
+![An illustration of how internet providers are connected. In this example Global A and Global B are two providers who are connected in the same level, Local A and Local B are connected to Global A, while Local C is connected to Global B. Local A and Local B also exchange data directly and Local B and C exchange data over a local internet exchange. The example datacenter customer is connected to Local B.](/lectures/1-cloud-intro/internet-tiers.svg)
+
+
