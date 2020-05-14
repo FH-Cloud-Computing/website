@@ -13,18 +13,45 @@ nav:
     - "4. Beyond IaaS: PaaS, SaaS": lectures/4-xaas/index.md
     - 5. Cloud-native software development: lectures/5-cloud-native/index.md
 theme:
-  name: readthedocs
+  name: material
+  features:
+    - tabs
+  font:
+    text: Verdana
+    code: Courier New
+  logo: logo-wide.svg
+  favicon: logo.svg
+extra_css:
+  - custom.css
 plugins:
   - macros
   - exclude:
       glob: []
 markdown_extensions:
-    - admonition
-    - markdown_include.include
-    - toc:
-        permalink: "#"
-        baselevel: 2
-        separator: "_"
+  - admonition
+  - markdown_include.include
+  - toc:
+      permalink: "#"
+      baselevel: 2
+      separator: "_"
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
 repo_url: https://github.com/fh-cloud-computing/website/
 repo_name: "GitHub"
 use_directory_urls: true

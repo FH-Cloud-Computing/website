@@ -29,7 +29,8 @@ savings.
 The difference in build is, however, quite apparent. While some servers, mainly built for office use, have the standard
 &ldquo;tower&rdquo; build, most servers have a flat profile designed to be mounted in racks as displayed on the picture.
 
-![A server in a rack, pulled out and the top taken off. The internal components, such as dual, hot-plug power supply units, hot-plug fans, CPU, the riser and hot-swap disks are visible.](server-01.svg)
+![A server in a rack, pulled out and the top taken off. The internal components, such as dual, hot-plug power supply units, hot-plug fans, CPU, the riser and hot-swap disks are visible.](/lectures/1-cloud-intro/server-01.svg)
+*An HP Proliant G5 server pulled out of its rack. Source: [Wikipedia](https://en.wikipedia.org/wiki/ProLiant#/media/File:Proliant380g5_3.jpeg)*
 
 Server racks are standardized closets that have mounting screws for rails that allow pulling servers out even mid
 operating and replace components while the server is running.

@@ -1,5 +1,7 @@
 mkdocs
 mkdocs-macros-plugin
 mkdocs-exclude
+mkdocs-material
 markdown-include
 python-slugify
+pymdown-extensions

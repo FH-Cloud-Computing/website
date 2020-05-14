@@ -1,0 +1,63 @@
+:root {
+/*
+Primary color:
+- Main: #008abd
+- Dark: #00a1de
+- Light: #9cbdd5
+Secondary coor:
+- Main: #4b5059
+- Dark: #333333
+- Light: #bdbbbc
+ */
+
+
+  /* Default color shades */
+  --md-default-fg-color:               #000000;
+  --md-default-fg-color--light:        #333333;
+  --md-default-fg-color--lighter:      #555555;
+  --md-default-fg-color--lightest:     #777777;
+  --md-default-bg-color:               #f0f0f0;
+  --md-default-bg-color--light:        #fafafa;
+  --md-default-bg-color--lighter:      #fefefe;
+  --md-default-bg-color--lightest:     #ffffff;
+
+  /* Primary color shades */
+  --md-primary-fg-color:               #4b5059;
+  --md-primary-fg-color--light:        #bdbbbc;
+  --md-primary-fg-color--dark:         #333333;
+  --md-primary-bg-color:               #e0e0e0;
+  --md-primary-bg-color--light:        #ffffff;
+
+  /* Accent color shades */
+  --md-accent-fg-color:                #008abd;
+  --md-accent-fg-color--transparent:   #000000;
+  --md-accent-bg-color:                #f0f0f0;
+  --md-accent-bg-color--light:         #ffffff;
+
+  /* Code block color shades */
+  --md-code-bg-color:                  #4b5059;
+  --md-code-fg-color:                  #f0f0f0;
+}
+
+.md-header-nav__button.md-logo img {
+  width: auto;
+}
+
+.md-tabs {
+  background-color: var(--md-primary-fg-color--dark);
+}
+
+.md-content aside {
+  float: right;
+  max-width:33%;
+  margin-left:1rem;
+}
+
+.md-content aside img {
+  border: 1px solid var(--md-accent-fg-color);
+  background: var(--md-accent-bg-color--light);
+}
+
+.md-content h1, .md-content h2, .md-content h3, .md-content h4, .md-content hr {
+  clear: both;
+}

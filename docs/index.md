@@ -7,7 +7,9 @@ materials you need to
 
 ### Peter Wenzl
 
-![](peter-wenzl.jpg)
+<aside>
+<img src="peter-wenzl.jpg" alt="A photo of Peter Wenzl, a middle aged man with short gray hair and square glasses." />
+</aside>
 
 E-mail: [peter.wenzl@edu.fh-campuswien.ac.at](mailto:peter.wenzl@edu.fh-campuswien.ac.at)
 
@@ -20,7 +22,9 @@ E-mail: [peter.wenzl@edu.fh-campuswien.ac.at](mailto:peter.wenzl@edu.fh-campuswi
 
 ### Janos Pasztor
 
-![](janos-pasztor.png)
+<aside>
+<img src="janos-pasztor.png" alt="A photo of Janos Pasztor, a man in his thirties with short, dark brown hair and round glasses." />
+</aside>
 
 E-mail: [janos.pasztor@edu.fh-campuswien.ac.at](mailto:janos.pasztor@edu.fh-campuswien.ac.at) <br />
 Linkedin: [www.linkedin.com/in/janoszen/](https://www.linkedin.com/in/janoszen/) <br />
