@@ -7,6 +7,8 @@ materials you need to
 
 ### Peter Wenzl
 
+![](peter-wenzl.jpg)
+
 E-mail: [peter.wenzl@edu.fh-campuswien.ac.at](mailto:peter.wenzl@edu.fh-campuswien.ac.at)
 
 - Computer Science Master (Dipl. Ing.), TU Wien, 2000
@@ -17,6 +19,8 @@ E-mail: [peter.wenzl@edu.fh-campuswien.ac.at](mailto:peter.wenzl@edu.fh-campuswi
 - Frequentis
 
 ### Janos Pasztor
+
+![](janos-pasztor.png)
 
 E-mail: [janos.pasztor@edu.fh-campuswien.ac.at](mailto:janos.pasztor@edu.fh-campuswien.ac.at) <br />
 Linkedin: [www.linkedin.com/in/janoszen/](https://www.linkedin.com/in/janoszen/) <br />
