@@ -28,6 +28,8 @@ savings.
 
 The difference in build is, however, quite apparent. While some servers, mainly built for office use, have the standard
 &ldquo;tower&rdquo; build, most servers have a flat profile designed to be mounted in racks as displayed on the picture.
+Since most servers are not high enough to take full size expansion cards (graphics cards, network cards, etc) servers
+may contain a separate removable component for these usually called a riser. 
 
 ![A server in a rack, pulled out and the top taken off. The internal components, such as dual, hot-plug power supply units, hot-plug fans, CPU, the riser and hot-swap disks are visible.](/lectures/1-cloud-intro/server-01.svg)
 *An HP Proliant G5 server pulled out of its rack. Source: [Wikipedia](https://en.wikipedia.org/wiki/ProLiant#/media/File:Proliant380g5_3.jpeg)*
@@ -70,4 +72,14 @@ oxygen content of the air enough to stop the fire.
 All critical systems in a datacenter (power, cooling, fire suppression systems) are usually built in a redundant fashion
 because the loss of either of those systems will potentially mean a complete shutdown for the datacenter. Datacenter 
 operators usually have further contingency plans in place too, such as a UPS (battery) system, disel generator, fuel 
-truck on standby, hotline to the fire department, etc. to make sure the datacenter can keep its required uptime. 
+truck on standby, hotline to the fire department, etc. to make sure the datacenter can keep its required uptime.
+
+On the networking side of things matters get slightly more complicated. Some datacenter providers also offer you the
+ability to use their network uplink (also redundant), but larger customers will prefer to host their own networking
+equipment and negotiate their own internet uplink contracts. Since there is no generic rule for how datacenters handle
+this we will dispense with a description.
+
+It is also worth noting that larger customers (banks, cloud providers, etc) usually prefer to have their own racks in
+a separated gated are called a &ldquo;cage&rdquo; to which they control access.
+
+## The Anatomy of the Internet
