@@ -54,7 +54,7 @@ Secondary coor:
   margin-left:1rem;
 }
 
-.md-content aside img {
+.md-content img {
   border: 1px solid var(--md-accent-fg-color);
   background: var(--md-accent-bg-color--light);
 }
