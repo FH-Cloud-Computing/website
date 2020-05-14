@@ -55,3 +55,4 @@ markdown_extensions:
 repo_url: https://github.com/fh-cloud-computing/website/
 repo_name: "GitHub"
 use_directory_urls: true
+copyright: Copyright © 2020 Janos Pasztor, Peter Wenzl, Günther Pospischil
