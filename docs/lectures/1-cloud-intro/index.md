@@ -51,4 +51,23 @@ status to this OOB management interface which allows the simultaneous monitoring
 ## The Anatomy of a Datacenter
 
 Since the cloud is just somebody else's computer that computer needs to be hosted somewhere. Servers are almost
-exclusively hosted in datacenters.
+exclusively hosted in datacenters. Let's take a look at what is involved in running a datacenter.
+
+First of all, as mentioned above, most servers are going to be rack mounted so you need a bunch or racks. These racks
+are installed in a row fashion, often with a fake floor to allow for cabling to go under the floor.
+
+![A data center containing a bunch of racks for servers](/lectures/1-cloud-intro/datacenter.jpg)
+*A datacenter with racks. Source: [Wikipedia](https://en.wikipedia.org/wiki/Data_center#/media/File:Datacenter_de_ARSAT.jpg)*
+
+Since servers produce a lot of heat a datacenter also requires cooling. There are a variety of ways to solve cooling,
+some are more &ldquo;green&rdquo; than others. Some datacenters, for example, opt to install a &ldquo;cold aisle&rdquo;
+where the cold air is pumped between two rack rows and is pushed through the racks to cool the servers.
+
+Other than cooling datacenters also require automated fire suppression systems simply because of the amount of
+electricity going through. Datacenters usually go with a non-destructive fire suppression system such as lowering the 
+oxygen content of the air enough to stop the fire.
+
+All critical systems in a datacenter (power, cooling, fire suppression systems) are usually built in a redundant fashion
+because the loss of either of those systems will potentially mean a complete shutdown for the datacenter. Datacenter 
+operators usually have further contingency plans in place too, such as a UPS (battery) system, disel generator, fuel 
+truck on standby, hotline to the fire department, etc. to make sure the datacenter can keep its required uptime. 
