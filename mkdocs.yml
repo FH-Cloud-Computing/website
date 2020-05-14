@@ -20,7 +20,7 @@ theme:
     text: Verdana
     code: Courier New
   logo: logo-wide.svg
-  favicon: logo.svg
+  favicon: favicon.svg
 extra_css:
   - custom.css
 plugins:

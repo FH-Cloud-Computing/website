@@ -83,3 +83,27 @@ It is also worth noting that larger customers (banks, cloud providers, etc) usua
 a separated gated are called a &ldquo;cage&rdquo; to which they control access.
 
 ## The Anatomy of the Internet
+
+Once the physical infrastructure is set up there is also the question of how to connect the Internet. As mentioned
+before networks can be very complicated and there is no one size fits all solution. Smaller customers will typically
+use the network infrastructure provided by the datacenter, while larger customers will host their own network equipment.
+
+![A diagram showing a typical datacenter networking setup.](/lectures/1-cloud-intro/datacenter-cabling.svg)
+
+Again, generally speaking racks will be equipped with a Top-of-Rack switch to provide
+[layer 2 (Ethernet)](https://en.wikipedia.org/wiki/Data_link_layer) connectivity between servers. Several ToR may have
+interconnects between each other and are usually connected to one or more routers. Routers provide
+[layer 3 (IP)](https://en.wikipedia.org/wiki/Network_layer) routing to other customers in the same datacenter,
+[internet exchange](https://en.wikipedia.org/wiki/Internet_exchange_point), or may be connected to dedicated fiber to
+another provider.
+
+!!! note
+    If you are not familiar with computer networks we recommend giving the
+    [Geek University CCNA course a quick read](https://geek-university.com/ccna/computer-network-explained/).
+    While you will not need everything, you **will** have to understand how IP addresses, netmasks, etc work in order to
+    pass this course. 
+
+Providers on the internet exchange data about which network they are hosting using the
+[Border Gateway Protocol](https://en.wikipedia.org/wiki/Border_Gateway_Protocol). Each providers router announces the
+IP address ranges they are hosting to their peer providers, who in turn forward these announcements in an aggregated
+form to other providers.
