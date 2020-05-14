@@ -59,7 +59,7 @@ Website: [pasztor.at](https://pasztor.at)
 - [Topic 4: Beyond IaaS](lectures/4-xaas/index.md)
 - [Topic 5: Cloud-native software development](lectures/5-cloud-native/index.md)
 
-## Topic 1: Introduction
+### Topic 1: Introduction
 
 - NIST Definition of Cloud
 - IaaS, PaaS, SaaS, FaaS
@@ -68,7 +68,7 @@ Website: [pasztor.at](https://pasztor.at)
 - Benefits/Risks/Regulations: Scalability, Privacy, GDPR, Safe Harbor/Privacy Shield
 - Business Models: Overbooking, Pay-per-Use, Standardization & Automation
 
-## Topic 2: Cloud capabilities
+### Topic 2: Cloud capabilities
 
 - Cloud roles: Platform/Service provider vs. customers (developers, enterprises)
 - Cloud architectures & definitions
@@ -77,21 +77,21 @@ Website: [pasztor.at](https://pasztor.at)
 - Cloud service provisioning
 - Extra topics: Various cloud stacks, Cloud networking, Security concepts
 
-## Topic 3: IaaS introduction
+### Topic 3: IaaS introduction
 
 - Intro to Cloud Platforms (Exoscale, Amazon AWS/EC2 and Google Cloud Platform)
 - Virtual Server+Storage+Networking capabilities
 - Automation via Terraform
 - Hands-on demos
 
-## Topic 4: Beyond IaaS
+### Topic 4: Beyond IaaS
 
 - Container Services (Docker & Kubernetes)
 - Differences Container vs. classical server virtualization
 - PaaS, SaaS, FaaS (Concepts, Examples)
 - Hands-on demos
 
-## Topic 5: Cloud-native software development
+### Topic 5: Cloud-native software development
 
 - Cloud-native software basics & definitions
 - Microservices
