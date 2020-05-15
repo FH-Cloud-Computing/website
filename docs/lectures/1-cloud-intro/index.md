@@ -108,8 +108,23 @@ Providers on the internet exchange data about which network they are hosting usi
 IP address ranges they are hosting to their peer providers, who in turn forward these announcements in an aggregated
 form to other providers.
 
-TBD explain tiers
+Providers have agreements with each other, or with an Internet Exchange, about exchanging a certain amount of traffic.
+These agreements may be paid if the traffic is very asymmetric or one provider is larger than the other. Alternatively
+providers can come to an arrangement to exchange traffic for free. Internet exchanges facilitate the exchange between
+many providers for a modest fee allowing cost-effective exchange of data. Depending on the exchange the rules are 
+different. Local exchanges, for example, may only allow advertising local (in-country) addresses, while others are built
+for a specific purpose.
+
+Generally speaking providers can be classified into 3 categories. Tier 1 providers are the global players that are 
+present on every continent. They form the backbone of the Internet. At the time of writing there are
+[16 such networks](https://en.wikipedia.org/wiki/Tier_1_network). Tier 2 are the providers who are directly connected
+to the tier 1 providers, while tier 3 is everyone else.
 
 ![An illustration of how internet providers are connected. In this example Global A and Global B are two providers who are connected in the same level, Local A and Local B are connected to Global A, while Local C is connected to Global B. Local A and Local B also exchange data directly and Local B and C exchange data over a local internet exchange. The example datacenter customer is connected to Local B.](/lectures/1-cloud-intro/internet-tiers.svg)
 
+## Software stack
+
+The purpose of all this is, of course, to run an application. 
+
+## The cloud
 
