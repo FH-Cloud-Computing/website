@@ -147,7 +147,23 @@ to the tier 1 providers, while tier 3 is everyone else.
 
 ## Software stack
 
-The purpose of all this is, of course, to run an application. 
+!!! tldr "In a hurry?"
+    ### Software stack
+    
+    - Virtualization
+    - Operating system
+    - Application runtime
+    - Application
+
+The purpose of all this is, of course, to run an application.
 
 ## The cloud
+
+!!! tldr "in a hurry?"
+    ### Typical cloud features
+    
+    - API
+    - Can be classified into IaaS, PaaS and SaaS
+    - Billing per usage
+    - Dynamic scaling
 
