@@ -23,7 +23,7 @@ Secondary coor:
 
   /* Primary color shades */
   --md-primary-fg-color:               #4b5059;
-  --md-primary-fg-color--light:        #bdbbbc;
+  --md-primary-fg-color--light:        #d0d0d0;
   --md-primary-fg-color--dark:         #333333;
   --md-primary-bg-color:               #e0e0e0;
   --md-primary-bg-color--light:        #ffffff;
@@ -67,17 +67,25 @@ Secondary coor:
   background: var(--md-default-fg-color--light)
 }
 
-.md-typeset .admonition.note, .md-typeset details.note,
-.md-typeset .admonition, .md-typeset details {
-  border-color: var(--md-accent-fg-color)
-}
-
-.md-typeset .note>.admonition-title::before, .md-typeset .note>summary::before {
+.md-typeset .tldr>.admonition-title::before, .md-typeset .tldr>summary::before {
   background-color: var(--md-accent-fg-color)
 }
 
+.md-typeset .tldr>.admonition-title::before, .md-typeset .tldr>summary::before {
+  background-color: var(--md-accent-fg-color)
+}
+
+.md-typeset .admonition.note, .md-typeset details.note,
+.md-typeset .admonition, .md-typeset details {
+  border-color: var(--md-primary-fg-color)
+}
+
+.md-typeset .note>.admonition-title::before, .md-typeset .note>summary::before {
+  background-color: var(--md-primary-fg-color)
+}
+
 .md-typeset .note>.admonition-title, .md-typeset .note>summary {
-  background-color: var(--md-accent-fg-color--light)
+  background-color: var(--md-primary-fg-color--light)
 }
 
 .md-typeset a {

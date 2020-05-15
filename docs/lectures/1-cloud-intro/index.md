@@ -10,7 +10,7 @@ well as the pitfalls which may come with such setups.
 
 ## What is a Server?
 
-!!! note "In a hurry?"
+!!! tldr "In a hurry?"
     ### Servers:
     
     - Redundant, hot-swap hardware (power supply, fans, etc)
@@ -59,7 +59,7 @@ status to this OOB management interface which allows the simultaneous monitoring
 
 ## The Anatomy of a Datacenter
 
-!!! note "In a hurry?"
+!!! tldr "In a hurry?"
     ### Datacenter components:
     
     - Racks to house servers
@@ -100,7 +100,7 @@ a separated gated area called a &ldquo;cage&rdquo; to which they control access.
 
 ## The Anatomy of the Internet
 
-!!! note "In a hurry?"
+!!! tldr "In a hurry?"
     ### Internet
     
     - IP ranges are advertised using BGP
