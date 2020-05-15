@@ -10,6 +10,13 @@ well as the pitfalls which may come with such setups.
 
 ## What is a Server?
 
+!!! note "In a hurry?"
+    ### Servers:
+    
+    - Redundant, hot-swap hardware (power supply, fans, etc)
+    - Flat build profile for rack mounts
+    - Out-Of-Bounds management interface for monitoring and remote management
+
 In older times, servers were completely different from the machines we used for regular work. Not just in weight and
 form factor, but in architecture. The landscape would stretch from [SPARC](https://en.wikipedia.org/wiki/SPARC) and
 [Power](https://en.wikipedia.org/wiki/IBM_POWER_microprocessors) architectures to the x86 architecture we use in our
@@ -52,6 +59,15 @@ status to this OOB management interface which allows the simultaneous monitoring
 
 ## The Anatomy of a Datacenter
 
+!!! note "In a hurry?"
+    ### Datacenter components:
+    
+    - Racks to house servers
+    - Cabling under the floor
+    - Redundant cooling, fire suppression systems and power supply
+    - Eco friendliness is becoming a factor
+    - Some datacenters provide internet connectivity
+
 Since the cloud is just somebody else's computer, that computer needs to be hosted somewhere. Servers are almost
 exclusively hosted in datacenters. Let's take a look at what is involved in running a datacenter.
 
@@ -83,6 +99,13 @@ It is also worth noting that larger customers (banks, cloud providers, etc) usua
 a separated gated area called a &ldquo;cage&rdquo; to which they control access.
 
 ## The Anatomy of the Internet
+
+!!! note "In a hurry?"
+    ### Internet
+    
+    - IP ranges are advertised using BGP
+    - Providers connect direcly or using internet exchanges
+    - 16 global providers form the backbone of the internet (tier 1)
 
 Once the physical infrastructure is set up there is also the question of how to connect to the Internet. As mentioned
 before, networks can be very complicated and there is no one size fits all solution. Smaller customers will typically
