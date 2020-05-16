@@ -167,9 +167,9 @@ Virtualization lets the server administrator run multiple guest operating system
 server resources between them.
 
 !!! tip "Did you know?"
-    You can find out if a CPU supports hardware virtualization by looking for the
-    [VT-x feature on the Intel ARK](https://ark.intel.com/content/www/us/en/ark.html#@Processors). Unfortunately AMD
-    does not have an easy to use list but you can look for the `AMD-V` feature on AMD CPUs.
+    You can find out if an Intel CPU supports hardware virtualization by looking for the `VT-x` feature on the
+    [Intel ARK](https://ark.intel.com/content/www/us/en/ark.html#@Processors). Unfortunately AMD does not have an easy
+    to use list but you can look for the `AMD-V` feature on AMD CPUs.
 
 !!! note "Note"
     Virtualization is different from containerization (which we will talk about later) in that with virtualization each
