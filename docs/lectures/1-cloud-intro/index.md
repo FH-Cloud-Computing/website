@@ -166,9 +166,16 @@ Modern x86 server CPUs (and some desktop CPUs) also have a number of features th
 Virtualization lets the server administrator run multiple guest operating systems efficiently and share the
 server resources between them.
 
+!!! tip "Did you know?"
+    You can find out if a CPU supports hardware virtualization by looking for the
+    [VT-x feature on the Intel ARK](https://ark.intel.com/content/www/us/en/ark.html#@Processors). Unfortunately AMD
+    does not have an easy to use list but you can look for the `AMD-V` feature on AMD CPUs.
+
 !!! note "Note"
     Virtualization is different from containerization (which we will talk about later) in that with virtualization each
-    guest operating system has its own kernel whereas containers share a kernel between them.   
+    guest operating system has its own kernel whereas containers share a kernel between them.
+    
+    ![](/lectures/1-cloud-intro/virtualization-containers.svg)
 
 There is one more important aspect of finally getting an application to run: the runtime environment. Except for a few
 rare occasions applications need a runtime environment. If the application is compiled to machine code they still need
