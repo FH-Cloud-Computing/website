@@ -189,14 +189,71 @@ exceptionally simple to deploy Go applications into containers.
     **Typical cloud features:**
     
     - API
-    - Can be classified into IaaS, PaaS and SaaS
     - Dynamic scaling
+    - Can be classified into IaaS, PaaS and SaaS
+
+All of the previously discussed things were available before the &ldquo;cloud&rdquo;. You could pay a provider to 
+give you access to a virtual machine where you could run your applications. What changed with the cloud, however, is
+the fact that you no longer had to write a support ticket for changed and everything became self service.
+
+The cloud age started with an infamous e-mail from [Jeff Bezos](https://en.wikipedia.org/wiki/Jeff_Bezos) to his
+engineers in 2002 forcing them to use APIs to exchange data between teams. The exact e-mail is no longer available but
+it went along these lines:
+
+> 1) All teams will henceforth expose their data and functionality through service interfaces.
+> 
+> 2) Teams must communicate with each other through these interfaces.
+>
+> 3) There will be no other form of interprocess communication allowed: no direct linking, no direct reads of another
+> team’s data store, no shared-memory model, no back-doors whatsoever. The only communication allowed is via service
+> interface calls over the network.
+> 
+> 4) It doesn’t matter what technology is used. HTTP, Corba, Pubsub, custom protocols — doesn’t matter.
+> 
+> 5) All service interfaces, without exception, must be designed from the ground up to be externalizable. That is to
+> say, the team must plan and design to be able to expose the interface to developers in the outside world. No exceptions.
+>
+> 6) Anyone who doesn’t do this will be fired.
+
+This marked the beginning of Amazon Web Services the first and also the most successful public cloud offering. The first
+public release of AWS was in 2004 with SQS their message queue service, and got completely overhauled in 2006 where the
+Elastic Compute (EC2) and the Simple Storage Service (S3) service made its first public appearance.
+
+The APIs provided by cloud providers allow for a large amount of flexibility. If new servers are needed they can be
+launched within a few minutes. If there are too many servers they can be deleted. The same goes for other services: 
+with the API (and the appropriate billing model) comes flexibility to adapt to change.
+
+The other factor that makes it easy to adapt to change is of course the fact that these services are managed. The 
+cloud customer doesn't need to hire a team of engineers to build a database service, for example, it can be consumed
+without knowing how exactly the database is set up. 
+
+Generally speaking, cloud services can be classified into three categories: Infrastructure as a Service (IaaS) providing
+virtual machines and network infrastructure, Platform as a Service (PaaS) offering services for developers to use, and
+Software as a Service (SaaS) offering end-user services.
+
+![A comparison of different cloud models. With self-managed the customer needs to take care of the application, runtime, operating, system, virtualization, hardware, network, power, cooling, fire suppression, and housing. With IaaS onl the application, runtime, and the operating system. With PaaS the customer only takes care of the application. With SaaS the customer takes care of nothing and only consumes the service.](/lectures/1-cloud-intro/cloud-comparison.svg) 
 
 ## Private vs. Public cloud
 
+!!! tldr "In a hurry?"
+    **Private cloud:**
+    
+    - Hosted on-premises or in the public cloud using only private connections
+    - Large cloud providers offer their services &ldquo;in a box&rdquo; to host yourself
+
 ## Managed Services
 
+!!! tldr "In a hurry?"
+    **Managed services:**
+    
+    - Low entry cost
+    - Little in-house know-how required
+    - Vendor lock-in
+    - If problems arise they are hard to debug
+
 ## Benefits
+
+## Drawbacks
 
 ## Regulations
 
