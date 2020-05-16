@@ -11,7 +11,7 @@ well as the pitfalls which may come with such setups.
 ## What is a Server?
 
 !!! tldr "In a hurry?"
-    ### Servers:
+    **Servers:**
     
     - Redundant, hot-swap hardware (power supply, fans, etc)
     - Flat build profile for rack mounts
@@ -60,9 +60,10 @@ status to this OOB management interface which allows the simultaneous monitoring
 ## The Anatomy of a Datacenter
 
 !!! tldr "In a hurry?"
-    ### Datacenter components:
+    **Datacenter components:**
     
     - Racks to house servers
+    - Larger customers have cages for their racks
     - Cabling under the floor
     - Redundant cooling, fire suppression systems and power supply
     - Eco friendliness is becoming a factor
@@ -101,7 +102,7 @@ a separated gated area called a &ldquo;cage&rdquo; to which they control access.
 ## The Anatomy of the Internet
 
 !!! tldr "In a hurry?"
-    ### Internet
+    **Internet:**
     
     - IP ranges are advertised using BGP
     - Providers connect direcly or using internet exchanges
@@ -148,22 +149,55 @@ to the tier 1 providers, while tier 3 is everyone else.
 ## Software stack
 
 !!! tldr "In a hurry?"
-    ### Software stack
+    **Software stack:**
     
     - Virtualization
     - Operating system
     - Application runtime
     - Application
 
-The purpose of all this is, of course, to run an application.
+The purpose of all this is, of course, to run an application. Each server hosts an operating system which is 
+responsible for managing the hardware. Operating systems provide a simplified API for applications to do
+hardware-related operations such as dealing with files or talking to the network. This part of the operating system is
+called the kernel. Other parts form the userland. The userland includes user applications such as a logging software.
+Specifically on Linux and Unix systems the userland also contains a package manager used to install other software.
 
-## The cloud
+Modern x86 server CPUs (and some desktop CPUs) also have a number of features that help with virtualization.
+Virtualization lets the server administrator run multiple guest operating systems efficiently and share the
+server resources between them.
 
-!!! tldr "in a hurry?"
-    ### Typical cloud features
+!!! note "Note"
+    Virtualization is different from containerization (which we will talk about later) in that with virtualization each
+    guest operating system has its own kernel whereas containers share a kernel between them.   
+
+There is one more important aspect of finally getting an application to run: the runtime environment. Except for a few
+rare occasions applications need a runtime environment. If the application is compiled to machine code they still need
+so-called shared libraries. Shared libraries are common across multiple applications and can be installed and
+updated independently from the application itself. This makes for a more efficient update process, but also means
+that the right set of libraries need to be installed for applications.
+
+If the applications are written higher level languages like Java, Javascript, PHP, etc. they need the appropriate
+runtime environment for that language.
+
+One notable exception to the runtime environment requirement is the programming language [Go](https://golang.org/). Go
+compiles everything normally located in libraries into a single binary along with the application. This makes it
+exceptionally simple to deploy Go applications into containers.
+
+## The Cloud
+
+!!! tldr "In a hurry?"
+    **Typical cloud features:**
     
     - API
     - Can be classified into IaaS, PaaS and SaaS
-    - Billing per usage
     - Dynamic scaling
 
+## Private vs. Public cloud
+
+## Managed Services
+
+## Benefits
+
+## Regulations
+
+## Business Models
