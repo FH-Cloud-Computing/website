@@ -1,12 +1,13 @@
 site_name: Cloud Computing 2020
 nav:
-  - Welcome: index.md
   - About the course:
-    - Grading: course/grading/index.md
-    - Deadlines: course/deadlines/index.md
-    - Testing: course/testing/index.md
-    - Getting help: course/help/index.md
+    - Overview: index.md
+    - Grading: grading/index.md
+    - Deadlines: deadlines/index.md
+    - Testing: testing/index.md
+    - Getting help: help/index.md
   - Lectures:
+    - Overview: lectures/index.md
     - 1. Introduction to the Cloud: lectures/1-cloud-intro/index.md
     - 2. Cloud capabilities: lectures/2-capabilities/index.md
     - 3. Infrastructure as a Service: lectures/3-iaas/index.md
@@ -29,6 +30,7 @@ plugins:
   - exclude:
       glob: []
 markdown_extensions:
+  - meta
   - admonition
   - markdown_include.include
   - toc:

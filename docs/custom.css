@@ -59,7 +59,7 @@ Secondary coor:
   background: var(--md-accent-bg-color--light);
 }
 
-.md-content h1, .md-content h2, .md-content h3, .md-content h4, .md-content hr {
+.md-content h2, .md-content h3, .md-content h4, .md-content hr {
   clear: both;
 }
 
@@ -90,4 +90,12 @@ Secondary coor:
 
 .md-typeset a {
     color: var(--md-accent-fg-color);
+}
+
+.md-content a button {
+  padding:0.5em;
+  display:inline-block;
+  cursor: pointer;
+  color:var(--md-accent-bg-color);
+  background-color:var(--md-accent-fg-color);
 }
