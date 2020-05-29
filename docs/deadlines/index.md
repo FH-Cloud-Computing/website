@@ -1,4 +1,4 @@
-# Sprint 1: Instance Pools
+## Sprint 1: Instance Pools
 
 **Deadline:** 1<sup>st</sup> of October 2020 
 
@@ -7,7 +7,7 @@ In this sprint you must demonstrate your ability to set up an instance pool and 
 **Pass criteria:** your webservice must answer on an IP address and balance trafic across all instances running in an
 instance pool. The number of instances will be changed in the demonstration and your web service must adapt accordingly.
 
-# Sprint 2: Monitoring
+## Sprint 2: Monitoring
 
 **Deadline:** 1<sup>st</sup> of November 2020
 
@@ -18,7 +18,7 @@ the previous sprint.
 Prometheus must track the instances in the instance pool using custom service discovery and collect their CPU usage
 in a graph in Grafana.
 
-# Sprint 3: Autoscaling
+## Sprint 3: Autoscaling
 
 **Deadline:** 1<sup>st</sup> of December 2020
 
