@@ -26,4 +26,4 @@ In this sprint you must demonstrate your ability to receive a webhook from Grafa
 in the instance pool from the previous sprint under load.
 
 **Pass criteria:** Your service will be hit with a large number of requests and it must scale up as outlined in the 
-[homework document](/projectwork/index.md).
+[project work document](/projectwork).
