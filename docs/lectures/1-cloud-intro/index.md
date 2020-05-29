@@ -242,6 +242,13 @@ Software as a Service (SaaS) offering end-user services.
 
 ## Business Models
 
+!!! tldr "In a hurry?"
+    **Billing models:**
+    
+    - IaaS is typically priced per-second based on the instance size.
+    - PaaS can be priced similar to IaaS but also per-request or data volume.
+    - Data volume is typically priced based on usage. Some providers charge for data volume even for internal traffic.
+
 The flexibility of cloud providers comes from their usage-based pricing. This can vary depending on the type of service
 used. For example, virtual machines (IaaS) is typically priced on a per-second basis. When you start a virtual machine
 for only 5 minutes you will only pay for 5 minutes of runtime. This lets you optimize the usage costs of the cloud
@@ -287,6 +294,9 @@ often opt for a per-request or a data volume based billing approach.
 Cost planning is an important part of the job of a cloud architect. Depending on the billing model the cloud provider
 adopts this can be fairly simple to almost impossible. As a rule of thumb the billing model of larger cloud providers
 (AWS, Azure, Google Cloud) is more complex than smaller cloud providers (DigitalOcean, Exoscale, Upcloud, etc).
+
+It is worth noting that data transfer is typically charged based on volume. Some cloud providers even charge for
+internal traffic between availability zones.
 
 ## Private vs. Public cloud
 
