@@ -303,10 +303,28 @@ internal traffic between availability zones.
 !!! tldr "In a hurry?"
     **Private cloud:**
     
-    - Hosted on-premises or in the public cloud using only private connections
-    - Large cloud providers offer their services &ldquo;in a box&rdquo; to host yourself
+    - Hosted on-premises or in the public cloud using only private connections.
+    - Large cloud providers offer their services &ldquo;in a box&rdquo; to host yourself.
 
+Most cloud applications will reside on a public cloud and be accessible from the Internet. However, for some usecases
+access over the public Internet is not desirable or even strictly forbidden by laws or regulations. In order cases
+companies may decide that it is their policy that certain systems must never be connected to the public Internet, or
+only connect via a self-hosted gateway.
 
+In these cases a private cloud is desirable to minimize the risk of cross-contamination or data exposure due to other
+tenants being on the same infrastructure. Such cross-contamination is not uncommon, for example in recent years there
+have been a litany of CPU bugs such as [Meltdown and Spectre](https://meltdownattack.com/).
+
+Public cloud providers have extended their offers to address these concerns. Their service offerings now include
+dedicated hypervisors to mitigate CPU bugs, the ability to
+[connect the cloud bypassing the Internet](https://aws.amazon.com/directconnect/), or [accessing the cloud API's from
+a private network](https://aws.amazon.com/blogs/compute/introducing-amazon-api-gateway-private-endpoints/). Some
+cloud providers even went as far offering a [self-hosted setup](https://aws.amazon.com/outposts/) where the public
+cloud offering can be brought on-premises.
+
+These features, especially the connectivity-related features, also allow for the creation of a hybrid cloud where a
+traditional infrastructure can be connected to the cloud. This gives a company the ability to leverage the flexibility
+of the cloud but also keep static / legacy systems for financial or engineering reasons.
 
 ## Managed Services
 
@@ -318,10 +336,21 @@ internal traffic between availability zones.
     - Vendor lock-in
     - If problems arise they are hard to debug
 
+
+## Automation
+
 ## Benefits
 
 ## Drawbacks
 
 ## Regulations
+
+### General Data Protection Regulation (EU)
+
+### Clarifying Lawful Overseas Use of Data Act (USA)
+
+### Digital Millennium Copyright Act (USA)
+
+### Communications Decency Act, Section 230 (USA)
 
 
