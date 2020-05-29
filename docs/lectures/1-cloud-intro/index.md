@@ -306,6 +306,8 @@ internal traffic between availability zones.
     - Hosted on-premises or in the public cloud using only private connections
     - Large cloud providers offer their services &ldquo;in a box&rdquo; to host yourself
 
+
+
 ## Managed Services
 
 !!! tldr "In a hurry?"
