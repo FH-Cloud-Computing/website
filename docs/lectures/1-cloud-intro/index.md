@@ -242,7 +242,51 @@ Software as a Service (SaaS) offering end-user services.
 
 ## Business Models
 
+The flexibility of cloud providers comes from their usage-based pricing. This can vary depending on the type of service
+used. For example, virtual machines (IaaS) is typically priced on a per-second basis. When you start a virtual machine
+for only 5 minutes you will only pay for 5 minutes of runtime. This lets you optimize the usage costs of the cloud
+*if* you use **automation** to start and stop machines or services on demand.
 
+Typically the cost savings are realized in these scenarios:
+
+### On-off usage
+
+![A graph showing zero usage with two spikes when the service is used.](/lectures/1-cloud-intro/scaling-on-off.svg)
+
+This usage type is typical for batch processing. Machines are only started when there is a workload (e.g. video
+conversion, machine learning training job, etc.) 
+
+### Growth usage
+
+![A graph showing exponential growth.](/lectures/1-cloud-intro/scaling-growth.svg)
+
+Projects that see a growth curve often opt to use a cloud provider as well since buying hardware in larger quantities
+typically takes 2-4 months.
+
+### Sudden spike usage
+
+![A graph showing a sudden usage spike.](/lectures/1-cloud-intro/scaling-spike.svg)
+
+Cloud providers can also be useful if a service encounters a sudden load spike. This is typically the case for webshops
+around Black Friday and other sales events.
+
+### Periodic spike usage
+
+![A graph showing periodic spikes.](/lectures/1-cloud-intro/scaling-periodic.svg)
+
+Almost every service has usage spikes depending on the time of day. This can be used to scale the service up and down.
+
+### Per-request billing
+
+IaaS services are typically priced based on an allocated amount of resources determined at the start of the virtual
+machines. Some PaaS services also use this billing model. (Typically Databases as a Service.) Other PaaS services
+often opt for a per-request or a data volume based billing approach.
+
+### Cost planning with the cloud
+
+Cost planning is an important part of the job of a cloud architect. Depending on the billing model the cloud provider
+adopts this can be fairly simple to almost impossible. As a rule of thumb the billing model of larger cloud providers
+(AWS, Azure, Google Cloud) is more complex than smaller cloud providers (DigitalOcean, Exoscale, Upcloud, etc).
 
 ## Private vs. Public cloud
 
