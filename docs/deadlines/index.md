@@ -1,10 +1,13 @@
+Each sprint has a hard deadline. Sprints can be handed in earlier. If a deadline is missed the points are not awarded
+and the solution is uploaded to GitHub so the next sprint can be accomplished.
+
 ## Sprint 1: Instance Pools
 
 **Deadline:** 1<sup>st</sup> of October 2020 
 
 In this sprint you must demonstrate your ability to set up an instance pool and a network load balancer.
 
-**Pass criteria:** your webservice must answer on an IP address and balance trafic across all instances running in an
+**Pass criteria:** your webservice must answer on an IP address and balance traffic across all instances running in an
 instance pool. The number of instances will be changed in the demonstration and your web service must adapt accordingly.
 
 ## Sprint 2: Monitoring
