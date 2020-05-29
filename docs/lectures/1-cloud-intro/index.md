@@ -240,6 +240,10 @@ Software as a Service (SaaS) offering end-user services.
 
 ![A comparison of different cloud models. With self-managed the customer needs to take care of the application, runtime, operating, system, virtualization, hardware, network, power, cooling, fire suppression, and housing. With IaaS onl the application, runtime, and the operating system. With PaaS the customer only takes care of the application. With SaaS the customer takes care of nothing and only consumes the service.](/lectures/1-cloud-intro/cloud-comparison.svg) 
 
+## Business Models
+
+
+
 ## Private vs. Public cloud
 
 !!! tldr "In a hurry?"
@@ -264,4 +268,4 @@ Software as a Service (SaaS) offering end-user services.
 
 ## Regulations
 
-## Business Models
+

@@ -3,6 +3,7 @@ nav:
   - About the course:
     - Overview: index.md
     - Grading: grading/index.md
+    - Project work: projectwork/index.md
     - Deadlines: deadlines/index.md
     - Testing: testing/index.md
     - Getting help: help/index.md

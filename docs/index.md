@@ -19,9 +19,12 @@ materials you need to learn in order to pass the course.
 - 4 ECTS, roughly 112 hours of study (5-7 hours of study per week recommended)
 - Lectures are on the [lectures page](/lectures/index.md).
 - Grading is described on the [grading page](/grading/index.md).
+- Your homework assignment is described on the [homework page](/projectwork/index.md)
 - Deadlines are described on the [deadlines page](/deadlines/index.md).
 - Testing is described on the [testing page](/testing/index.md).
 - Find help on the [getting help page](/help/index.md).
+
+---
 
 ## About us
 
