@@ -26,5 +26,5 @@ you decide that the following approach would be best:
   if a webhook has been received.
 
 As you also have to demonstrate to the client that you can work in an agile methodology you agree in 4 week sprints
-with a demo at the end of each sprint as outlined in the [deadlines](/deadlines/index.md) document.
+with a demo at the end of each sprint as outlined in the [deadlines](/deadlines) document.
  
