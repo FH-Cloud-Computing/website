@@ -1,5 +1,3 @@
-# Homework
-
 You are the cloud architect for a small work-for-hire company. A client wants to hire you but they are sceptical about
 your abilities to build an *autoscaling* service. They propose a proof of concept: build a service that runs a 
 web application that is *deliberately slow* and load test it. Your cloud management should automatically launch new
