@@ -389,18 +389,93 @@ of the cloud but also keep static / legacy systems for financial or engineering 
 
 ## Automation
 
-## Benefits
+!!! tldr "In a hurry?"
+    **Automation:**
+    
+    - Documents how a cloud is set up.
+    - Gives a reproducible environment.
+    - Allows for spinning up multiple copies of the same environment.
 
-## Drawbacks
+As you can see from the previous sections cloud computing doesn't necessarily make it simpler to deploy an application.
+
+TODO
 
 ## Regulations
 
-### General Data Protection Regulation (EU)
+### General Data Protection Regulation (G.D.P.R., EU)
 
-### Clarifying Lawful Overseas Use of Data Act (USA)
+The GDPR (or DSGVO in German-speaking countries) is the general overhaul of privacy protections in the EU. The GDPR
+replaces much of the previously country-specific privacy protections present in the EU.
 
-### Digital Millennium Copyright Act (USA)
+#### Jurisdiction
 
-### Communications Decency Act, Section 230 (USA)
+The GDPR applies to all companies that deal with the data of EU citizens around the globe. This is made possible by 
+trade agreements previously already in place. All companies that handle the data of EU citizens even if the companies
+are not located in the EU.
 
+#### Structure
 
+- **Data subject:** the person whose data is being handled.
+- **Personal identifiable data:** (PI) data that makes it possible to uniquely identify a data subject. PI can also be
+  created when previously non-PI data is combined to build a profile.
+- **Data controller:** The company that has a relationship with the data subject and is given the data for a certain
+  task.
+- **Data processor:** A company that processes data on behalf of the data controller. The data processor must have a
+  **data processing agreement** (DPA) with the data controller. IaaS and PaaS cloud providers are data processors.
+  
+#### Data subjects' rights
+
+TODO
+
+### Clarifying Lawful Overseas Use of Data Act (C.L.O.U.D., 2018, USA)
+
+The CLOUD Act, or House Rule 4943 is the latest addition to the US legislation pertaining to cloud providers. This act
+says that a cloud provider must hand over data to US authorities if requested even if that data is stored in a different
+country.
+
+This act has been widely criticized and is, according to several legal scholars, in contradiction of the GDPR. The large
+US cloud providers have opened up subsidiaries in the EU in order to try and shield their european customers from this
+act and a few purely EU cloud providers have also capitalized on this. It remains to be seen how effective this 
+move is. 
+
+### Digital Millennium Copyright Act (D.M.C.A., 1998, USA)
+
+The Digital Millenium Copyright Act clarifies how copyright works in the USA. Since the USA is part of the WIPO
+copyright treaty and a significant amount of providers are based in the USA nowadays all countries align themselves
+with the DMCA when it comes to dealing with online copyright infringement.
+
+Title II of the DMCA creates a safe harbor for online service providers against copyright infringement committed by
+their users. However, they have to remove infringing content as soon as they are properly notified of it via a DMCA
+takedown notice. The author of a DMCA takedown notice must swear by the penalty of perjury that they are, or are acting
+on behalf of the copyright owner. (If they were to make this pledge in bad faith they could end up in prison.)
+ 
+If the DMCA takedown notice has been sent erroneously the original uploader is free to send a counter-notification, also
+swearing under the penalty of perjury. In this case the provider notifies the original sender and restores the content.
+The original sender then has to take the uploader to court to pursue the matter further.
+
+### Communications Decency Act, Section 230 (C.D.A., 1996, USA)
+
+This section of of the CDA is very short:
+
+> No provider or user of an interactive computer service shall be treated as the publisher or speaker of any information
+> provided by another information content provider.
+
+To someone not well versed in US legal lingo this may be sound like gibberish but it is, in fact, one of the most
+important pieces of legislation pertaining to operating platforms in the cloud.
+
+In US legal history the speaker or publisher of certain information is responsible for the information being provided.
+Before the CDA any provider hosting illegal content would be responsible for said content. The CDA changed that by
+shielding providers from liability. This included web hosting providers as well as newspapers that had a content
+section.
+
+The CDA is not limitless, providers still have to remove infringing content if notified. They may also employ moderation
+proactively.
+
+### Privacy Shield (2016, EU-US)
+
+The Privacy Shield agreement is the successor to the failed International Safe Harbor Privacy Principles framework and
+is intend to protect the privacy of EU citizens when using US services or their data is transferred to the USA.
+
+The Privacy Shield has been enhanced in 2017 by the EU–US Umbrella Agreement which fixes many of the issues with the
+Privacy Shield. While there are still valid criticisms it remains to be seen if this agreement will also be declared
+invalid as the predecessor. 
