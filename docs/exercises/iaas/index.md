@@ -1,0 +1,1 @@
+In this exercise we will take a look at a simple IaaS provider and set up our first virtual machine.
