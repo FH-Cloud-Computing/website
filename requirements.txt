@@ -1,7 +1,10 @@
 mkdocs
 mkdocs-macros-plugin
+mkdocs-simple-hooks
 mkdocs-exclude
+mkdocs-material-extensions
 mkdocs-material
 markdown-include
 python-slugify
 pymdown-extensions
+mutagen

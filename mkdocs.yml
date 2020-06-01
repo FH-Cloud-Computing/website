@@ -19,6 +19,7 @@ nav:
       - 1. IaaS: exercises/1-iaas/index.md
 theme:
   name: material
+  custom_dir: theme
   features:
     - tabs
   font:
@@ -31,6 +32,9 @@ extra_css:
 plugins:
   - search
   - macros
+  - mkdocs-simple-hooks:
+      hooks:
+        on_env: "hooks.on_env:on_env"
   - exclude:
       glob: []
 markdown_extensions:

@@ -1,4 +1,5 @@
-# Introduction to the cloud
+title: Introduction to the cloud
+playlist: /lectures/1-cloud-intro/
 
 As the popular saying goes:
 
@@ -50,7 +51,7 @@ keeps running even if one of the two power supplies fail, or if one of the two p
 
 Also in contrast to your home setup these servers contain an Out-Of-Bounds Management interface that allows remote
 management of servers even when they are turned off. The hardware components built into the server report their health
-status to this OOB management interface which allows the simultaneous monitoring of thousands of machines.
+status to this OOB management interface which allows for the simultaneous monitoring of thousands of machines.
 
 !!! note
     This is a fairly generic description of servers. Different vendors may chose to leave out certain features of their
