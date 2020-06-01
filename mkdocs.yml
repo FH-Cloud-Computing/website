@@ -14,6 +14,9 @@ nav:
     - 3. Infrastructure as a Service: lectures/3-iaas/index.md
     - "4. Beyond IaaS: PaaS, SaaS": lectures/4-xaas/index.md
     - 5. Cloud-native software development: lectures/5-cloud-native/index.md
+  - Exercises:
+      - Overview: exercises/index.md
+      - 1. IaaS: exercises/1-iaas/index.md
 theme:
   name: material
   features:

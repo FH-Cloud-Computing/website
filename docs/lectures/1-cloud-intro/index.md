@@ -198,6 +198,12 @@ exceptionally simple to deploy Go applications into containers.
     - API
     - Dynamic scaling
     - Can be classified into IaaS, PaaS and SaaS
+    - IaaS service offerings typically include: 
+        - Virtualization.
+        - Network infrastructure.
+        - Everything required to run the above.
+    - PaaS service offerings typically include a managed service ready to be consumed by a developer.
+    - SaaS service offerings typically include a managed service ready to be consumed by a non-technical end user.
 
 All of the previously discussed things were available before the &ldquo;cloud&rdquo;. You could pay a provider to 
 give you access to a virtual machine where you could run your applications. What changed with the cloud, however, is
@@ -239,6 +245,61 @@ virtual machines and network infrastructure, Platform as a Service (PaaS) offeri
 Software as a Service (SaaS) offering end-user services.
 
 ![A comparison of different cloud models. With self-managed the customer needs to take care of the application, runtime, operating, system, virtualization, hardware, network, power, cooling, fire suppression, and housing. With IaaS onl the application, runtime, and the operating system. With PaaS the customer only takes care of the application. With SaaS the customer takes care of nothing and only consumes the service.](/lectures/1-cloud-intro/cloud-comparison.svg) 
+
+### Infrastructure as a Service (IaaS)
+
+The most basic of cloud service offerings is IaaS. IaaS means that the cloud provider will manage the infrastructure
+used by the customer. Infrastructure in this sense means the ability to manage (provision, start,stop) virtual machines.
+In very rare cases some providers also offer &ldquo;bare metal&rdquo; machines in this fashion. However, most bare metal
+providers do not offer a true IaaS as machines cannot be ordered using an API, have an up-front fee and are billed on a
+monthly basis.
+
+IaaS also includes the network connectivity to the Internet. Almost all IaaS providers also offer a built-in firewall,
+virtual private networks (VPC) that can be used to connect virtual machines together without sending the traffic over
+the Internet, and other network services.
+
+Note that network services can differ greatly. For example, some providers implement private networks on a regional
+basis while other providers offer private networks that can be used to connect virtual machines that are located in
+different regions. 
+
+### Managed Services (PaaS)
+
+!!! tldr "In a hurry?"
+    **Managed services:**
+    
+    - The provider is typically responsible for provisioning, backups, monitoring and restoring the servce if needed.
+    - Low entry cost.
+    - Little in-house know-how required.
+    - Vendor lock-in for non-standard services.
+    - If problems arise they are hard to debug.
+
+Apart from offering virtual machines and network infrastructure as a service many cloud providers also offer additional
+services that are typically used by developers such as managed databases. These services are managed in the sense that
+the developer does not need to run the operating system and the database software itself. However, the developer has to
+configure the database such that it works according to the needs of the application. The provider takes over duties like
+installing the service, making backups, monitoring, and restoring the service in case of an outage.
+
+!!! tip "Did you know?"
+    There are purely PaaS providers that do not offer IaaS, only a developer-friendly platform to run software on.
+    Your run of the mill average PHP web hosting provider does qualify if you can order the service using an API. One
+    notable example that rose to prominence is [Heroku](https://www.heroku.com/).
+    
+The pricing of these managed services varies greatly but they usually follow the cloud model. Most cloud providers
+offer at least a low cost or even free entry version that has a small markup on top of the IaaS costs. 
+
+The massive benefit of using these managed services is, of course, that you do not need to have in-house knowledge about
+how to operate them. You don't need an in-house database operator, you *&ldquo;just&rdquo;* need to know how to set up
+the database in the cloud. This lets your company focus on the core business they are trying to build and outsource the
+know-how required to build these services on top of the IaaS layer.
+
+As you might imagine managed servies also have downsides. Most importantly they present a clear vendor lock-in. This
+means that if you want to move to a different cloud provider you will have a hard time doing so if you are using one
+of the more specialized services. In other words the level of standardization across providers matters.
+
+It is also worth mentioning that managed services tend to work well for a large number of customers but a few number of
+customers can run into hard to debug problems. This debugging difficulty arises out of the inherent opacity of the
+services: you, the customer, don't see what's happening on the IaaS layer. If a database, for example, fills the
+available bandwidth may not be notified and are left guessing why your database misbehaves.
 
 ## Business Models
 
@@ -325,17 +386,6 @@ cloud offering can be brought on-premises.
 These features, especially the connectivity-related features, also allow for the creation of a hybrid cloud where a
 traditional infrastructure can be connected to the cloud. This gives a company the ability to leverage the flexibility
 of the cloud but also keep static / legacy systems for financial or engineering reasons.
-
-## Managed Services
-
-!!! tldr "In a hurry?"
-    **Managed services:**
-    
-    - Low entry cost
-    - Little in-house know-how required
-    - Vendor lock-in
-    - If problems arise they are hard to debug
-
 
 ## Automation
 
