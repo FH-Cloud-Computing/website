@@ -482,14 +482,14 @@ deals with the rights of the data subject. These are:
 
 1. **The right to be informed.**
    This right lets the data subject request several pieces of information:
-   - The purposes of processing.
-   - The categories of personal data concerned.
-   - Who received their data, in particular recipients in third countries or international organisations.
-   - How long the data will be stored.
-   - The right to request modification, deletion or restricting the processing of the personal data in question.
-   - The right to log a complaint.
-   - The source of the personal data if not provided by the data subject themselves.
-   - If and how automated decision-making, profiling is taking place.
+     - The purposes of processing.
+     - The categories of personal data concerned.
+     - Who received their data, in particular recipients in third countries or international organisations.
+     - How long the data will be stored.
+     - The right to request modification, deletion or restricting the processing of the personal data in question.
+     - The right to log a complaint.
+     - The source of the personal data if not provided by the data subject themselves.
+     - If and how automated decision-making, profiling is taking place.
 2. **The right to fix incorrect data.**
 3. **The right of deletion.** *&ldquo;The right to be forgotten.&rdquo;*
    This right puts several architectural limites on cloud systems as, for example, backups must be built in such a way
