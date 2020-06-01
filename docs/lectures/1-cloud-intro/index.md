@@ -402,6 +402,32 @@ TODO
 
 ## Regulations
 
+!!! tldr "In a hurry?"
+    **GDPR:**
+    
+    - Applies to all companies, world-wide, that handle personal data of EU citizens.
+    - Companies must keep track of why and how data is handled.
+    - Data subjects have wide ranging, but not unlimited rights to request information, correction and deletion of data.
+    - Data breaches have to be reported and may carry a fine.
+    - The right of deletion means that backups have to be set up in such a way that data can be deleted.
+    
+    **CLOUD Act:**
+    
+    - US authorities can access data stored by US companies in Europe.
+    
+    **DMCA:**
+    
+    - Copyright infringements can be solved by sending a DMCA takedown notice to the provider. 
+    - Providers have to restore the content if the uploader sends a counter-notification.
+    
+    **CDA Section 230:**
+    
+    - Shields providers from liability if their systems host illegal content which they don't know about.
+    
+    **Privacy Shield:**
+    
+    - Establishes a legal basis for transfering data from Europe to the US.
+
 ### General Data Protection Regulation (G.D.P.R., EU)
 
 The GDPR (or DSGVO in German-speaking countries) is the general overhaul of privacy protections in the EU. The GDPR
@@ -423,15 +449,75 @@ are not located in the EU.
 - **Data processor:** A company that processes data on behalf of the data controller. The data processor must have a
   **data processing agreement** (DPA) with the data controller. IaaS and PaaS cloud providers are data processors.
   
+#### Purposes of data processing
+
+One new limitation the GDPR brings to privacy regulation is the fact that there are fundamental limits to data
+processing. You, the data controller, cannot simply collect data for one purpose and then use that same data for
+another purpose. The purposes to which data is collected have to be clearly defined and in several cases the data
+subject has to provide their explicit consent. (In other words it is not enough to add a text to the signup form that
+says that they agree to everything all at once.)
+
+Legal grounds to data processing are detailed in
+[Article 6 of the GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1888-1-1).
+These are:
+
+1. If the data subject has **given their explicit consent** to process their data for a specific purpose.
+2. If the processing is necessary to **perform a contract** with the data subject. In other words you do not need
+   additional consent if you are processing data in order to fulfill a service to the data subject.
+3. To perform a **legal obligation**. For example, you have to keep an archive of your invoices to show in case of
+   a tax audit.
+4. To protect the **vial interests of the data subject or another natural person**.
+5. To perform a task which is in the **public interest**, or if an official authority has been vested in the data
+   controller.
+6. For the purposes of a **legitimate interest** of the data controller (with exceptions). This might seem like a
+   catch-all but courts have defined legitimate interests very narrowly. The data controller must show that the
+   legitimate interest exists and cannot be achieved in any other way than with the data processing in question.
+   One good example for the legitimate interests clause would be a webshop that is collecting data about their visitors
+   in order to spot fraudulent orders.
+
 #### Data subjects' rights
 
-TODO
+[Chapter 3 of the GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e2161-1-1)
+deals with the rights of the data subject. These are:
+
+1. **The right to be informed.**
+   This right lets the data subject request several pieces of information:
+   - The purposes of processing.
+   - The categories of personal data concerned.
+   - Who received their data, in particular recipients in third countries or international organisations.
+   - How long the data will be stored.
+   - The right to request modification, deletion or restricting the processing of the personal data in question.
+   - The right to log a complaint.
+   - The source of the personal data if not provided by the data subject themselves.
+   - If and how automated decision-making, profiling is taking place.
+2. **The right to fix incorrect data.**
+3. **The right of deletion.** *&ldquo;The right to be forgotten.&rdquo;*
+   This right puts several architectural limites on cloud systems as, for example, backups must be built in such a way
+   that deletion requests are repeated after a restore. Note that this right is not without limits, legal obligations,
+   for example, override it.
+4. **The right to restrict processing.** If a deletion cannot be requested the data subject can request that their data
+   should only be processed to the purposes that are strictly required.
+5. **The right to data portability.** The data subject has to be provided a copy of their data in a machine-readable form.
+6. **The right to object automated individual decision-making and profiling.**
+
+#### Data breaches
+
+[Chapter IV Section 2](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e3373-1-1)
+is probably the first legislation around the world that explicitly requires security of data processing from companies
+that handle personal data.
+[Article 33](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e3434-1-1) of this
+chapter specifically requires that data breaches must be disclosed to the supervisory authorities. Supervisory
+authorities in turn have the right to impose fines up to 4% or 20.000.000 &euro; of the global revenue of a company.
+
+This means that companies can no longer sweep data breaches under the rug and must spend resources to secure their
+data processing. In the scope of the cloud this means that our cloud environment has to be set up in a secure way to
+avoid data breaches.
 
 ### Clarifying Lawful Overseas Use of Data Act (C.L.O.U.D., 2018, USA)
 
 The CLOUD Act, or House Rule 4943 is the latest addition to the US legislation pertaining to cloud providers. This act
-says that a cloud provider must hand over data to US authorities if requested even if that data is stored in a different
-country.
+says that **a cloud provider must hand over data to US authorities if requested even if that data is stored in a
+different country.**
 
 This act has been widely criticized and is, according to several legal scholars, in contradiction of the GDPR. The large
 US cloud providers have opened up subsidiaries in the EU in order to try and shield their european customers from this
