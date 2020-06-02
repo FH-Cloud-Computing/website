@@ -14,8 +14,9 @@ Please note that this lecture is worth 4 ECTS. This is calculated to be roughly 
 ## Lectures
 
 Lectures are provided on the [lectures page](/lectures). Each lecture contains a text document, a PPTX, an audio book
-in MP3 and M4B (Apple) format, as well as a video. You can also listen to individual sections from the text document.
-**All content is available in all formats** so you only need to use the formats you prefer.
+in MP3 and M4B (Apple) format, as well as a [video](https://www.youtube.com/channel/UC4U8FauY-SiYQJAbwDA_68g/). You can
+also listen to individual sections from the text document. **All content is available in all formats** so you only need
+to use the formats you prefer.
 
 **You are expected to understand and memorize the bullet point list from the text version** for the theory test.
 
