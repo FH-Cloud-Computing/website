@@ -43,7 +43,7 @@
         player.audioTag.addEventListener("ended", function() {
             setIcon("🎧");
             if (typeof players[i+1] !== "undefined") {
-                players[i+1].play()
+                players[i+1].audioTag.play()
             }
         });
 
