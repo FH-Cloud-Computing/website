@@ -1,5 +1,6 @@
 title: Introduction to the cloud
-playlist: /lectures/1-cloud-intro/
+
+<audio preload="none" controls src="audio/Introduction%20to%20the%20cloud.mp3"></audio>
 
 As the popular saying goes:
 
@@ -10,6 +11,8 @@ infrastructure. This section will teach you how a cloud is built and what the ty
 well as the pitfalls which may come with such setups.
 
 ## What is a Server?
+
+<audio preload="none" controls src="audio/What%20is%20a%20server.mp3"></audio>
 
 !!! tldr "In a hurry?"
     **Servers:**

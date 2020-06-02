@@ -99,3 +99,19 @@ Secondary coor:
   color:var(--md-accent-bg-color);
   background-color:var(--md-accent-fg-color);
 }
+
+.md-content h1 + audio {
+  position:relative;
+  display: block;
+  width:100%;
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+}
+
+.md-content h3 + audio {
+  position:relative;
+  display: block;
+  width:100%;
+  margin-top: -0.8rem;
+  margin-bottom: 0.8rem;
+}
