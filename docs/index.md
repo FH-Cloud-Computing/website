@@ -3,26 +3,54 @@ title: Cloud Computing September 2020
 hero: Cloud Computing September 2020
 ---
 
-Welcome to the Cloud Computing course of September 2020! On this page you will find all learning
+Welcome to the Cloud Computing course starting September 2020! On this page you will find all learning
 materials you need to learn in order to pass the course.
 
-## About the Course
+Please note that this lecture is worth 4 ECTS. This is calculated to be roughly 112 hours of study
+(5-7 hours of study per week recommended).
 
-- Cloud Computing
-- Learning approach: Remote learning
-    - Educational materials in writing.
-    - Videos and slide decks are available for the lecture part
-    - Videos of all demos are available.
-    - Source code is available on GitHub for all demos.
-    - Homework preparation tasks / learning diary, project work.
-    - Online consultation for participants once a week.
-- 4 ECTS, roughly 112 hours of study (5-7 hours of study per week recommended)
-- Lectures are on the [lectures page](/lectures).
-- Grading is described on the [grading page](/grading).
-- Your homework assignment is described on the [homework page](/projectwork)
-- Deadlines are described on the [deadlines page](/deadlines).
-- Testing is described on the [testing page](/testing).
-- Find help on the [getting help page](/help).
+---
+
+## Lectures
+
+Lectures are provided on the [lectures page](/lectures). Each lecture contains a text document, a PPTX, an audio book
+in MP3 and M4B (Apple) format, as well as a video. **All content is available in all formats** so you only need to use 
+the formats you prefer.
+
+**You are expected to understand and memorize the bullet point list from the text version** for the theory test.
+
+---
+
+## Practice
+
+Practice sections are provided on the [practice page](/practice). Each practice session is provided as a written
+tutorial and a video as well. **All content is present in the video and the text** so you only need to use the format
+you prefer. Source code is provided as a Git repository.
+ 
+**You are expected to do each practice session at least once.**
+
+---
+
+## Project work
+
+Project work is **based on the practice sessions**. Your project work assignment is described on the
+[project work page](/projectwork). Deadlines are described on the [deadlines page](/deadlines).
+
+**You are expected to hand in your project work continuously,** please don't leave it for the last second. You have
+the option to hand in early.
+
+---
+
+## Online consultations & getting help.
+
+Online consultations are provided on a regular basis. Please find detailed description on how to find help on the
+[getting help page](/help).
+
+---
+
+## Grading & testing
+
+Grading is described on the [grading page](/grading). Testing is described on the [testing page](/testing).
 
 ---
 
@@ -56,3 +84,4 @@ Website: [pasztor.at](https://pasztor.at)
 - Software developer and DevOps engineer background (10+ years experience)
 - Web Focused Career
 - Currently works as a Developer Advocate at A1 Telekom / A1 Digital / Exoscale
+- Certified Kubernetes Application Developer
