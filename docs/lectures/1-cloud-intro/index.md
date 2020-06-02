@@ -1,4 +1,11 @@
-title: Introduction to the cloud
+<div class="download">
+<a href="fh-cloud-computing-lecture-1-intro.pptx"><button>Download PPTX 💻</button></a>
+<a href="fh-cloud-computing-lecture-1-intro.mp3"><button>Download MP3 🎧</button></a>
+<a href="fh-cloud-computing-lecture-1-intro.m4b"><button>Download M4B 🎧</button></a>
+<a href="#"><button>Watch Video 🎬</button></a>
+</div>
+
+<h1>Introduction to the Cloud</h1>
 
 <audio preload="none" controls src="audio/Introduction%20to%20the%20cloud.mp3"></audio>
 
@@ -150,7 +157,7 @@ to the tier 1 providers, while tier 3 is everyone else.
 
 ![An illustration of how internet providers are connected. In this example Global A and Global B are two providers which are connected in the same level, Local A and Local B are connected to Global A, while Local C is connected to Global B. Local A and Local B also exchange data directly and Local B and C exchange data over a local internet exchange. The example datacenter customer is connected to Local B.](/lectures/1-cloud-intro/internet-tiers.svg)
 
-## Software stack
+## Software Stack
 
 !!! tldr "In a hurry?"
     **Software stack:**
@@ -363,7 +370,7 @@ adopts this can be fairly simple to almost impossible. As a rule of thumb the bi
 It is worth noting that data transfer is typically charged based on volume. Some cloud providers even charge for
 internal traffic between availability zones.
 
-## Private vs. Public cloud
+## Private vs. Public Cloud
 
 !!! tldr "In a hurry?"
     **Private cloud:**
@@ -404,7 +411,7 @@ As you can see from the previous sections cloud computing doesn't necessarily ma
 
 TODO
 
-## Regulations
+## Regulation
 
 !!! tldr "In a hurry?"
     **GDPR:**

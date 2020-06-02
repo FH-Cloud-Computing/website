@@ -100,6 +100,22 @@ Secondary coor:
   background-color:var(--md-accent-fg-color);
 }
 
+.md-content .download,
+.md-content .download a {
+  margin-bottom:0.8rem;
+}
+
+@media screen and (max-width: 700px) {
+  .md-content .download a {
+    display: block;
+  }
+  .md-content .download a button {
+    display: block;
+    text-align: center;
+    width:100%;
+  }
+}
+
 .md-content h1 + audio {
   position:relative;
   display: block;
