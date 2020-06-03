@@ -76,7 +76,7 @@ E-mail: [peter.wenzl@edu.fh-campuswien.ac.at](mailto:peter.wenzl@edu.fh-campuswi
 ### Janos Pasztor
 
 <aside>
-<img src="janos-pasztor.png" alt="A photo of Janos Pasztor, a man in his thirties with short, dark brown hair and round glasses." />
+<img src="janos-pasztor.jpg" alt="A photo of Janos Pasztor, a man in his thirties with short, dark brown hair and round glasses." />
 </aside>
 
 E-mail: [janos.pasztor@edu.fh-campuswien.ac.at](mailto:janos.pasztor@edu.fh-campuswien.ac.at) <br />
