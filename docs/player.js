@@ -4,7 +4,6 @@
     function createPlayer(audioTag, i) {
         let player = {}
         player.audioTag = audioTag
-        player.audioTag.preload = "metadata";
         player.src = player.audioTag.src
         const parent = player.audioTag.parentNode
         let previous = parent.previousSibling
@@ -56,4 +55,17 @@
     for (let i = 0; i < audioTags.length; i++) {
         players.push(createPlayer(audioTags[i], i))
     }
+    let playerNumber = 0
+    function preloadPlayer() {
+        if (typeof players[playerNumber] !== "undefined") {
+            let preloadComplete = function() {
+                players[playerNumber].audioTag.removeEventListener("durationchange", preloadComplete);
+                playerNumber++;
+                setTimeout(preloadPlayer, 200);
+            }
+            players[playerNumber].audioTag.addEventListener("durationchange", preloadComplete);
+            players[playerNumber].audioTag.preload = "metadata";
+        }
+    }
+    setTimeout(preloadPlayer, 200);
 })();

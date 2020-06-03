@@ -24,9 +24,12 @@ well as the pitfalls which may come with such setups.
 !!! tldr "In a hurry?"
     **Servers:**
     
-    - Redundant, hot-swap hardware (power supply, fans, etc)
-    - Flat build profile for rack mounts
-    - Out-Of-Bounds management interface for monitoring and remote management
+    - Nowadays either x86 or ARM architecture.
+    - Redundant, hot-swap hardware (power supply, fans, etc).
+    - Flat build profile for rack mounts.
+    - Out-Of-Bounds management interface for monitoring and remote management.
+    - Power consumption is a concern.
+    - Buying servers can take a long time and present an up-front investment.
 
 In older times, servers were completely different from the machines we used for regular work. Not just in weight and
 form factor, but in architecture. The landscape would stretch from [SPARC](https://en.wikipedia.org/wiki/SPARC) and
@@ -68,17 +71,23 @@ status to this OOB management interface which allows for the simultaneous monito
     more &ldquo;budget&rdquo; line of servers, or call certain components differently. HP, for example, calls their
     OOBM &ldquo;Integrated Lights Out&rdquo;, Dell &ldquo;DRAC - Dell Remote Access Control&rdquo;, etc.
 
+When it comes to purchasing servers larger companies tend to go with the same components for a longer period of time
+and they also buy support from the vendor. This sometimes includes hardware replacement done entirely by the vendor
+in the datacenter without the need for the customer to have staff on site. However, purchasing a specific set of
+components or ordering larger quantities of servers presents a logistics challenge and can sometimes take up to 3-4
+months. Buying hardware is also an up-front investment which is hard to justify when demands change rapidly.
+
 ## The Anatomy of a Datacenter
 
 !!! tldr "In a hurry?"
     **Datacenter components:**
     
-    - Racks to house servers
-    - Larger customers have cages for their racks
-    - Cabling under the floor
-    - Redundant cooling, fire suppression systems and power supply
-    - Eco friendliness is becoming a factor
-    - Some datacenters provide internet connectivity
+    - Racks to house servers.
+    - Larger customers have cages for their racks.
+    - Cabling under the floor.
+    - Redundant cooling, fire suppression systems and power supply.
+    - Some datacenters provide internet connectivity.
+    - Eco friendliness is becoming a factor.
 
 Since the cloud is just somebody else's computer, that computer needs to be hosted somewhere. Servers are almost
 exclusively hosted in datacenters. Let's take a look at what is involved in running a datacenter.
@@ -115,9 +124,9 @@ a separated gated area called a &ldquo;cage&rdquo; to which they control access.
 !!! tldr "In a hurry?"
     **Internet:**
     
-    - IP ranges are advertised using BGP
-    - Providers connect direcly or using internet exchanges
-    - 16 global providers form the backbone of the internet (tier 1)
+    - IP ranges are advertised using BGP.
+    - Providers connect direcly or using internet exchanges.
+    - 16 global providers form the backbone of the internet (tier 1).
 
 Once the physical infrastructure is set up there is also the question of how to connect to the Internet. As mentioned
 before, networks can be very complicated and there is no one size fits all solution. Smaller customers will typically
@@ -162,10 +171,10 @@ to the tier 1 providers, while tier 3 is everyone else.
 !!! tldr "In a hurry?"
     **Software stack:**
     
-    - Virtualization
-    - Operating system
-    - Application runtime
-    - Application
+    - Virtualization.
+    - Operating system.
+    - Application runtime.
+    - Application.
 
 The purpose of all this is, of course, to run an application. Each server hosts an operating system which is 
 responsible for managing the hardware. Operating systems provide a simplified API for applications to do
@@ -257,6 +266,9 @@ Software as a Service (SaaS) offering end-user services.
 
 ![A comparison of different cloud models. With self-managed the customer needs to take care of the application, runtime, operating, system, virtualization, hardware, network, power, cooling, fire suppression, and housing. With IaaS onl the application, runtime, and the operating system. With PaaS the customer only takes care of the application. With SaaS the customer takes care of nothing and only consumes the service.](/lectures/1-cloud-intro/cloud-comparison.svg) 
 
+!!! note
+    SaaS will not be discussed in this course.
+
 ### Infrastructure as a Service (IaaS)
 
 The most basic of cloud service offerings is IaaS. IaaS means that the cloud provider will manage the infrastructure
@@ -278,11 +290,11 @@ different regions.
 !!! tldr "In a hurry?"
     **Managed services:**
     
-    - The provider is typically responsible for provisioning, backups, monitoring and restoring the servce if needed.
+    - The provider is typically responsible for provisioning, backups, monitoring and restoring the service if needed.
     - Low entry cost.
     - Little in-house know-how required.
     - Vendor lock-in for non-standard services.
-    - If problems arise they are hard to debug.
+    - If problems arise they can be hard to debug.
 
 Apart from offering virtual machines and network infrastructure as a service many cloud providers also offer additional
 services that are typically used by developers such as managed databases. These services are managed in the sense that

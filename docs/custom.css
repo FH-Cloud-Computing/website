@@ -40,6 +40,13 @@ Secondary coor:
   --md-code-fg-color:                  #f0f0f0;
 }
 
+body,input{
+  font-family:"Verdana",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+}
+code,kbd,pre{
+  font-family:"Courier New",SFMono-Regular,Consolas,Menlo,monospace;
+}
+
 .md-header-nav__button.md-logo img {
   width: auto;
 }
@@ -77,7 +84,8 @@ Secondary coor:
 
 .md-typeset .admonition.note, .md-typeset details.note,
 .md-typeset .admonition, .md-typeset details {
-  border-color: var(--md-primary-fg-color)
+  border-color: var(--md-primary-fg-color);
+  background: var(--md-primary-bg-color--light)
 }
 
 .md-typeset .note>.admonition-title::before, .md-typeset .note>summary::before {

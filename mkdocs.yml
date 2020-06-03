@@ -8,12 +8,12 @@ nav:
     - Testing: testing/index.md
     - Getting help: help/index.md
   - Lectures:
-    - Overview: lectures/index.md
-    - 1. Introduction to the Cloud: lectures/1-cloud-intro/index.md
-    - 2. Cloud capabilities: lectures/2-capabilities/index.md
-    - 3. Infrastructure as a Service: lectures/3-iaas/index.md
+    - "Overview": lectures/index.md
+    - "1. Introduction to the Cloud": lectures/1-cloud-intro/index.md
+    - "2. Cloud capabilities": lectures/2-capabilities/index.md
+    - "3. Infrastructure as a Service": lectures/3-iaas/index.md
     - "4. Beyond IaaS: PaaS, SaaS": lectures/4-xaas/index.md
-    - 5. Cloud-native software development: lectures/5-cloud-native/index.md
+    - "5. Cloud-native software development": lectures/5-cloud-native/index.md
   - Exercises:
       - Overview: exercises/index.md
       - 1. IaaS: exercises/1-iaas/index.md
@@ -21,15 +21,14 @@ theme:
   name: material
   features:
     - tabs
-  font:
-    text: Verdana
-    code: Courier New
+  font: false
   logo: logo-wide.svg
   favicon: favicon.svg
 extra_css:
   - custom.css
 extra_javascript:
   - player.js
+  - external.js
 plugins:
   - search
   - macros
