@@ -18,7 +18,7 @@ in MP3 and M4B (Apple) format, as well as a [video](https://www.youtube.com/chan
 also listen to individual sections from the text document. **All content is available in all formats** so you only need
 to use the formats you prefer.
 
-**You are expected to understand and memorize the &ldquo;In a hurry?&bdquo; sections from the text version** for the
+**You are expected to understand and memorize the *&bdquo;In a hurry?&rdquo;* sections from the text version** for the
 theory test.
 
 ---
