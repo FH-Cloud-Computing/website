@@ -14,7 +14,7 @@ As the popular saying goes:
 > The cloud is just somebody else's computer.
 
 There is no magic, just using the cloud does not magically solve problems we are having with a traditional
-infrastructure. This section will teach you how a cloud is built and what the typical services are that they offer as
+infrastructure. This lecture will teach you how a cloud is built and what the typical services are that they offer as
 well as the pitfalls which may come with such setups.
 
 ## What is a Server?

@@ -1,9 +1,8 @@
----
-title: Cloud Computing September 2020
-hero: Cloud Computing September 2020
----
+title: Cloud Computing Fall 2020
 
-Welcome to the Cloud Computing course starting September 2020! On this page you will find all learning
+<h1>Cloud Computing Fall 2020</h1>
+
+Welcome to the Cloud Computing Fall 2020! On this page you will find all learning
 materials you need to learn in order to pass the course.
 
 Please note that this lecture is worth 4 ECTS. This is calculated to be roughly 112 hours of study

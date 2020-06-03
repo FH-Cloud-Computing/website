@@ -1,4 +1,4 @@
-This is the repository for the 2020 September course of Cloud Computing at the FH Campus Wien.
+This is the repository for the Fall 2020 course of Cloud Computing at the FH Campus Wien.
 
 # Running a local dev environment
 
