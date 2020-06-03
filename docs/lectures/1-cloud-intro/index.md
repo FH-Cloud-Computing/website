@@ -420,8 +420,30 @@ of the cloud but also keep static / legacy systems for financial or engineering 
     - Allows for spinning up multiple copies of the same environment.
 
 As you can see from the previous sections cloud computing doesn't necessarily make it simpler to deploy an application.
+In this regard setting up a server and not documenting it is the same as setting up a cloud and not documenting it. In
+the end in both cases modifications will be hard to carry out later since details of the implementation are lost.
 
-TODO
+It will also be hard to create a near-identical copy of the environment for development, testing, etc. purposes. This is
+partially due to the lack of documentation, and partially because of the manual work involved. In the past this problem
+was addressed by *cloning* virtual machines which was an approach with limited success as customizations were hard to
+make.
+
+The rise of API's brought a much welcome change: automation tools such as Puppet, Ansible and Terraform not only 
+*automate* the installation of a certain software but also *document* how the setup works.
+
+When engineers first go into automation they tend to reserve a part of the work to be done manually. For example they
+might use Ansible to create virtual machines and install some basic tools and install the rest of the software stack
+by hand. This approach is workable where the software stack cannot be automated but should be avoided for software
+where this is not the case as the lack of automation usually also means a lack of documentation as described above.
+
+Automation tools are also not equally suited for each task. Terraform, for example, expects full control of the
+infrastructure that is created by it. Manual installation steps afterwards are not supported. This approach gives 
+Terraform the advantage that it can also *remove* the infrastructure it creates. Removing the infrastructure is 
+paramount when there are multiple temporary environments deployed such as a dev or testing environment.
+
+Ansible, on the other hand, allows for manual changes but does not automatically implement a tear-down procedure for
+the environment that has been created. This makes Ansible environments, and Ansible code harder to test and maintain but
+more suited for environments where traditional IT is still a concern.    
 
 ## Regulation
 
