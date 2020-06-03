@@ -418,6 +418,8 @@ of the cloud but also keep static / legacy systems for financial or engineering 
     - Documents how a cloud is set up.
     - Gives a reproducible environment.
     - Allows for spinning up multiple copies of the same environment.
+    - Not all tools are equal. Some tools allow for manual changes after running them (e.g. Ansible), others don't
+      (e.g. Terraform).
 
 As you can see from the previous sections cloud computing doesn't necessarily make it simpler to deploy an application.
 In this regard setting up a server and not documenting it is the same as setting up a cloud and not documenting it. In
