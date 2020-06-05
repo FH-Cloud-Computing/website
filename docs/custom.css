@@ -148,8 +148,11 @@ code,kbd,pre{
 @media print {
   @page {
     size: a4 portrait;
-    margin: 25mm 10mm 25mm 10mm;
+    margin: 10mm 10mm 10mm 10mm;
     counter-increment: page;
+  }
+  .md-typeset .admonition, .md-typeset details {
+    page-break-inside: auto;
   }
   body {
     background-color: #ffffff;
