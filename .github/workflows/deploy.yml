@@ -43,4 +43,6 @@ jobs:
         working-directory: fh-cloud-computing.github.io
       - name: deploy
         run: mkdocs gh-deploy --config-file ../project/mkdocs.yml --remote-branch master
+        env:
+          ENABLE_PDF_EXPORT: 1
         working-directory: fh-cloud-computing.github.io
