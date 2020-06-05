@@ -3,6 +3,7 @@ mkdocs-macros-plugin
 mkdocs-simple-hooks
 mkdocs-exclude
 mkdocs-material-extensions
+mkdocs-pdf-export-plugin
 mkdocs-material
 markdown-include
 python-slugify

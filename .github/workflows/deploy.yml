@@ -34,6 +34,8 @@ jobs:
         working-directory: project
       - name: Build
         run: mkdocs build
+        env:
+          ENABLE_PDF_EXPORT: 1
         working-directory: project
       - name: Set remote
         run: |

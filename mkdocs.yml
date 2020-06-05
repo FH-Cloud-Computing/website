@@ -29,9 +29,13 @@ extra_css:
 extra_javascript:
   - player.js
   - external.js
+  - download.js
 plugins:
   - search
   - macros
+  - pdf-export:
+      theme_handler_path: pdf-theme-handler.py
+      enabled_if_env: ENABLE_PDF_EXPORT
   - exclude:
       glob: []
 markdown_extensions:
