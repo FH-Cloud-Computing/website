@@ -17,6 +17,8 @@ nav:
   - Exercises:
       - Overview: exercises/index.md
       - 1. IaaS: exercises/1-iaas/index.md
+  - Glossary:
+      - A-Z: glossary/index.md
 theme:
   name: material
   features:
