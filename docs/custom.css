@@ -38,6 +38,13 @@ Secondary coor:
   /* Code block color shades */
   --md-code-bg-color:                  #4b5059;
   --md-code-fg-color:                  #f0f0f0;
+
+  --md-correct-color:                  #ffffff;
+  --md-correct-background-color:       #5ebd60;
+  --md-correct-border-color:           #00bd03;
+  --md-incorrect-color:                #ffffff;
+  --md-incorrect-background-color:     #bd5e5e;
+  --md-incorrect-border-color:         #bd0000;
 }
 
 body,input{
@@ -160,4 +167,41 @@ code,kbd,pre{
   .download {
     display:none;
   }
+}
+
+.quiz__answers input {
+  display:none
+}
+.quiz__answers label {
+  position:relative;
+  display:block;
+  border: 1px solid var(--md-accent-fg-color);
+  border-radius:1rem;
+  margin-bottom:0.75rem;
+  height:2rem;
+  line-height:2rem;
+  padding-left:2rem;
+}
+.quiz__answers input:checked + label {
+  color: var(--md-incorrect-color);
+  border-color: var(--md-incorrect-background-color);
+  background-color: var(--md-incorrect-background-color);
+}
+.quiz__answers input:checked + label::before {
+  position:absolute;
+  top:0;
+  left:0.2rem;
+  height:2rem;
+  width:2rem;
+  text-align: center;
+  line-height:2rem;
+  content:"❌";
+}
+.quiz__answers input:checked + label[data-correct] {
+  color: var(--md-correct-color);
+  border-color: var(--md-correct-background-color);
+  background-color: var(--md-correct-background-color);
+}
+.quiz__answers input:checked + label[data-correct]::before {
+  content:"✔️";
 }
