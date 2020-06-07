@@ -1,14 +1,13 @@
 ## Grade construction
 
 - 55% written examination (individual).
-- 45% project work (15% per exercise).
+- 45% project work (15% per sprint).
 
 ## Project work grading
 
-- 5% in each exercise for implementing it using an automation framework such as Terraform or Ansible. It must have
+- 5% in each sprint for implementing it using an automation framework such as Terraform or Ansible. It must have
   the ability to install the exercise in an empty Exoscale account without human interaction. 
-- 5% in each exercise for demonstrating a working functionality.
-- 5% in each exercise for uploading the code to GitHub in a close to working state.
+- 10% in each sprint for demonstrating a working functionality.
 
 ## Marks
 
