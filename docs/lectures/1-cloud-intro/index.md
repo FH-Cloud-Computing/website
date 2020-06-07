@@ -382,6 +382,16 @@ adopts this can be fairly simple to almost impossible. As a rule of thumb the bi
 It is worth noting that data transfer is typically charged based on volume. Some cloud providers even charge for
 internal traffic between availability zones.
 
+### Cost-comparison with on premises systems
+
+One of the most important cases for cost analysis will be the comparison with on premises architecture. It is quite
+common to create a cost comparison where the investment required for a hardware purchase is compared with the cloud cost
+over 3 or 5 years.
+
+These comparisons can be quite misleading because they often don't contain any cost attribution for the required work
+and they also do not use the advantages of the cloud in terms of scaling. Without these factors a hardware purchase
+will almost always be cheaper when calculated over 5 years and be roughly equal when compared over 3 years. 
+
 ## Private vs. Public Cloud
 
 !!! tldr "In a hurry?"
