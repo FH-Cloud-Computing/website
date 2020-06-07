@@ -77,43 +77,42 @@ in the datacenter without the need for the customer to have staff on site. Howev
 components or ordering larger quantities of servers presents a logistics challenge and can sometimes take up to 3-4
 months. Buying hardware is also an up-front investment which is hard to justify when demands change rapidly.
 
-<div class="quiz">
-    <div class="quiz__question">
-        <h5>What components are redundant in a server?</h5>
-        <div class="quiz__answers">
-            <div class="quiz__answer">
-                <input id="q1-a1" type="checkbox" />
-                <label for="q1-a1" data-correct> Power supply</label>
-            </div>
-            <div class="quiz__answer">
-                <input id="q1-a2" type="checkbox" />
-                <label for="q1-a2"> CPU</label>
-            </div>
-            <div class="quiz__answer">
-                <input id="q1-a3" type="checkbox" />
-                <label for="q1-a3"> RAM</label>
-            </div>
-            <div class="quiz__answer">
-                <input id="q1-a4" type="checkbox" />
-                <label for="q1-a4" data-correct> Fan</label>
-            </div>
-            <div class="quiz__answer">
-                <input id="q1-a5" type="checkbox" />
-                <label for="q1-a5"> OOBM</label>
-            </div>
+<div class="admonition question">
+    <p class="admonition-title">What components are redundant in a server?</p>
+    <div class="quiz__answers">
+        <div class="quiz__answer">
+            <input id="q1-a1" type="checkbox" />
+            <label for="q1-a1" data-correct> Power supply</label>
+        </div>
+        <div class="quiz__answer">
+            <input id="q1-a2" type="checkbox" />
+            <label for="q1-a2"> CPU</label>
+        </div>
+        <div class="quiz__answer">
+            <input id="q1-a3" type="checkbox" />
+            <label for="q1-a3"> RAM</label>
+        </div>
+        <div class="quiz__answer">
+            <input id="q1-a4" type="checkbox" />
+            <label for="q1-a4" data-correct> Fan</label>
+        </div>
+        <div class="quiz__answer">
+            <input id="q1-a5" type="checkbox" />
+            <label for="q1-a5"> OOBM</label>
         </div>
     </div>
-    <div class="quiz__question">
-        <h5>What purpose does the OOBM serve?</h5>
-        <div class="quiz__answers">
-            <div class="quiz__answer">
-                <input id="q2-a1" type="checkbox" />
-                <label for="q2-a1" data-correct> Remotely manage a server</label>
-            </div>
-            <div class="quiz__answer">
-                <input id="q2-a2" type="checkbox" />
-                <label for="q2-a2" data-correct> Receive hardware malfunction alerts</label>
-            </div>
+</div>
+
+<div class="admonition question">
+    <p class="admonition-title">What components are redundant in a server?</p>
+    <div class="quiz__answers">
+        <div class="quiz__answer">
+            <input id="q2-a1" type="checkbox" />
+            <label for="q2-a1" data-correct> Remotely manage a server</label>
+        </div>
+        <div class="quiz__answer">
+            <input id="q2-a2" type="checkbox" />
+            <label for="q2-a2" data-correct> Receive hardware malfunction alerts</label>
         </div>
     </div>
 </div>
