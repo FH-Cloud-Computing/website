@@ -41,6 +41,9 @@ jobs:
         run: |
           git remote set-url origin $(git remote show origin | grep "Fetch URL" | sed -e 's/.*: //' | sed -e 's/https:\/\/github.com\//git@github.com:/')
         working-directory: fh-cloud-computing.github.io
+      - name config
+        run: "sed -i -e 's/theme_handler_path: pdf-theme-handler.py/theme_handler_path: ..\/project\/pdf-theme-handler.py/'" ../project/mkdocs.yml
+        working-directory: fh-cloud-computing.github.io
       - name: deploy
         run: mkdocs gh-deploy --config-file ../project/mkdocs.yml --remote-branch master
         env:
