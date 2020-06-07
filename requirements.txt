@@ -9,3 +9,4 @@ markdown-include
 python-slugify
 pymdown-extensions
 mutagen
+beautifulsoup4
