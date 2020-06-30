@@ -182,8 +182,9 @@ code,kbd,pre{
   height:2rem;
   line-height:2rem;
   padding-left:2rem;
+  cursor: pointer;
 }
-.quiz__answers input label::before {
+.quiz__answers input + label::before {
   position: absolute;
   top: 0;
   left: 0.2rem;
@@ -191,7 +192,7 @@ code,kbd,pre{
   width: 2rem;
   text-align: center;
   line-height: 2rem;
-  content:"☐";
+  content:" ";
 }
 .quiz__answers input:checked + label {
   color: var(--md-incorrect-color);
