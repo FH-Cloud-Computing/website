@@ -39,9 +39,10 @@ run in the new mode.
 
 !!! note
     If you try and set up a really old computer game like [Commander Keen](https://en.wikipedia.org/wiki/Commander_Keen)
-    in DosBox you will realize that you have to provide the game itself with very hardware-specific settings. You will,
-    for example, have to provide details for your sound card. This is because the game itself incorporated sound card
-    drivers for Sound Blaster 16 or Gravis Ultrasound cards. A game that would do this could not run in protected mode.
+    in [DOSBox](https://www.dosbox.com/) you will realize that you have to provide the game itself with very
+    hardware-specific settings. You will, for example, have to provide details for your sound card. This is because the
+    game itself incorporated sound card drivers for Sound Blaster 16 or Gravis Ultrasound cards. A game that would do
+    this could not run in protected mode.
 
 To work around the problems with protected mode the 80386 successor introduced
 [virtual mode](https://en.wikipedia.org/wiki/Virtual_8086_mode). The new virtual 8086 mode (VM86) introduced a number of
@@ -70,7 +71,7 @@ processors.
 
 VT-x and AMD-V added new ring called `-1` to accommodate *hypervisors*. This new ring allowed for separation between
 several operating systems running at ring 0. Later CPU releases added features such as
-[Direct Input/Output virtualization]https://software.intel.com/content/www/us/en/develop/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices.html),
+[Direct Input/Output virtualization](https://software.intel.com/content/www/us/en/develop/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices.html),
 network virtualization or even graphics card virtualization. These features allowed for more efficient
 virtualization and sharing hardware devices between several virtual machines.
 
