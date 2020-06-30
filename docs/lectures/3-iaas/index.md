@@ -70,8 +70,8 @@ processors.
 
 VT-x and AMD-V added new ring called `-1` to accommodate *hypervisors*. This new ring allowed for separation between
 several operating systems running at ring 0. Later CPU releases added features such as
-[Direct Input/Output virtualization (VT-d)]https://software.intel.com/content/www/us/en/develop/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices.html),
-network virtualization (VT-c) or even graphics card virtualization. These features allowed for more efficient
+[Direct Input/Output virtualization]https://software.intel.com/content/www/us/en/develop/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices.html),
+network virtualization or even graphics card virtualization. These features allowed for more efficient
 virtualization and sharing hardware devices between several virtual machines.
 
 Virtualization also gave rise to Infrastructure as a Service. [AWS](https://aws.amazon.com/) was the first service
