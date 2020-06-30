@@ -192,7 +192,7 @@ code,kbd,pre{
   width: 2rem;
   text-align: center;
   line-height: 2rem;
-  content:" ";
+  content:"◯";
 }
 .quiz__answers input:checked + label {
   color: var(--md-incorrect-color);
