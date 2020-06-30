@@ -109,9 +109,43 @@ and high RAM workloads there are several different instance types, typically:
 
 ## Automation
 
+As discussed before, that makes an IaaS cloud provider a cloud provider is the fact that they offer an API to automate
+the provisioning and deprovisioning of virtual machines as needed. However, that's not all. Simply starting a virtual
+machine is not enough, the software needs to be installed in it.
 
+Initially this problem would be solved by creating *templates* for the operating system that launches. In larger cloud
+setups these templates included a pre-installed agent for configuration management that would report to a central
+service and fetch its manifest of software to install.
+
+Thankfully in the last decade a lot has happened and [Cloud Init](https://cloudinit.readthedocs.io/en/latest/) has
+established itself as a defacto standard in the IaaS world. Every cloud provider nowadays offers the ability to submit
+a *user data* field when creating a virtual machine. This user data file is read by Cloud Init (or its Windows
+alternative [Cloudbase Init](https://cloudbase.it/cloudbase-init/)) and is executed at the first start of the virtual
+machine.
+
+A DevOps engineer can simply inject a script that runs at the first start that takes care of all the installation 
+steps required.
+
+Tools like [Terraform](https://terraform.io/) or [Ansible](https://www.ansible.com/) assist with managing the whole 
+process of provisioning the virtual machines and supplying it with the correct user data script. 
 
 ## Virtual machine pools
+
+One other use of user data are virtual machine pools. Each cloud provider adopts a different name for them, ranging from
+instance pools to autoscaling groups. The concept is the same everywhere: you supply the cloud with a configuration
+how you would like your virtual machines to look like and the cloud will take care that the given number of machines
+are always running. If a machine crashes or fails a health check the cloud deletes the machine and creates a new one.
+
+The number of machines in a pool can, of course, be changed either manually or in some cases automatically using 
+rules for automatic scaling.
+
+Combined with the aforementioned user data this can be a very powerful tool to create a dynamically sized pool of
+machines and is the prime choice for creating a scalable architecture.
+
+These pools are often integrated with the various load-balancer offerings cloud providers have in their portfolio to
+direct traffic to the dynamic number of instances. Some cloud providers integrate them with their Functions as a Service
+offering as well allowing you to run a custom function whenever a machine starts or stops. This can be used to, for
+example, update your own service discovery database.
 
 ## Storage
 
