@@ -85,7 +85,7 @@ This allowed customers to create virtual machines as they needed it and they wer
 The presence of an API makes the difference between IaaS and plain old virtual machines as a service. IaaS allows
 a customer to scale their application dynamically according to their current demand.
 
-### Typical instance types
+## Typical instance types
 
 When the cloud became popular in the late 2000s several providers attempted to offer a service that was fully dynamic
 in their sizes. The customer could set how many GB of RAM they needed and how many CPU cores. However, this model has
@@ -150,9 +150,23 @@ example, update your own service discovery database.
 
 ## Storage
 
+Hopefully we have managed to convey the *dynamic nature* of the cloud in our description so far. This brings up the
+question of where data should be stored. This section will explain the different storage options that you can use
+to store *files* directly from your virtual machine. We will touch on databases and other storage options in a later
+section.
+
 ### Local storage
 
-### Block storage
+The most obvious storage option, of course, is a local storage. By local storage we mean a hard drive (SSD or HDD) that
+is integrated directly into the machine that's running the hypervisor.
+
+This storage option has the benefit of offering a high performance disk at a relatively affordable price. The drawback
+is that the disk is local. If the physical machine running your VM has a problem your data may be lost.
+
+For all storage options the implementation of *backups* is critical but with local storage building redundancy on top
+of the virtual machine may be required to build a reliable system.
+
+### Network Block storage
 
 ### Network file systems
 
