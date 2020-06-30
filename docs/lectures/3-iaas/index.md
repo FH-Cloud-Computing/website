@@ -59,8 +59,8 @@ control to the kernel.
 In the mid 2000's CPUs became so powerful that it made sense to not only virtualize applications but whole operating
 systems including their kernel. This allowed multiple operating systems to run in parallel. However, without CPU support
 only *software virtualization* could be achieved. In other words early virtualization software had to *simulate* a CPU
-in ring 0 to the guest operating system. Some virtualization techniques, such as Xen required the guest operating system to run a modified kernel
-to facilitate them running in ring 3. Others employed
+in ring 0 to the guest operating system. Some virtualization techniques, such as [Xen](https://xenproject.org/) required
+the guest operating system to run a modified kernel to facilitate them running in ring 3. Others employed
 [a number of techniques](https://en.wikipedia.org/wiki/X86_virtualization#Software-based_virtualization) we won't go
 into here.
 
