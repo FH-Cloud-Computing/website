@@ -210,11 +210,11 @@ latter is often used in expensive enterprise storage systems that provide attach
 
 TODO: add illustration for fibre channel storage systems
 
-The simplest and easiest to set up network block storage is probably ISCSI, a protocol that runs the SCSI storage
-protocol over a commodity IP network. In other words one computer can take a block device and let another computer use
-it. However, as mentioned previously in this case the computer using the ISCSI device is in full control over the files
-that are stored on the storage device. It is also worth mentioning that ISCSI does not guarantee any redundancy beyond
-the RAID or storage system the offering computer already has.
+The simplest and easiest to set up network block storage is probably [iSCSI](https://en.wikipedia.org/wiki/ISCSI), a
+protocol that runs the SCSI storage protocol over a commodity IP network. In other words one computer can take a block
+device and let another computer use it. However, as mentioned previously in this case the computer using the iSCSI
+device is in full control over the files that are stored on the storage device. It is also worth mentioning that iSCSI
+does not guarantee any redundancy beyond the RAID or storage system the offering computer already has.
 
 More advanced storage systems such as [Ceph RBD](https://docs.ceph.com/docs/master/rbd/) or replicated enterprise
 storage systems offer redundancy such that when one storage instance fails others can take its place without outage.
@@ -297,8 +297,8 @@ Out of group 2 it is worth mentioning that the services that are available on th
 ### Firewalling
 
 IaaS providers often also offer network firewalls as a service, included in the platform. Firewalls generally have
-two rule types: INGRESS (from the Internet or other machines to the current VM) and EGRESS (From the current VM to)
-everywhere else.
+two rule types: INGRESS (from the Internet or other machines to the current VM) and EGRESS (from the current VM to
+everywhere else).
 
 Firewall providers often employ the concept of *security groups*. The implementation varies greatly, but in general
 security groups are a reusable set of rules that can be applied to a VM.
