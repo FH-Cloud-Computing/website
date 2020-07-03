@@ -1,10 +1,11 @@
 You are the cloud architect for a small work-for-hire company. A client wants to hire you but they are sceptical about
 your abilities to build an *autoscaling* service. They propose a proof of concept: build a service that runs a 
 web application that is *deliberately slow* and load test it. Your cloud management should automatically launch new
-cloud servers when the load is high and remove servers when demand is low. To accomplish this task the client provides
-you with a budget of 20 &euro; for Exoscale which your project has to fit in.
+cloud servers when the load is high and remove servers when demand is low.
 
-After taking a look at the capabilities of this cloud provider and discussing the constraints with your colleagues
+TODO: which cloud provider?
+
+After taking a look at the capabilities of the cloud provider and discussing the constraints with your colleagues
 you decide that the following approach would be best:
 
 - You are going to use [Terraform](https://terraform.io) to automate the setup and tear down of the cloud
