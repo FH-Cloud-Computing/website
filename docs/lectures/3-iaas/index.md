@@ -285,7 +285,7 @@ When we look at the network offerings by cloud providers there are three types:
 3. Fully dynamic network configuration that allows the customer to define their network setup and IP assignment
    dynamically. This is typically offered by IaaS providers that target enterprise customers who wish to migrate their
    classic on-premises infrastructure and require the flexibility they had when using their own hardware. This is the
-   case with [1&1 IONOS](https://www.ionos.com/). 
+   case with [1&1 IONOS](https://www.ionos.com/).
    
 TODO: Vultr? Linode? Deutsche Telekom Cloud? Alibaba Cloud?
 
