@@ -69,11 +69,17 @@ While initially expensive hardware support followed suit. In 2005 Intel added th
 Pentium 4 CPUs followed by AMDs SVM/AMD-V technology in 2006 in the Athlon 64, Athlon 64 X2, and Athlon 64 FX
 processors.
 
-VT-x and AMD-V added new ring called `-1` to accommodate *hypervisors*. This new ring allowed for separation between
+VT-x and AMD-V added new ring -1 to accommodate *hypervisors*. This new ring allowed for separation between
 several operating systems running at ring 0. Later CPU releases added features such as
 [Direct Input/Output virtualization](https://software.intel.com/content/www/us/en/develop/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices.html),
 network virtualization or even graphics card virtualization. These features allowed for more efficient
 virtualization and sharing hardware devices between several virtual machines.
+
+!!! note
+    Intel also introduced a ring -2 for the Intel Management Engine, a chip that functions as an OOBM in modern Intel
+    chips. The ME runs its own operating system, a [MINIX](https://en.wikipedia.org/wiki/MINIX) variant and has been
+    the target of severe criticism for its secrecy and power over the machine. Several bugs have been found in the ME
+    that let an attacker hide a malware inside the ME.
 
 Virtualization also gave rise to Infrastructure as a Service. [AWS](https://aws.amazon.com/) was the first service
 that offered virtual machines as a service starting in 2006 with a Xen-based offer. They not only offered virtual
@@ -155,7 +161,37 @@ question of where data should be stored. This section will explain the different
 to store *files* directly from your virtual machine. We will touch on databases and other storage options in a later
 section.
 
-### Local storage
+### How do filesystems work?
+
+Before we dive into the different options let's take a look at how filesystems work. In a non-cloud environment you
+would insert a hard drive into your computer. This hard drive can either be a spinning disk (often referred to as HDD)
+or a solid-state drive (SSD).
+
+Spinning disks have a read head that goes over the platter that spins under it. This means that information access on
+HDD requires the head to get into the correct position to read the data which takes time. This positioning is done by
+the controller chip that's on the disk itself.
+
+SSD's have different problems. Information access is instant since any block can be accessed immediately but the chip
+on the disk still needs to keep track of which cell is unusable, caching, etc.
+
+In other words the controller chip deals with the *low-level functions* on the disk for both HDD and SSD. The drive
+itself is accessible via either a [SATA](https://en.wikipedia.org/wiki/Serial_ATA) (Serial ATA) or a
+[SAS](https://en.wikipedia.org/wiki/Serial_Attached_SCSI) (Serial Attached SCSI) connection. In case of servers these
+disks are often assembled into a [RAID array](https://en.wikipedia.org/wiki/RAID) for redundancy and higher performance.
+Most RAID controllers will also implement caching which often also requires a built-in battery unit to function
+properly.
+
+In both cases the data is stored in blocks of fixed sizes (such as 4 kB). The filesystem itself contains the mapping
+of which file consists of which blocks on the disk.
+
+This is an important distinction: block storage solutions, no matter if they are network-bound or use a more classic
+connection such as fibre channel only know about the blocks on the disk. They do not know anything about files. Since
+filesystems are complex beasts block storage devices can only be used by a single machine at any given time.
+
+Network filesystems on the other hand are more resource intensive but can track which file is open from which
+machine and can be used in a distributed fashion.  
+
+### Local Storage
 
 The most obvious storage option, of course, is a local storage. By local storage we mean a hard drive (SSD or HDD) that
 is integrated directly into the machine that's running the hypervisor.
@@ -166,13 +202,58 @@ is that the disk is local. If the physical machine running your VM has a problem
 For all storage options the implementation of *backups* is critical but with local storage building redundancy on top
 of the virtual machine may be required to build a reliable system.
 
-### Network Block storage
+### Network Block Storage
 
-### Network file systems
+Network block storage means a block storage that is delivered over the network. When talking about network we are not
+only talking about your standard IP / Ethernet network but also a direct SCSI over Fibre Channel infrastructure. The
+latter is often used in expensive enterprise storage systems that provide attachable disks to several physical machines.
+
+TODO: add illustration for fibre channel storage systems
+
+The simplest and easiest to set up network block storage is probably ISCSI, a protocol that runs the SCSI storage
+protocol over a commodity IP network. In other words one computer can take a block device and let another computer use
+it. However, as mentioned previously in this case the computer using the ISCSI device is in full control over the files
+that are stored on the storage device. It is also worth mentioning that ISCSI does not guarantee any redundancy beyond
+the RAID or storage system the offering computer already has.
+
+More advanced storage systems such as [Ceph RBD](https://docs.ceph.com/docs/master/rbd/) or replicated enterprise
+storage systems offer redundancy such that when one storage instance fails others can take its place without outage.
+Cloud provider offerings such as [EBS by Amazon](https://aws.amazon.com/ebs/) also offer this kind of redundancy with
+severe limitations as to how many EBS volumes can be attached to a virtual machine.
+
+### Network File Systems
+
+In contrast to network block storage network file systems offer access to data not on a block level, but on a file
+level. Over the various network file system protocols machines using these file systems can open, read and write files,
+and even place locks on them.
+
+The filesystem has to keep track of which machine has which file open, or has locks on which file. When machine edit
+the same file in parallel the filesystem has to ensure that these writes are consistent. This means that network
+file systems are either much slower than block-level access (e.g.
+[NFS](https://en.wikipedia.org/wiki/Network_File_System)) or require a great deal more CPU and RAM to keep track of
+the changes across the network (e.g. [CephFS](https://docs.ceph.com/docs/master/cephfs/)).
 
 ### Object storage
 
+Object storage systems are similar to network file systems in that they deal with files rather than blocks. However,
+they do not have the same synchronization capabilities as network file systems. Files can generally only be read 
+or written as a whole and they also don't have the ability to lock a file.
+
+While object storages technically *can* be used as a filesystem on an operating system level for example by using
+[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) this is almost always a bad idea due to the exceptionally bad performance
+and stability issues.
+
+Operating system level integration should only be used as a last resort and object storages should be integrated on the
+application level. We will discuss object storage services in detail in our next lesson.
+
 ## Network
+
+The next big topic concerning IaaS services is networks. Before we go into the cloud-aspect let's look at how the 
+underlying infrastructure is built. As indicated in the first lecture it is strongly recommended that you 
+familiarize yourself with the basics of computer networking, such as the Ethernet, IP and TCP protocols as you will
+need them to understand this section.
+
+
 
 ### Firewalling
 
