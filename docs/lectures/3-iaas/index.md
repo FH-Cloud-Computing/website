@@ -280,7 +280,8 @@ When we look at the network offerings by cloud providers there are three types:
    [Azure](https://azure.microsoft.com/en-us/) and [GCP](https://cloud.google.com/) at the time of writing.
 2. Virtual machines have one public IP address on the first network interface and additional private networks
    can be attached as new, separate network interfaces. This is the case with most smaller IaaS providers such as
-   [DigitalOcean](https://www.digitalocean.com/), [Upcloud](https://upcloud.com/) or [Exoscale](https://upcloud.com/).
+   [DigitalOcean](https://www.digitalocean.com/), [Hetzner](https://www.hetzner.de/), [Upcloud](https://upcloud.com/),
+   or [Exoscale](https://www.exoscale.com/).
 3. Fully dynamic network configuration that allows the customer to define their network setup and IP assignment
    dynamically. This is typically offered by IaaS providers that target enterprise customers who wish to migrate their
    classic on-premises infrastructure and require the flexibility they had when using their own hardware. This is the
@@ -294,6 +295,8 @@ Out of group 2 it is worth mentioning that the services that are available on th
 (firewalls, load balancers) are often not available on private networks. 
 
 ### Firewalling
+
+
 
 ### Network load balancers
 
