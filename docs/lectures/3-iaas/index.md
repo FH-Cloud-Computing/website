@@ -253,17 +253,54 @@ underlying infrastructure is built. As indicated in the first lecture it is stro
 familiarize yourself with the basics of computer networking, such as the Ethernet, IP and TCP protocols as you will
 need them to understand this section.
 
+### How cloud networks are built
 
+So, let's get started. Imagine a data center from the first lecture. Your task is to build an IaaS cloud provider.
+You put your servers that will serve as your hosts for virtual machines in the racks. These servers will be connected
+to the Top-of-Rack switches (yes, two for redundancy) using 10 GBit/s network cables. The switches are themselves
+connected among each other and across racks with several 100 GBit/s.
+
+Now comes the tricky part: how do you create private networks for each customer? One option would be to use 
+[802.11Q](https://en.wikipedia.org/wiki/IEEE_802.1Q) VLAN tags separating each network from each other. However, that
+limits you to 2<sup>12</sup> = 4096 private networks. That may seem like much but for a public cloud provider that is
+not sufficient. Therefore, public cloud providers use overlay protocols like
+[VXLAN](https://en.wikipedia.org/wiki/Virtual_Extensible_LAN) to work around this problem.
+
+We describe this not for you to learn but to highlight that public cloud networks are *complex*. A cloud provider
+cannot guarantee a fixed bandwidth between two virtual machines (unless they are put on the same physical server using
+affinity groups). This is one of the reasons that often the ideal setup for cloud architectures is one that uses
+multiple, medium-sized instances rather than few large sized ones.
+
+### Underlying network architectures offered by cloud providers
+
+When we look at the network offerings by cloud providers there are three types:
+
+1. Virtual machines receive private IP addresses and a gateway or load balancer handles the public-to-private IP
+   translations. This is the case with the larger cloud providers such as [AWS](https://aws.amazon.com),
+   [Azure](https://azure.microsoft.com/en-us/) and [GCP](https://cloud.google.com/) at the time of writing.
+2. Virtual machines have one public IP address on the first network interface and additional private networks
+   can be attached as new, separate network interfaces. This is the case with most smaller IaaS providers such as
+   [DigitalOcean](https://www.digitalocean.com/), [Upcloud](https://upcloud.com/) or [Exoscale](https://upcloud.com/).
+3. Fully dynamic network configuration that allows the customer to define their network setup and IP assignment
+   dynamically. This is typically offered by IaaS providers that target enterprise customers who wish to migrate their
+   classic on-premises infrastructure and require the flexibility they had when using their own hardware. This is the
+   case with [1&1 IONOS](https://www.ionos.com/). 
+   
+TODO: Vultr? Linode? Deutsche Telekom Cloud? Alibaba Cloud?
+
+TODO: add illustration
+
+Out of group 2 it is worth mentioning that the services that are available on the public network
+(firewalls, load balancers) are often not available on private networks. 
 
 ### Firewalling
 
 ### Network load balancers
 
-### Private networks
+### VPNs, private interconnects, and routing services
 
 ### DNS
 
-### VPNs, private interconnects, and routing services
 
 ## Monitoring
 
