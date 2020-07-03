@@ -296,11 +296,49 @@ Out of group 2 it is worth mentioning that the services that are available on th
 
 ### Firewalling
 
+IaaS providers often also offer network firewalls as a service, included in the platform. Firewalls generally have
+two rule types: INGRESS (from the Internet or other machines to the current VM) and EGRESS (From the current VM to)
+everywhere else.
 
+Firewall providers often employ the concept of *security groups*. The implementation varies greatly, but in general
+security groups are a reusable set of rules that can be applied to a VM.
+
+For most cloud providers you will need to create an explicit rule allowing traffic to flow between two machines
+in the same security group.
+
+The advantage of security groups is that the rules can be made in such a way that they reference other security
+groups rather than specific IP addresses. For example, the `database` security group could be set to allow connections
+only from the `appserver` security group but not from anywhere else. This can help with the dynamic nature of the cloud
+since you do not need to hard-code the IP addresses of the application servers.
+
+TODO: add screenshot of security group configuration
 
 ### Network load balancers
 
+Network load balancers are an option some cloud providers offer. In contrast to Application Load Balancers they
+do not offer protocol decoding (such as routing requests to backends based on the requested web address), they only
+balance incoming connections to a pool of backends.
+
+TODO add illustration
+
+Depending on the cloud provider in question network load balancers may or may not offer terminating encrypted 
+connections (SSL/TLS), and may be bound to virtual machine pools. It is also cloud provider specific if load balancers
+are offered in private networks or not.
+
+When designing an architecture it is worth considering if the real IP address of the connecting client will be needed.
+If the backend needs to know the real IP address of the client and the network load balancer handles SSL/TLS termination
+that combination may not be suitable for the task unless a specific trick such as the
+[proxy protocol from Digital Ocean](https://www.digitalocean.com/blog/load-balancers-now-support-proxy-protocol/).
+Network load balancers without SSL/TLS termination should, in general, make the client IP available to the backends.
+
+When talking about load balancers an interesting question is the load balancing strategy. Most load balancers support
+either round robin (selecting the next backend in the list) or source hashing (routing the same connecting IP to the
+same backend). Most load balancers also support health checks to take backends that are not able to serve traffic out
+of the rotation.
+
 ### VPNs, private interconnects, and routing services
+
+
 
 ### DNS
 
