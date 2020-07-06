@@ -1,7 +1,7 @@
 <div class="download">
-<a href="fh-cloud-computing-lecture-3-iaas.pptx"><button>Download PPTX 💻</button></a>
-<a href="fh-cloud-computing-lecture-3-iaas.mp3"><button>Download MP3 🎧</button></a>
-<a href="fh-cloud-computing-lecture-3-iaas.m4b"><button>Download M4B 🎧</button></a>
+<a href="fh-cloud-computing-lecture-2-iaas.pptx"><button>Download PPTX 💻</button></a>
+<a href="fh-cloud-computing-lecture-2-iaas.mp3"><button>Download MP3 🎧</button></a>
+<a href="fh-cloud-computing-lecture-2-iaas.m4b"><button>Download M4B 🎧</button></a>
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
 
@@ -65,7 +65,7 @@ the guest operating system to run a modified kernel to facilitate them running i
 [a number of techniques](https://en.wikipedia.org/wiki/X86_virtualization#Software-based_virtualization) we won't go
 into here.
 
-While initially expensive hardware support followed suit. In 2005 Intel added the VT-x (Vanderpool) feature to its new
+Hardware vendors, of course, followed suit. In 2005 Intel added the VT-x (Vanderpool) feature to its new
 Pentium 4 CPUs followed by AMDs SVM/AMD-V technology in 2006 in the Athlon 64, Athlon 64 X2, and Athlon 64 FX
 processors.
 
@@ -76,14 +76,17 @@ network virtualization or even graphics card virtualization. These features allo
 virtualization and sharing hardware devices between several virtual machines.
 
 !!! note
-    Intel also introduced a ring -2 for the Intel Management Engine, a chip that functions as an OOBM in modern Intel
-    chips. The ME runs its own operating system, a [MINIX](https://en.wikipedia.org/wiki/MINIX) variant and has been
-    the target of severe criticism for its secrecy and power over the machine. Several bugs have been found in the ME
-    that let an attacker hide a malware inside the ME.
+    Intel also introduced a ring -2 for the
+    [Intel Management Engine](https://en.wikipedia.org/wiki/Intel_Management_Engine), a chip that functions as an OOBM
+    in modern Intel chips. The ME runs its own operating system, a [MINIX](https://en.wikipedia.org/wiki/MINIX) variant
+    and has been the target of severe criticism for its secrecy and power over the machine. Several bugs have been found
+    in the ME that let an attacker hide a
+    [malware inside the ME](https://youtu.be/3CQUNd3oKBM).
 
 Virtualization also gave rise to Infrastructure as a Service. [AWS](https://aws.amazon.com/) was the first service
 that offered virtual machines as a service starting in 2006 with a Xen-based offer. They not only offered virtual
-machines but they did so that a customer could order or cancel the service using an Application Program Interface.
+machines but they did so that a customer could order or cancel the service using an
+[Application Programming Interface](https://en.wikipedia.org/wiki/Application_programming_interface).
 
 This allowed customers to create virtual machines as they needed it and they were billed for it on an hourly basis.
 (Later on AWS and other cloud providers moved to a per-second billing.)
@@ -97,7 +100,7 @@ When the cloud became popular in the late 2000s several providers attempted to o
 in their sizes. The customer could set how many GB of RAM they needed and how many CPU cores. However, this model has
 been phased out by most providers since it is difficult to manage such a dynamic environment.
 
-Instead cloud providers nowadays opt to offer fixed machine sizes (think of t-shirt sizes). To accommodate high-CPU
+Instead most cloud providers nowadays opt to offer fixed machine sizes. To accommodate high-CPU
 and high RAM workloads there are several different instance types, typically:
 
 - **Shared CPU:** These are small instances where a single CPU core is shared between multiple virtual
@@ -112,7 +115,7 @@ and high RAM workloads there are several different instance types, typically:
   RAM with very little CPU.
 - **Storage:** These instance types contain large amounts of local storage (see below in the storage section).
 - **Hardware-specific:** These instance types offer access to dedicated hardware such as graphics cards (GPUs) or 
-  FPGAs. 
+  FPGAs.
 
 ## Automation
 
@@ -245,44 +248,52 @@ You put your servers that will serve as your hosts for virtual machines in the r
 to the Top-of-Rack switches (yes, two for redundancy) using 10 GBit/s network cables. The switches are themselves
 connected among each other and across racks with several 100 GBit/s.
 
-Now comes the tricky part: how do you create private networks for each customer? One option would be to use 
-[802.11Q](https://en.wikipedia.org/wiki/IEEE_802.1Q) VLAN tags separating each network from each other. However, that
-limits you to 2<sup>12</sup> = 4096 private networks. That may seem like much but for a public cloud provider that is
-not sufficient. Therefore, public cloud providers use overlay protocols like
-[VXLAN](https://en.wikipedia.org/wiki/Virtual_Extensible_LAN) to work around this problem.
+This sounds like a lot of bandwidth available but keep in mind that your virtual machines get assigned to the physical
+machines as capacity allows. There is no cloud provider that can *guarantee* the bandwidth or latency between two
+virtual machines. Generally cloud providers only state the theoretical bandwidth of the connection a virtual machine
+has to the switching fabric, but not the specific bandwidth between two distinct virtual machines.
 
-We describe this not for you to learn but to highlight that public cloud networks are *complex*. A cloud provider
-cannot guarantee a fixed bandwidth between two virtual machines (unless they are put on the same physical server using
-affinity groups). This is one of the reasons that often the ideal setup for cloud architectures is one that uses
-multiple, medium-sized instances rather than few large sized ones.
+This is part of the reason why in the cloud scaling horizontally (adding more machines) is preferred rather than
+creating huge instances with lots of resources.
 
-### Underlying network architectures offered by cloud providers
+### Network architectures offered by cloud providers
 
 When we look at the network offerings by cloud providers there are three types:
 
-1. Virtual machines receive private IP addresses and a gateway or load balancer handles the public-to-private IP
-   translations. This is the case with the larger cloud providers such as [AWS](https://aws.amazon.com),
-   [Azure](https://azure.microsoft.com/en-us/) and [GCP](https://cloud.google.com/) at the time of writing.
-2. Virtual machines have one public IP address on the first network interface and additional private networks
-   can be attached as new, separate network interfaces. This is the case with most smaller IaaS providers such as
-   [DigitalOcean](https://www.digitalocean.com/), [Hetzner](https://www.hetzner.de/), [Upcloud](https://upcloud.com/),
-   or [Exoscale](https://www.exoscale.com/).
-3. Fully dynamic network configuration that allows the customer to define their network setup and IP assignment
-   dynamically. This is typically offered by IaaS providers that target enterprise customers who wish to migrate their
-   classic on-premises infrastructure and require the flexibility they had when using their own hardware. This is the
-   case with [1&1 IONOS](https://www.ionos.com/).
-   
-TODO: Vultr? Linode? Deutsche Telekom Cloud? Alibaba Cloud?
+1. **Private-only network with NAT**: This option is provided by the larger cloud providers such as
+   [AWS](https://aws.amazon.com), [Azure](https://azure.microsoft.com/en-us/), [GCP](https://cloud.google.com/) and
+   [IBM](https://www.ibm.com/cloud). This setup gives each virtual machine a
+   [private IP address](https://en.wikipedia.org/wiki/Private_network) on a private network only. When a public IP
+   address is needed that public IP is handled by the gateway provided by the cloud provider and the incoming traffic is
+   forwarded to the virtual machine on the private network using
+   [Destination NAT](https://en.wikipedia.org/wiki/Network_address_translation#DNAT). Multiple private networks (VPC's)
+   can be assigned to a virtual machine and they can work independently.
+2. **Default public IP**: This option is provided by smaller IaaS providers such as 
+   [DigitalOcean](https://www.digitalocean.com/), [Exoscale](https://www.exoscale.com/),
+   [Hetzner](https://www.hetzner.de/), [Linode](https://www.linode.com/), [Upcloud](https://upcloud.com/),
+   and [Vultr](https://www.vultr.com/). In this setup each virtual machine is attached to a public network and is
+   directly assigned one public IP address. Optionally private networks can be attached as well but the first public IP
+   generally cannot be removed as it is required for user data to work.
+3. **Fully customizable:** This setup allows the customer to design their network connectivity as they see fit. This 
+   setup is suitable for enterprise customers who want to move their on-premises setup into the cloud without
+   changing their architecture (lift-and-shift). This option is offered by [1&1 IONOS](https://www.ionos.com/).
+   ![The picture shows the user interface of IONOS where you can drag and servers, disks and network connections as you see fit.](ionos.png)
+
+!!! note
+    There are several other cloud providers which we have no information on, such as the
+    [Deutsche/Open Telekom Cloud](https://cloud.telekom.de/en), or the [Alibaba Cloud](https://us.alibabacloud.com/).
+    You can classify any cloud provider you come across into these categories.
+
+!!! note
+    Out of group 2 it is worth mentioning that the services that are available on the public network
+    (firewalls, load balancers) are often not available on private networks. 
 
 TODO: add illustration
-
-Out of group 2 it is worth mentioning that the services that are available on the public network
-(firewalls, load balancers) are often not available on private networks. 
 
 ### Firewalling
 
 IaaS providers often also offer network firewalls as a service, included in the platform. Firewalls generally have
-two rule types: INGRESS (from the Internet or other machines to the current VM) and EGRESS (from the current VM to
+two rule types: `INGRESS` (from the Internet or other machines to the current VM) and `EGRESS` (from the current VM to
 everywhere else).
 
 Firewall providers often employ the concept of *security groups*. The implementation varies greatly, but in general

@@ -10,13 +10,18 @@ nav:
   - Lectures:
     - "Overview": lectures/index.md
     - "1. Introduction to the Cloud": lectures/1-cloud-intro/index.md
-    - "2. Cloud capabilities": lectures/2-capabilities/index.md
-    - "3. Infrastructure as a Service": lectures/3-iaas/index.md
-    - "4. Beyond IaaS: PaaS, SaaS": lectures/4-xaas/index.md
+    - "2. Infrastructure as a Service": lectures/2-iaas/index.md
+    - "3. Beyond IaaS": lectures/3-xaas/index.md
+    - "4. Containers": lectures/4-containers/index.md
     - "5. Cloud-native software development": lectures/5-cloud-native/index.md
   - Exercises:
       - Overview: exercises/index.md
       - 1. IaaS: exercises/1-iaas/index.md
+      - 2. Terraform: exercises/2-terraform/index.md
+      - 3. Containers: exercises/3-containers/index.md
+      - 4. Prometheus: exercises/4-prometheus/index.md
+      - 5. Grafana: exercises/5-grafana/index.md
+      - 6. API integration: exercises/6-api-integration/index.md
   - Glossary:
       - A-Z: glossary/index.md
 theme:

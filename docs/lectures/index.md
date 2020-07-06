@@ -1,57 +1,59 @@
 ## Lecture 1: Introduction
 
-- NIST Definition of Cloud
-- IaaS, PaaS, SaaS, FaaS
+- Cloud building components
+- IaaS, PaaS, SaaS
 - Public vs. Private Cloud
 - Basic “hosting” service vs. managed service
-- Benefits/Risks/Regulations: Scalability, Privacy, GDPR, Safe Harbor/Privacy Shield
 - Business Models: Overbooking, Pay-per-Use, Standardization & Automation
+- Benefits/Risks/Regulations: Scalability, Privacy, GDPR, Safe Harbor/Privacy Shield
 
 <a href="/lectures/1-cloud-intro/"><button>Go to lecture &raquo;</button></a>
 
 ---
 
-## Lecture 2: Cloud capabilities
+## Lecture 2: IaaS introduction
 
-- Cloud roles: Platform/Service provider vs. customers (developers, enterprises)
-- Cloud architectures & definitions
-- Operational requiremens
-- Cloud performance
-- Cloud service provisioning
-- Extra Lectures: Various cloud stacks, Cloud networking, Security concepts
+- The history and inner workings of virtualization
+- Virtual machines as a Service
+- Storage in the Cloud
+- Networking in the Cloud
 
-<a href="/lectures/2-capabilities/"><button>Go to lecture &raquo;</button></a>
+<a href="/lectures/2-iaas/"><button>Go to lecture &raquo;</button></a>
 
 ---
 
-## Lecture 3: IaaS introduction
+## Lecture 3: Beyond IaaS
 
-- Intro to Cloud Platforms (Exoscale, Amazon AWS/EC2 and Google Cloud Platform)
-- Virtual Server+Storage+Networking capabilities
-- Automation via Terraform
-- Hands-on demos
+- Application load balancers
+- CDNs
+- Object Storage
+- Databases as a Service (DBaaS)
+- Functions as a Service (FaaS / Lambda)
+- Containers as a Service (CaaS)
+- Stream processing
+- Deployment pipelines
 
-<a href="/lectures/3-iaas/"><button>Go to lecture &raquo;</button></a>
+<a href="/lectures/3-xaas/"><button>Go to lecture &raquo;</button></a>
 
 ---
 
-## Lecture 4: Beyond IaaS
+## Lecture 4: Containers
 
-- Container Services (Docker & Kubernetes)
-- Differences Container vs. classical server virtualization
-- PaaS, SaaS, FaaS (Concepts, Examples)
-- Hands-on demos
+- Containers vs. Virtual Machines
+- The Dockerfile format
+- Container runtimes
+- Container orchestrators
+- Container networking
 
-<a href="/lectures/4-xaas/"><button>Go to lecture &raquo;</button></a>
+<a href="/lectures/4-containers/"><button>Go to lecture &raquo;</button></a>
 
 ---
 
 ## Lecture 5: Cloud-native software development
 
-- Cloud-native software basics & definitions
 - Microservices
+- Service meshes
 - 12-factor Apps
 - Frameworks and tools
-- Hands-on demos
 
 <a href="/lectures/5-cloud-native/"><button>Go to lecture &raquo;</button></a>
