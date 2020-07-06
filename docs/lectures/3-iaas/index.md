@@ -156,70 +156,55 @@ example, update your own service discovery database.
 
 ## Storage
 
-Hopefully we have managed to convey the *dynamic nature* of the cloud in our description so far. This brings up the
-question of where data should be stored. This section will explain the different storage options that you can use
-to store *files* directly from your virtual machine. We will touch on databases and other storage options in a later
-section.
+When it comes to data storage virtual machines work exactly like your physical machine would: there is a physical disk
+(or multiple) that store the files. The difference is that in the cloud your virtual machine may make use of a 
+distributed storage architecture instead of using a local disk. In a distributed storage system the data isn't stored
+on the machine that runs the virtual machine so a hardware failure on that machine will not cause a data loss.
 
-### How do filesystems work?
+However, a distributed storage system is generally either slower or more expensive for the same performance by several
+magnitudes so using a local storage may still be needed for some use cases.
 
-Before we dive into the different options let's take a look at how filesystems work. In a non-cloud environment you
-would insert a hard drive into your computer. This hard drive can either be a spinning disk (often referred to as HDD)
-or a solid-state drive (SSD).
+When we talk about storage systems we are talking about two types: block devices and filesystems. On they physical
+disk data is stored in its raw form so the disk itself has no information about which data belongs to which file.
+Filesystems organize data into *blocks* of a fixed or dynamic size and then create a database (mapping table) of 
+which file entry consists of which blocks of data. Keep in mind that the blocks of a single file may be distributed
+all over the whole disk randomly so that's something the filesystem must keep track of.
 
-Spinning disks have a read head that goes over the platter that spins under it. This means that information access on
-HDD requires the head to get into the correct position to read the data which takes time. This positioning is done by
-the controller chip that's on the disk itself.
-
-SSD's have different problems. Information access is instant since any block can be accessed immediately but the chip
-on the disk still needs to keep track of which cell is unusable, caching, etc.
-
-In other words the controller chip deals with the *low-level functions* on the disk for both HDD and SSD. The drive
-itself is accessible via either a [SATA](https://en.wikipedia.org/wiki/Serial_ATA) (Serial ATA) or a
-[SAS](https://en.wikipedia.org/wiki/Serial_Attached_SCSI) (Serial Attached SCSI) connection. In case of servers these
-disks are often assembled into a [RAID array](https://en.wikipedia.org/wiki/RAID) for redundancy and higher performance.
-Most RAID controllers will also implement caching which often also requires a built-in battery unit to function
-properly.
-
-In both cases the data is stored in blocks of fixed sizes (such as 4 kB). The filesystem itself contains the mapping
-of which file consists of which blocks on the disk.
-
-This is an important distinction: block storage solutions, no matter if they are network-bound or use a more classic
-connection such as fibre channel only know about the blocks on the disk. They do not know anything about files. Since
-filesystems are complex beasts block storage devices can only be used by a single machine at any given time.
-
-Network filesystems on the other hand are more resource intensive but can track which file is open from which
-machine and can be used in a distributed fashion.  
+Therefore we traditionally call raw disk devices *block devices*. Block devices are (with very few exceptions) only
+accessible from a single virtual or physical machine since otherwise the machines would have to synchronize their file
+system operations on that device. The only notable exception is [GFS2](https://en.wikipedia.org/wiki/GFS2). While you
+can use GFS2 over a shared storage infrastructure if you have control over it cloud providers enforce a single-VM access
+policy. In other words, one block storage device can only ever be used by a single VM. 
 
 ### Local Storage
 
-The most obvious storage option, of course, is a local storage. By local storage we mean a hard drive (SSD or HDD) that
-is integrated directly into the machine that's running the hypervisor.
+As described above the simplest and most widely supported option to store data from your virtual machine is a disk that
+is locally attached to the physical machine running the VM. This option offers you the highest performance at a
+relatively low price point. The reason for that is that it is the simplest and cheapest to build.
 
-This storage option has the benefit of offering a high performance disk at a relatively affordable price. The drawback
-is that the disk is local. If the physical machine running your VM has a problem your data may be lost.
+Some cloud providers offer disk redundancy ([RAID](https://en.wikipedia.org/wiki/RAID)) while others don't. At any rate
+a hardware failure on they physical machine means that your data may become unavailable for a period of time or may be
+completely lost.
 
-For all storage options the implementation of *backups* is critical but with local storage building redundancy on top
-of the virtual machine may be required to build a reliable system.
+It is therefore very advisable to solve redundancy on top of the virtual machine, e.g. by building a replicated database
+setup. If, however, your database is replicated anyway you may no longer need the more expensive storage options and 
+this can be a great way to save costs. 
 
 ### Network Block Storage
 
-Network block storage means a block storage that is delivered over the network. When talking about network we are not
-only talking about your standard IP / Ethernet network but also a direct SCSI over Fibre Channel infrastructure. The
-latter is often used in expensive enterprise storage systems that provide attachable disks to several physical machines.
+Network block storage means a block storage that is delivered over the network. The network here can mean a traditional
+IP network or a dedicated [Fibre Channel](https://en.wikipedia.org/wiki/Fibre_Channel_Protocol) infrastructure.
 
-TODO: add illustration for fibre channel storage systems
+As described before block storage is, in general, single-VM only. You can't access the files stored on a block storage
+device from multiple virtual machines.
 
-The simplest and easiest to set up network block storage is probably [iSCSI](https://en.wikipedia.org/wiki/ISCSI), a
-protocol that runs the SCSI storage protocol over a commodity IP network. In other words one computer can take a block
-device and let another computer use it. However, as mentioned previously in this case the computer using the iSCSI
-device is in full control over the files that are stored on the storage device. It is also worth mentioning that iSCSI
-does not guarantee any redundancy beyond the RAID or storage system the offering computer already has.
+Also note that Network Block Storage does not automatically come with redundancy. Some solutions, such as 
+[iSCSI](https://en.wikipedia.org/wiki/ISCSI) simply offer the disk of one machine to another. More advanced ones like
+[Ceph RBD](https://docs.ceph.com/docs/master/rbd/) or the cloud provider offerings such as
+[EBS by Amazon](https://aws.amazon.com/ebs/), however, do offer redundancy.
 
-More advanced storage systems such as [Ceph RBD](https://docs.ceph.com/docs/master/rbd/) or replicated enterprise
-storage systems offer redundancy such that when one storage instance fails others can take its place without outage.
-Cloud provider offerings such as [EBS by Amazon](https://aws.amazon.com/ebs/) also offer this kind of redundancy with
-severe limitations as to how many EBS volumes can be attached to a virtual machine.
+At any rate, using Network Block Storage does not absolve you from the duty to make backups and have a documented and
+tested disaster recovery strategy.
 
 ### Network File Systems
 
