@@ -334,11 +334,57 @@ of the rotation.
 
 ### VPNs, private interconnects, and routing services
 
+While it seems convenient at first to use only the public network several organizations have security models that
+prevent accidental public exposure of services not only by implementing the appropriate firewalls (e.g. with security
+groups) but also by not having private services on the public internet at all. To connect these internal services
+you must be on a private network.
 
+However, this presents a problem when moving data between several, geographically distributed locations. Most companies
+don't own continent-spanning fiber channel backbones where they could simply create a private network without going on
+the internet on. This means that most companies have to choose one of two methods if they want to create a private
+connectivity between locations (and the cloud): an
+[MPLS tunnel](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) or [VPN](https://en.wikipedia.org/wiki/Virtual_private_network).
+
+MPLS tunnels create a virtual connectivity that does not go on the Internet. While being expensive and slow to set up,
+it can offer a guaranteed bandwidth, latency and better security than a VPN.
+
+VPN's on the other hand create a virtual connectivity by sending data over the Internet in an encrypted form. Bandwidth
+or latency cannot be guaranteed, and there are several drawbacks (such as decreased
+[MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit)) but it's a very affordable solution.
+
+Larger cloud providers tend to offer both options. MPLS is supported by the larger cloud providers ([AWS Direct connect](https://aws.amazon.com/directconnect/),
+[Azure Express Route](https://azure.microsoft.com/en-us/services/expressroute/), or [Google Cloud Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect))
+and also some smaller ones (e.g. [Exoscale Private Connect](https://community.exoscale.com/documentation/compute/private-connect/)).
+
+VPN is also offered mostly by large providers
+([AWS VPC VPN](https://docs.aws.amazon.com/vpc/latest/userguide/vpn-connections.html),
+[Azure VPN](https://azure.microsoft.com/en-us/services/vpn-gateway/), or
+[Google Cloud VPN](https://cloud.google.com/network-connectivity/docs/vpn/concepts/overview)). However, keep in mind
+that this VPN is a site-to-site VPN built on [IPSec](https://en.wikipedia.org/wiki/IPsec) and requires a fixed IP
+address on your side as well. In other words you can't use this VPN to connect from your laptop to the cloud on the go. 
+The only cloud service that offers a mobile device to cloud connectivity at the time of writing is Azure's
+[Point-to-Site VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal).
+
+It is also worth noting that VPN's can be used to connect cloud providers together.
 
 ### DNS
 
+The [Domain Name Service](https://en.wikipedia.org/wiki/Domain_Name_System) is one of the services that are all but
+required for building an infrastructure. It provides domain name to IP address resolution, such as pointing your domain
+`example.com` to an IP address of your servers.
+
+There is a difference, however, between DNS services on offer. Some DNS services by cloud providers offer only simple
+resolution, other providers offer more advanced features. These features include being able to host the DNS service
+only on a private network without exposing it to the internet.
+
+More advanced features may include automatic DNS failover. This involves running regular health checks on your services
+and if your primary service fails the DNS service can automatically switch to the secondary IP. There are even services
+that offer advanced functionality such as routing traffic to different servers based on the geographic location of the
+client. This can be used for advanced builds such as
+[building a custom CDN](https://pasztor.at/blog/building-your-own-cdn).
 
 ## Monitoring
+
+
 
 ## Automation
