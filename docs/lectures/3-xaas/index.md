@@ -90,7 +90,7 @@ As mentioned before, one of the most difficult services to operate are ones that
 
 ### Database consistency
 
-When considering which database offering to use database consistency plays a key role. It is a common occurrence that startups pick, for example, MongoDB because of its &ldquo; hipness&rdquo; instead of it considering the benefits and drawbacks of this (or any other) database solution.
+When considering which database offering to use database consistency plays a key role. It is a common occurrence that startups pick, for example, MongoDB because of its &ldquo;hipness&rdquo; instead of it considering the benefits and drawbacks of this (or any other) database solution.
 
 One of the important aspects of databases is the way they offer consistency. Traditional SQL-style databases often supports what's called [ACID-compliance](https://en.wikipedia.org/wiki/ACID). This stands for Atomicity, Consistency, Isolation, and Durability.
 
