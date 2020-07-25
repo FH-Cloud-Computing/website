@@ -51,10 +51,10 @@ CDN's work around this problem by replicating content to servers closer to the u
 
 In essence, CDN's help with latency issues *if the content can be cached*. in other words, this helps mostly with static content, but in combination with functions as a service (see below) dynamic content can also be delivered from edge nodes to some extent.
 
-!!! note Did you know?
+!!! tip "Did you know?"
     Low latency connections are important not just for delivering content. Stock exchanges benefit from very low latencies. For example, there is a [private microwave network between Frankfurt and London](https://arstechnica.com/information-technology/2016/11/private-microwave-networks-financial-hft/) that has twice the speed of the public internet.
 
-!!! note Did you know?
+!!! tip "Did you know?"
     SpaceX is building the [Starlink network](https://techcrunch.com/2020/06/15/spacex-will-have-to-starlink-internets-low-latency-within-the-next-month-to-qualify-for-up-to-16b-in-federal-funding/) to provide lower latency connectivity across the globe.
 
 ## Object Storage
@@ -79,7 +79,7 @@ However, due to the limited featureset object storages have a few unique abiliti
 
 Some providers offer an extension to their object storage system that puts data in cold storage (e.g. [on tape](https://en.wikipedia.org/wiki/Magnetic_tape_data_storage)). Data can be uploaded directly via the API, or in the case of very large data amounts shipped to the provider on hard drives.
 
-!!! note "Did you know?"
+!!! tip "Did you know?"
     &ldquo;Never underestimate the bandwidth of a truck full of hard drives.&rdquo; &mdash; is an industry saying that kept its validity to this day.
 
 Since the data is stored on offline (cold) storage the data retrieval is not as immediate as with the object storage. To retrieve data from cold storage you often need to wait several hours until the data becomes available. Therefore, an effective backup strategy to the cloud often involves moving data to the object storage first and only older backups to cold storage. Amazon, for example, allows for automating this process using [S3 lifecycle rules](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). 
