@@ -86,11 +86,56 @@ Since the data is stored on offline (cold) storage the data retrieval is not as 
 
 ## Databases as a Service (DBaaS)
 
+As mentioned before, one of the most difficult services to operate are ones that store state. They are also highly standardized between cloud providers. This makes them an ideal candidate for a company to use PaaS instead of managing everything in-house.
+
+### Database consistency
+
+When considering which database offering to use database consistency plays a key role. It is a common occurrence that startups pick, for example, MongoDB because of its &ldquo; hipness&rdquo; instead of it considering the benefits and drawbacks of this (or any other) database solution.
+
+One of the important aspects of databases is the way they offer consistency. Traditional SQL-style databases often supports what's called [ACID-compliance](https://en.wikipedia.org/wiki/ACID). This stands for Atomicity, Consistency, Isolation, and Durability.
+
+- **Atomicity** guarantees that series of database operations will either occur as a whole or not at all. The practical implementation of atomicity are [transactions](https://en.wikipedia.org/wiki/Database_transaction).
+- **Consistency** guarantees that if an operation would violate the rules of a database (whatever they may be) the whole transaction is rolled back to a previously known good state.
+- **Isolation** guarantees that two transactions executing at the same time will not affect each other. While this can be turned on it is very resource intensive and database engines often allow for a lower isolation level to increase performance.
+- **Durability** guarantees that, if a user has received a success message the data is actually stored. This guarantee is not met by most NoSQL databases.
+
+In contrast, most NoSQL databases implement BASE:
+
+- **Basic Availability** guarantees that the database is available most of the time.
+- **Soft-state** allows for data to be non-consistent. In other words, the database doesn't have to be &ldquo;in-sync&rdquo; across all database replicas.
+- **Eventual consistency** allows for written data to be translated across multiple replicas at a future point in time.
+
+This is, of course, the theory. In practice even BASE-compliant databases tend to offer some ACID-features. For example, MongoDB supports transactions for atomicity, but is still a BASE system.
+
+The above two database types are illustrated by the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem). The CAP theorem says that out of Consistency, Availability, and Partition tolerance only two can be chosen at any given time. The trick here is that partition tolerance means that a system can survive when the network is split in two parts. This is not optional, so we can pick between CP and AP databases.
+
+CP databases will guarantee that a database operation will either fail or if successful, be consistent across all replicas. We will never have a case where a change is not yet translated to a replica and we receive outdated information. This is, in practice, often achieved by [quorum](https://en.wikipedia.org/wiki/Quorum_(distributed_computing)). When a network is split in two only the nodes that can form a majority are able to perform database operations. Nodes that are not able to join the majority cannot perform database operations.
+
+AP databases on the other hand will always serve database operations, but cannot guarantee consistency. The data read may be outdated. Database writes may be lost if the node goes down before it is able to transmit the data to the other nodes.
+
+There are benefits for both and the appropriate database type must be chosen for the task at hand. 
+
 ### Relational databases (SQL)
+
+SQL or relational databases are one of the more traditional database systems. They use predefined data tables with fixed columns and datatypes. Most SQL databases also allow creating references between tables. These references or foreign keys allow for validation. For example, you could create database that has an `articles` and a `comments` table. Since the `comments` table could reference the `articles` table it would be impossible to create a comment with an invalid article ID.
+
+While it is easy to make the assumption that RDBMS implement ACID compliance (CP) in most cases it is only true when the database is run on a single node. When using replication most RDBMS implement asynchronous replication which puts them partially in the BASE / AP territory. When using a managed database make sure your cloud provider supports a replication that suits your consistency needs.
 
 ### Document databases
 
+Document databases offer the user the ability to store a structured document, such as a JSON file. Often it also creates indexes over these documents that allow for quick searching.
+
+While SQL databases enforce fixed columns, document databases often offer the ability to use fields dynamically. While this may make development easier in the early stages it also presents some risks. Since the database engine does not validate the field names it is easier to create a mess in the database with typos, inconsistent changes, etc. It is therefore recommended to create a strict data model in the application layer.
+
+Most document databases fall strictly in the BASE/AP category when it comes to replication.
+
 ### Time Series databases
+
+Time-series databases are usually used in monitoring systems and store numeric values associated with a certain timestamp. One of the most famous cloud-native monitoring system with an integrated time-series databases is [Prometheus](https://prometheus.io/).  
+
+### Graph databases
+
+Graph databases are special databases that store relationships of datasets with each other and allow making queries over them. These database types can be used for creating social graphs, interests, etc.
 
 ## Functions as a Service (FaaS / Lambda)
 
