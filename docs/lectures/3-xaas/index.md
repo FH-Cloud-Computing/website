@@ -59,9 +59,30 @@ In essence, CDN's help with latency issues *if the content can be cached*. in ot
 
 ## Object Storage
 
+In the previous lecture we briefly mentioned object storages. As a reminder, traditional block storage devices and the filesystems implemented on top of them have several features you may consider advanced:
 
+- Multiple programs can open the same file in parallel,
+- Files can be read and written partially,
+- Locks can be placed on files preventing other processes from accessing them.
+
+Object storages are different. The most popular [Amazon S3](https://en.wikipedia.org/wiki/Amazon_S3) protocol offers the ability to up- and download, list and delete files. However, files can only be uploaded as a whole, partial reads
+or writes are not possible. Consistency is also not guaranteed when multiple programs are accessing the same files in parallel.
+
+However, due to the limited featureset object storages have a few unique abilities not afforded by traditional block storage:
+
+- They are redundant over multiple servers by design. The loss of a single physical machine does not mean a data loss.
+- The S3 protocol offers the ability to place ACL's (access control lists) on the objects uploaded to the object storage. This allows making files publicly accessible over the web without needing to maintain a server.
+- Some object storage implementations offer the ability to keep *multiple versions* of files. Clients can be prevented from deleting older versions making versioning an effective data loss prevention mechanism.
+- Some object storage implementations offer the ability to lock files from being modified in the future. This is especially important when adhering to corporate or government data retention requirements.
 
 ### Cold storage
+
+Some providers offer an extension to their object storage system that puts data in cold storage (e.g. [on tape](https://en.wikipedia.org/wiki/Magnetic_tape_data_storage)). Data can be uploaded directly via the API, or in the case of very large data amounts shipped to the provider on hard drives.
+
+!!! tip "Did you know?"
+    &ldquo;Never underestimate the bandwidth of a truck full of hard drives.&rdquo; &mdash; is an industry saying that kept its validity to this day.
+
+Since the data is stored on offline (cold) storage the data retrieval is not as immediate as with the object storage. To retrieve data from cold storage you often need to wait several hours until the data becomes available. Therefore, an effective backup strategy to the cloud often involves moving data to the object storage first and only older backups to cold storage. Amazon, for example, allows for automating this process using [S3 lifecycle rules](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). 
 
 ## Databases as a Service (DBaaS)
 
