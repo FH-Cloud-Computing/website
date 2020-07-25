@@ -385,6 +385,11 @@ client. This can be used for advanced builds such as
 
 ## Monitoring
 
-
+Some cloud providers offer included basic monitoring, such as CPU or memory usage. Some providers are offering
+monitoring agents you can install on your virtual machine to get more data in the monitoring interface. With some
+cloud providers monitoring alerts can be integrated with virtual machine pools to provide automatic scaling, either
+automatically or using lambdas/FaaS, which we will talk about in the [next lecture](/lectures/3-xaas/).
 
 ## Automation
+
+
