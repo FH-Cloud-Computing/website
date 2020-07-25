@@ -37,7 +37,7 @@ This has an adverse effect on user experience which is why newer, so-called &ldq
 
 While it seems the Internet is blazing fast nowadays delivering content to the other side of the planet is still an issue. As you may know most of the Internet is comprised of [fiber optic cabling](https://en.wikipedia.org/wiki/Optical_fiber). Data is transmitted by turning a laser on and off in rapid succession.
 
-Let's do a little mental exercise: the speed of light is 299.792.458 m/s. The radius of our planet is 6.371 km. A ray of light should be able to round the planet in `6.371.000 / 299.792.458 = 0.021` seconds. In other words any data transmitted should be able to travel around the world in ~21 milliseconds. Yet, in practice we see latencies upwarts of 100 ms when transmitting data from Europe to India.
+Let's do a little mental exercise: the speed of light is 299.792.458 m/s. The radius of our planet is 6.371 km. A ray of light should be able to round the planet in `6.371.000 / 299.792.458 = 0.021` seconds. In other words any data transmitted should be able to travel around the world in ~21 milliseconds. Yet, in practice we see latencies upwards of 100 ms when transmitting data from Europe to India.
 
 ![An illustration of a fiber optic cable showing a light ray bouncing off the walls.](fiber.svg)
 
@@ -51,13 +51,15 @@ CDN's work around this problem by replicating content to servers closer to the u
 
 In essence, CDN's help with latency issues *if the content can be cached*. in other words, this helps mostly with static content, but in combination with functions as a service (see below) dynamic content can also be delivered from edge nodes to some extent.
 
-!!! Did you know?
+!!! tip Did you know?
     Low latency connections are important not just for delivering content. Stock exchanges benefit from very low latencies. For example, there is a [private microwave network between Frankfurt and London](https://arstechnica.com/information-technology/2016/11/private-microwave-networks-financial-hft/) that has twice the speed of the public internet.
 
-!!! Did you know?
+!!! tip Did you know?
     SpaceX is building the [Starlink network](https://techcrunch.com/2020/06/15/spacex-will-have-to-starlink-internets-low-latency-within-the-next-month-to-qualify-for-up-to-16b-in-federal-funding/) to provide lower latency connectivity across the globe.
 
 ## Object Storage
+
+
 
 ### Cold storage
 
