@@ -139,8 +139,38 @@ Graph databases are special databases that store relationships of datasets with 
 
 ## Functions as a Service (FaaS / Lambda)
 
+Functions as a Service or Lambdas are a way to run custom code without having to worry about the runtime environment. These pieces of code are triggered by events: a timer, a message in a message queue, or an incoming HTTP request.
+
+To make this easier to understand let's consider a hypothetical scenario: let's say you want to have an up to date list of IP addresses of all virtual machines you are running. In this case you have two options. Option one is to run a piece of code every few minutes to update the IP list. However, this may not be fast enough, and it may also not scale with a very large number of machines.
+
+So your other option is to use a FaaS function to *react* to the fact that a new instance has been launched or an instance has been destroyed. This function would be called every time there is a *change*.
+
+In a different scenario FaaS would give you the ability to run small amounts of program code on CDN edge nodes giving you the ability for fast, dynamic content delivery. One such service is [Lambda@Edge by Amazon](https://aws.amazon.com/lambda/edge/).
+
+However, keep in mind that FaaS may have limitations in terms of performance. To conserve processing power the cloud provider will shut down runtime environments not in use and a restart may take longer than usual. This may, for example, destroy the advantage edge node lambda functions have in terms of latency for low traffic sites.
+
 ## Containers as a Service (CaaS)
 
-## Stream processing
+Containers are a way to run applications in an isolated environment without dedicating a full virtual machine to them. However, as you might imagine, containers are not magic and cannot automatically move from one physical server to another. This, and many other tasks are the job of container orchestrators such as Kubernetes.
+
+Since Kubernetes and its alternatives are incredibly complex to operate many cloud providers take on this burden, and offer containers as a service to customers.
+
+Note that containers are the topic of the next lecture so we won't cover them in detail here.
+
+## Stream processing and Business Intelligence tools
+
+One of the most complex setups to run in an on-premises environment is something nowadays known as a datalake. IT aggregates data from many different source databases  and allows data scientists to extract valuable information from it. It is not uncommon to see several dozen source database.
+
+What's more, some analysees require close to real time data processing.
+
+The tools usually seen in such as setup are [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Apache Spark](https://spark.apache.org/), [Kafka](https://kafka.apache.org/), and several more. The number of source databases and the number of tools listed here should tell you how complex such a setup can be.
+
+This is one of the reasons why even large, traditional corporations are seriously considering moving their data analytics into the cloud.
 
 ## Deployment pipelines
+
+While there are many, many more services on offer in the cloud we'd like to mention a final piece to the puzzle: CI/CD systems or deployment pipelines. These deployment pipelines allow a DevOps engineer to build automatic software deployment systems with relative ease.
+
+The general idea is that the code is handled in a version control system such as git. When the code is pushed into the version control system an automatic build and deployment process is started. This can involve compiling the source code to automatic tests running. The deployment pipeline then takes care of copying the software to the appropriate environment, such as creating a container and deploying it to the CaaS environment or creating virtual machines with the appropriate code.
+
+When this service is offered by the cloud provider that runs the infrastructure themselves, these are usually tightly integrated, allowing a prospective user to simply point-and-click to create the whole environment. It is debatable if such an automatically created environment is suitable for production use, but it may give a good starting point to customize the setup from.
