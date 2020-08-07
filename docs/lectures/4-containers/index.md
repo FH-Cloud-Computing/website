@@ -86,5 +86,11 @@ More advanced options for container networking create a single virtual network a
 
 ![An image illustrating Kubernetes networking. There are 3 virtual machines that have a common network that the virtual machines are connected to. The outbound connections are NAT'ed to the public IP of each virtual machine.](kubernetes-networking-01.svg)
 
+When you look at these graphics, one question may come to mind: the cloud is quite dynamic in its nature, so how does a Kubernetes cluster receive incoming connections? After all, each of the nodes may be replaced with a new one, with a new IP address at any time? This is where the immense feature set of Kubernetes begins to show itself. Kubernetes includes several *controllers* that can interact with cloud providers in a variety of ways. One of these integrations can be, for example, the load balancer integrations. The Kubernetes network can be extended to a load balancer and that load balancer can send traffic directly over the virtual network used by the containers.
+
+Further helping the dynamic nature of the cloud are features like the ability to create internal firewalls. These firewalls can help mitigate possible security vulnerabilities like [SSRF](https://pasztor.at/blog/what-is-ssrf). Since these firewalls can be created using the same API as the software deployment, the firewall rules for an application can be versioned in Git, for example.
+
+Since everything required to run an application can be stored in a Dockerfile and a Kubernetes manifest the application source code can be self-contained. This is, of course, only true if the application is written in such a way that workes well with the cloud. This is described [in the next lecture](../5-cloud-native/index.md). 
+
 ## Orchestration (Swarm, Kubernetes, etc)
 
