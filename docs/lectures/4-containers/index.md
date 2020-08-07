@@ -73,3 +73,18 @@ You can, of course, update a running container just as you would a traditional v
 Immutable infrastructure presents a massive benefit: instead of having to deal with a downtime when the upgrade is ran, the updated version can be tested before it is launched.
 
 However, this concept reaches its limits when it comes to running software that needs to store data in a persistent fashion, for example, databases. For this purpose containers can designate special folders to be mounted as *volumes*. Volumes can be persisted by either mounting them as a folder from the host machine, or by mounting a network-based storage system.
+
+## Container networking
+
+As mentioned previously, containers regularly have their own, virtual network interfaces. This virtual network interface can be connected in a number of ways.
+
+If we take a look at Docker's default networking model the virtual network interface is connected to an internal [network bridge](https://en.wikipedia.org/wiki/Bridging_(networking)). This enables containers to connect to each other. For connections to the Internet a [NAT](https://en.wikipedia.org/wiki/Network_address_translation) is performed.
+
+![An image illustrating Docker networking. Four containers are connected to an internal docker0 bridge in a virtual machine. Each container sees their own virtual interface as "eth0". A NAT is performed when accessing the public internet.](docker-networking-01.svg)
+
+More advanced options for container networking create a single virtual network across several hosts and connect the containers to this virtual network. This is an option with [Docker Swarm](https://docs.docker.com/engine/swarm/) and is always the case with [Kubernetes](https://kubernetes.io/).
+
+![An image illustrating Kubernetes networking. There are 3 virtual machines that have a common network that the virtual machines are connected to. The outbound connections are NAT'ed to the public IP of each virtual machine.](kubernetes-networking-01.svg)
+
+## Orchestration (Swarm, Kubernetes, etc)
+
