@@ -624,9 +624,9 @@ In US legal history the speaker or publisher of certain information is responsib
 The CDA is not limitless, providers still have to remove infringing content if notified. They may also employ moderation
 proactively.
 
-### The fall of Privacy Shield and Standard Contract Clauses (2016, EU-US)
+### The fall of Privacy Shield and Standard Contract Clauses (2020, EU-US)
 
-The Privacy Shield agreement was the successor to the failed International Safe Harbor Privacy Principles framework and is intend to protect the privacy of EU citizens when using US services or their data is transferred to the USA.
+The Privacy Shield agreement (2016) was the successor to the failed International Safe Harbor Privacy Principles framework and is intend to protect the privacy of EU citizens when using US services or their data is transferred to the USA.
 
 The Privacy Shield has been enhanced in 2017 by the EU–US Umbrella Agreement which fixed many of the issues with the Privacy Shield.
 
