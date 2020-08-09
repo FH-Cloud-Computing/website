@@ -616,22 +616,23 @@ This section of of the CDA is very short:
 > No provider or user of an interactive computer service shall be treated as the publisher or speaker of any information
 > provided by another information content provider.
 
-To someone not well versed in US legal lingo this may be sound like gibberish but it is, in fact, one of the most
-important pieces of legislation pertaining to operating platforms in the cloud.
+To someone not well versed in US legal lingo this may be sound like gibberish but it is, in fact, one of the most important pieces of legislation pertaining to operating platforms in the cloud.
 
-In US legal history the speaker or publisher of certain information is responsible for the information being provided.
-Before the CDA any provider hosting illegal content would be responsible for said content. The CDA changed that by
-shielding providers from liability. This included web hosting providers as well as newspapers that had a content
-section.
+In US legal history the speaker or publisher of certain information is responsible for the information being provided. Before the CDA any provider hosting illegal content would be responsible for said content. The CDA changed that by shielding providers from liability. This included web hosting providers as well as newspapers that had a content section.
 
 The CDA is not limitless, providers still have to remove infringing content if notified. They may also employ moderation
 proactively.
 
-### Privacy Shield (2016, EU-US)
+### The fall of Privacy Shield and Standard Contract Clauses (2016, EU-US)
 
-The Privacy Shield agreement is the successor to the failed International Safe Harbor Privacy Principles framework and
-is intend to protect the privacy of EU citizens when using US services or their data is transferred to the USA.
+The Privacy Shield agreement was the successor to the failed International Safe Harbor Privacy Principles framework and is intend to protect the privacy of EU citizens when using US services or their data is transferred to the USA.
 
-The Privacy Shield has been enhanced in 2017 by the EU–US Umbrella Agreement which fixes many of the issues with the
-Privacy Shield. While there are still valid criticisms it remains to be seen if this agreement will also be declared
-invalid as the predecessor. 
+The Privacy Shield has been enhanced in 2017 by the EU–US Umbrella Agreement which fixed many of the issues with the Privacy Shield.
+
+Unfortunately for cloud users, Privacy Shield has been [invalidated by the CJEU](https://noyb.eu/en/cjeu). This decision means that you, as a European cloud user, can no longer *automatically* use a US-governed cloud provider.
+
+The first SCC is [Decision 2001/497/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32001D0497&from=en) which states that both parties (you as the cloud user, and the cloud provider) are both jointly and severally liable for any data breaches.
+
+The second SCC is [Decision 2004/915/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32004D0915) is more business friendly amd merely makes sure that the that both the European party and the non-European party upheld their obligation to handle data with due care and implement protection measures. Shared liability would only apply if the terms of the SCC were breached. While this is a step forward, it is worth noting that this puts the responsibility **on the cloud customer** if the cloud provider breaches the terms by, for example, handing over data to US authorities covertly.
+
+The third SCC is [Decision 2010/87/EU](https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32010D0087) and was adopted by Google, for example. It creates a safety net for the cloud provider by only requiring them to disclose requests by law enforcement if that would not put criminal liability on them. It also puts any liability for damages on the *cloud user* unless they, for example, went bankrupt. In that case the cloud provider is only responsible for their own operations, not those of the cloud user. In order words, **you the cloud user are responsible for any breaches of data due to US law enforcement requests**.
