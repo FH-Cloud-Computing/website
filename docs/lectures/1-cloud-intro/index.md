@@ -630,7 +630,7 @@ The Privacy Shield agreement (2016) was the successor to the failed Internationa
 
 The Privacy Shield has been enhanced in 2017 by the EU–US Umbrella Agreement which fixed many of the issues with the Privacy Shield.
 
-Unfortunately for cloud users, Privacy Shield has been [invalidated by the CJEU](https://noyb.eu/en/cjeu). This decision means that you, as a European cloud user, can no longer *automatically* use a US-governed cloud provider.
+Unfortunately for cloud users, Privacy Shield has been [invalidated by the CJEU](https://noyb.eu/en/cjeu). This decision means that you, as a European cloud user, can no longer *automatically* use a US-governed cloud provider without accepting liability.
 
 The first SCC is [Decision 2001/497/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32001D0497&from=en) which states that both parties (you as the cloud user, and the cloud provider) are both jointly and severally liable for any data breaches.
 
