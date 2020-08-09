@@ -494,9 +494,10 @@ more suited for environments where traditional IT is still a concern.
     
     - Shields providers from liability if their systems host illegal content which they don't know about.
     
-    **Privacy Shield:**
+    **Privacy Shield and SCC:**
     
-    - Establishes a legal basis for transfering data from Europe to the US.
+    - Privacy Shield was recently abolished and instead cloud providers must now add Standard Contract Clauses to their Terms of Service.
+    - The SCC favored by most cloud providers puts the legal liability for any data braches due to US law enforcement requests on the cloud customer (you).
 
 ### General Data Protection Regulation (G.D.P.R., EU)
 
