@@ -74,6 +74,18 @@ Immutable infrastructure presents a massive benefit: instead of having to deal w
 
 However, this concept reaches its limits when it comes to running software that needs to store data in a persistent fashion, for example, databases. For this purpose containers can designate special folders to be mounted as *volumes*. Volumes can be persisted by either mounting them as a folder from the host machine, or by mounting a network-based storage system.
 
+## Orchestration (Swarm, Kubernetes, etc)
+
+Docker and other container runtimes do not manage containers across multiple servers by themselves. Docker has received an addon called Docker Swarm, but nowadays the clear winner of the &ldquo;Container Wars&rdquo; is [Kubernetes](https://kubernetes.io).
+
+Container orchestrators are responsible for determining which server has free capacity and schedule containers to run on them. When a server fails these orchestrators are responsible for discovering it and re-launching them on a different server.
+
+Furthermore, container orchestrators contain a certain amount of integration with the cloud providers. Docker Swarm has very basic integrations, but Kubernetes on the other hand, has integrations with just about anything.
+
+Depending on the cloud provider Kubernetes can automatically move block storage mounts to a different server when a container is moved, configure cloud load balancers and much more.
+
+This flexibility comes at a cost: Kubernetes is very complex. A detailed explanation on how to deploy an application on Kubernetes would vastly exceed the bounds of this course. If you are interested in this topic we recommend taking a look at one of the many [Certified Kubernetes Application Developer](https://www.cncf.io/certification/ckad/) courses on the Internet.
+
 ## Container networking
 
 As mentioned previously, containers regularly have their own, virtual network interfaces. This virtual network interface can be connected in a number of ways.
@@ -92,5 +104,5 @@ Further helping the dynamic nature of the cloud are features like the ability to
 
 Since everything required to run an application can be stored in a Dockerfile and a Kubernetes manifest the application source code can be self-contained. This is, of course, only true if the application is written in such a way that workes well with the cloud. This is described [in the next lecture](../5-cloud-native/index.md). 
 
-## Orchestration (Swarm, Kubernetes, etc)
+
 
