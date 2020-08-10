@@ -81,4 +81,18 @@ In practice each application contains at least some basic logic to filter logs t
 
 ### 12. Tooling
 
-The [admin process recommendation](https://12factor.net/admin-processes) concerns itself with the command line tools needed to operate the application. These are things like running database migrations, etc. The recommendation says that these tools should be runnable directly from the applications directory without much extra configuration or installation. 
+The [admin process recommendation](https://12factor.net/admin-processes) concerns itself with the command line tools needed to operate the application. These are things like running database migrations, etc. The recommendation says that these tools should be runnable directly from the applications directory without much extra configuration or installation.
+
+## Metrics collection
+
+The above 12 factors are, by necessity, limited in scope. The author(s) of those 12 factors have taken many things into account, yet left out others.
+
+One of these is metrics collection. As you will learn in the [Prometheus exercise](../../exercises/4-prometheus/index.md), [Prometheus](https://prometheus.io/) has established itself as a defacto standard for monitoring cloud-native applications.
+
+It is not uncommon to see applications include a small webserver that exposes internal metrics [in the Prometheus data format](https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md). This makes monitoring exceedingly easy compared to having to configure a separate monitoring service.
+
+## Health checks
+
+When dealing with containerized environments it is very important that applications report accurately when they are ready to serve traffic, and when they are having problems.
+
+This can be achieved by implementing the [`HEALTHCHECK`](https://docs.docker.com/engine/reference/builder/#healthcheck) directive in the `Dockerfile`, or by implementing [Liveness, Readiness, and Startup Probles](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) in Kubernetes.
