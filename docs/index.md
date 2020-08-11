@@ -84,5 +84,6 @@ Website: [pasztor.at](https://pasztor.at)
 
 - Software developer and DevOps engineer background (10+ years experience)
 - Web Focused Career
-- Currently works as a Developer Advocate at A1 Telekom / A1 Digital / Exoscale
+- Tech Lead at Deloitte Digital
+- Previously: A1 Group, Entrecloud (startup), Ixolit group, Docler group.
 - Certified Kubernetes Application Developer
