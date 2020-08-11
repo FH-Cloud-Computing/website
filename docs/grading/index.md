@@ -16,13 +16,13 @@
 
 - 5% for having a working Prometheus and Grafana installation that monitors the instances in the instance pool.
 - 5% for automating the installation procedure of Prometheus and Grafana via Terraform.
-- 5% for implementing the Prometheus service discovery yourself.
+- 5% for implementing the Prometheus service discovery yourself. (Your solution must be in a different programming language than the provided example, or must be substantially different.)
  
 ### Sprint 3:
 
 - 5% for having a working autoscaling behavior.
 - 5% for having a complete automated setup of the instance pools, NLB, monitoring server via Terraform.
-- 5% for implementing the autoscaling web service yourself.
+- 5% for implementing the autoscaling web service yourself. (Your solution must be in a different programming language than the provided example, or must be substantially different.)
  
 ## Marks
 
