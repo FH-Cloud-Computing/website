@@ -51,9 +51,9 @@
 
 ## Lecture 5: Cloud-native software development
 
+- 12-factor Apps
 - Microservices
 - Service meshes
-- 12-factor Apps
 - Frameworks and tools
 
 <a href="/lectures/5-cloud-native/"><button>Go to lecture &raquo;</button></a>

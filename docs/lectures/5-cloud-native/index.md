@@ -96,3 +96,68 @@ It is not uncommon to see applications include a small webserver that exposes in
 When dealing with containerized environments it is very important that applications report accurately when they are ready to serve traffic, and when they are having problems.
 
 This can be achieved by implementing the [`HEALTHCHECK`](https://docs.docker.com/engine/reference/builder/#healthcheck) directive in the `Dockerfile`, or by implementing [Liveness, Readiness, and Startup Probles](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) in Kubernetes.
+
+## Microservices
+
+The proliferation of containers has brought about a change in software design aswell: microservices. Microservices is a concept where, instead of building one monolithic application one builds a tiny service for each need. These services are connected across the network, usually via HTTP.
+
+On its face this solves the problem of creating an incoherent giant ball of code with code quality. However, experience has shown that this is not true. **A team or company that is not able to write a good quality monolith is also not able to design and maintain microservices properly.**
+
+To write a well designed system, no matter if microservices or monolith, needs to have clean API boundaries between the different parts of the system. Unfortunately, there is no simple way to achieve clean boundaries as there is a host of literature on Clean Code that would exceed the bounds of this course.
+
+Where's the difference? For one, it's the *network*. When you write a monolith you can rely on every call across API boundaries will always, reliably return. With microservices, this is not true. Microservices calls can hang indefinitely. It is possible that the other service simply disappears from the network and you won't even know it. That's why a microservices architecture always needs to include the [Circuit Breaker pattern](https://martinfowler.com/bliki/CircuitBreaker.html)
+
+Second, it's the runtime. If there are several microservices calling each other, each service being *reasonably* fast, the run time can still add up. Imagine 5 microservices calling each other, each woth a maximum runtime of 200ms. That's a one second response time right there!
+
+Third, it's the API design. If you break your API in a monolithic application chances are your compiler will bark at you and refuse to compile the code. If you break compatibility across microservices possibly nothing happens. With badly written microservices that ignore missing parameters, for example, systems can break in a really horrifying manner.
+
+Microservices make sense, and indeed follow Conway's Law:
+
+> Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure.
+> — Melvin E. Conway
+
+Conway formulated this in 1968, long before microservices. It still holds true today: microservices in an organization will always follow the team or company structure. For example, there may be several development teams that enjoy the ability to develop and deploy their application parts independently from each other. Or, there may be one *development* team that needs to gather information from several source systems from different departments.
+
+Microservices are also a good idea where boundaries are needed between applications with different technology stacks (e.g. to pass information from Java to Javascript, etc.)
+
+However, it makes very little sense for a small development team in a startup, using a homogeneous technology stack to use microservices. The changes are this team will be violating API boundaries all over the place and disregard the requirements for building a network-based distributed system.
+
+!!! tip "Ask the Authors"
+    If you want a fun story about how microservices can go horribly wrong, ask the authors in the consulting sessions. 
+
+!!! tip "Loosely typed languages"
+    Be careful with loosely typed languages and systems like JavaScript! These systems are very tolerant towards missing parameters, or parameters with incorrect types. This can lead to some disastrous consequences.
+
+!!! tip "Further reading"
+    While we will not be asking any of the following materials in the test we strongly recommend that you take them as a starting point for your further studies:
+    
+    - Clean code
+        - [S.O.L.I.D. principles](https://en.wikipedia.org/wiki/SOLID)
+        - [Getting started in Object-Oriented Programming](https://pasztor.at/blog/oop-basics/)
+        - [What people misunderstand about OOP](https://pasztor.at/blog/oop-misunderstandings/)
+        - [What the ** is an IoC container?](https://pasztor.at/blog/what-is-the-ioc-container/)
+        - [The clean code talks: Unit Testing](https://www.youtube.com/watch?v=wEhu57pih5w)
+        - [The clean code talks: OO Design for Testability](https://www.youtube.com/watch?v=acjvKJiOvXw)
+        - [The clean code talks: Don't look for things!](https://www.youtube.com/watch?v=RlfLCWKxHJ0)
+        - [How to design a good API and why it matters](https://www.youtube.com/watch?v=aAb7hSCtvGw)
+    - Microservices
+        - [Principles of Microservices](https://www.youtube.com/watch?v=PFQnNFe27kU)
+        - [3 common pitfalls of microservices integration](https://www.infoworld.com/article/3254777/3-common-pitfalls-of-microservices-integrationand-how-to-avoid-them.html)
+        - [Avoiding Microservice Megadisasters](https://www.youtube.com/watch?v=gfh-VCTwMw8)
+    - Distributed systems
+        - [Distributed Systems in One Lesson](https://www.youtube.com/watch?v=Y6Ev8GIlbxc)
+
+## Service meshes, Frameworks, and Tools
+
+Service meshes are a tool to help with building microservices. As mentioned before, microservices are hard. Not only do you have to take the network into account, not only do you have to make the API work together across many different components, you also have to make sure that components find each other.
+
+Kubernetes makes sure that there are internal load balancers for each service allowing you to do a basic rollout. However, Kubernetes does not retry failed calls, allow for versioning, implement a circuit breaker, etc.
+
+Service meshes like [Istio](https://istio.io/) do that. You don't strictly *need* a service mesh to build microservices, but they make the process easier. This is especially true if you run applications developed by different teams with different tooling, where implementing a common service registration would be hard. We recommend watching [Building cloud-native applications with Kubernetes and Istio, by Kelsey Hightower](https://www.youtube.com/watch?v=6BYq6hNhceI) for more details on how Istio works.
+
+Alternatively, you can of course use the tools afforded by your framework. If you are in the Java world, you could use [Spring Cloud](https://spring.io/projects/spring-cloud), for example. Spring Cloud will let you register your services with a wide variety of backend services.
+
+However, keep in mind: microservices are hard. As a developer you will be curious and willing to learn about them, of course. However, your curiosity may not serve the company's interest as much as you may think it does.
+
+
+
