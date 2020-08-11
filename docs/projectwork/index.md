@@ -18,7 +18,7 @@ As you also have to demonstrate to the client that you can work in an agile meth
  
 As a dummy service to generate load you will use [http-load-generator](https://github.com/FH-Cloud-Computing/http-load-generator).
 
-Optionally, you can make use of the following (incurs a point-penalty):
+Optionally, you can make use of the following (incurs a 5% point-penalty each):
 
 - [prometheus-sd-exoscale-instance-pools](https://github.com/FH-Cloud-Computing/prometheus-sd-exoscale-instance-pools) to feed instance pool data into Prometheus
 - [exoscale-grafana-autoscaler](https://github.com/FH-Cloud-Computing/exoscale-grafana-autoscaler) to drive the autoscaling behavior.
