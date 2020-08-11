@@ -63,6 +63,7 @@ Grading is described on the [grading page](/grading). Testing is described on th
 <img src="peter-wenzl.jpg" alt="A photo of Peter Wenzl, a middle aged man with short gray hair and square glasses." />
 </aside>
 
+Linkedin: [linkedin.com/in/peterwenzl/](https://www.linkedin.com/in/peterwenzl/)
 E-mail: [peter.wenzl@edu.fh-campuswien.ac.at](mailto:peter.wenzl@edu.fh-campuswien.ac.at)
 
 - Computer Science Master (Dipl. Ing.), TU Wien, 2000
