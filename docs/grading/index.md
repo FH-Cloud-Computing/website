@@ -5,9 +5,8 @@
 
 ## Project work grading
 
-- 5% in each sprint for implementing it using an automation framework such as Terraform or Ansible. It must have
-  the ability to install the exercise in an empty Exoscale account without human interaction. 
-- 10% in each sprint for demonstrating a working functionality.
+- 10% in each sprint for implementing it using an automation framework such as Terraform. It must have the ability to install the exercise in an empty Exoscale account without human interaction. 
+- 5% in each sprint for demonstrating a working functionality without Terraform.
 
 ## Marks
 
