@@ -5,9 +5,25 @@
 
 ## Project work grading
 
-- 10% in each sprint for implementing it using an automation framework such as Terraform. It must have the ability to install the exercise in an empty Exoscale account without human interaction. 
-- 5% in each sprint for demonstrating a working functionality without Terraform.
+- You will incur a -15% penalty if your Exoscale account runs out of budget from the project work only. Make sure you monitor your Exoscale account.
 
+### Sprint 1:
+
+- 5% for having a running instance pool and a network load balancer, running the designated load generator.
+- 10% for implementing the instance pool and network load balancer setup in Terraform.
+
+### Sprint 2:
+
+- 5% for having a working Prometheus and Grafana installation that monitors the instances in the instance pool.
+- 5% for automating the installation procedure of Prometheus and Grafana via Terraform.
+- 5% for implementing the Prometheus service discovery yourself.
+ 
+### Sprint 3:
+
+- 5% for having a working autoscaling behavior.
+- 5% for having a complete automated setup of the instance pools, NLB, monitoring server via Terraform.
+- 5% for implementing the autoscaling web service yourself.
+ 
 ## Marks
 
 Positive grade: Minimum 60% score in written exam plus 60% of overall score required.
