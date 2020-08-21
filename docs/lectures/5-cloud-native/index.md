@@ -83,19 +83,43 @@ In practice each application contains at least some basic logic to filter logs t
 
 The [admin process recommendation](https://12factor.net/admin-processes) concerns itself with the command line tools needed to operate the application. These are things like running database migrations, etc. The recommendation says that these tools should be runnable directly from the applications directory without much extra configuration or installation.
 
-## Metrics collection
+## Monitoring and metrics collection
 
 The above 12 factors are, by necessity, limited in scope. The author(s) of those 12 factors have taken many things into account, yet left out others.
 
-One of these is metrics collection. As you will learn in the [Prometheus exercise](../../exercises/4-prometheus/index.md), [Prometheus](https://prometheus.io/) has established itself as a defacto standard for monitoring cloud-native applications.
+One of the most important aspects left out of the list above is monitoring. Any developer wanting to working a cloud-native environment needs to consider monitoring. After all, the journey to the cloud is supposed to bring greater stability and facilitate rapid development cycles.
 
-It is not uncommon to see applications include a small webserver that exposes internal metrics [in the Prometheus data format](https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md). This makes monitoring exceedingly easy compared to having to configure a separate monitoring service.
+In this section we will discuss the monitoring types and their practical implementation.
 
-## Health checks
+### Periodic checks
 
-When dealing with containerized environments it is very important that applications report accurately when they are ready to serve traffic, and when they are having problems.
+One of the most classic forms of monitoring are periodic checks. Periodic checks run a certain check, for example a connection, against the application. If the connection succeeds the check is green, if not the check is red and an alert is sent out. The check types are varied, ranging from a simple connection attempt to a fully blown interaction with the application.
 
-This can be achieved by implementing the [`HEALTHCHECK`](https://docs.docker.com/engine/reference/builder/#healthcheck) directive in the `Dockerfile`, or by implementing [Liveness, Readiness, and Startup Probles](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) in Kubernetes.
+These checks not only serve the purpose of alerting the administrator but can also work as a trigger for a self-healing system. In a containerized environment, for example, we have several options to implement a self-healing system. You can add the [`HEALTHCHECK`](https://docs.docker.com/engine/reference/builder/#healthcheck) directive in the `Dockerfile` for example, or you can implement [Liveness, Readiness, and Startup Probles](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) in Kubernetes.
+
+The important question to consider with periodic checks is the rate of false positives. An intermittent network failure may not be a signal for an application failing and can still raise alarms. In order to avoid [alert fatigue](https://www.pagerduty.com/blog/lets-talk-about-alert-fatigue/) a well designed monitoring system keeps false alerts to a minimum.
+
+### Feature tests
+
+A very special case of periodic checks are full-on feature tests. These feature tests blur the boundaries between development-time software testing and operations. The intention is to run a full application test, such as a [Selenium](https://www.selenium.dev/) test suite, against a production application. This test could test a full signup, for example. This level of testing ensures that the application keeps working even after deployment.
+
+While not practical in every scenario these tests can ensure a high level of certainty and can also function as a regression test when the infrastructure changes rather then the application.
+
+### Metrics collection
+
+Another important aspect of monitoring is metrics collection. Periodic checks can only check what's there, but they cannot indicate a brewing trouble before it happens. Metrics can be an early warning system for a failure in the application. For example, a software rollout can significantly impact signups. While the change may have been entirely intentional it is business critical to observe this happening and alert immediately to a potential defect in the software. Are the loading times too long? Did the layout change make the process too confusing? Metrics can help. 
+
+As you will learn in the [Prometheus exercise](../../exercises/4-prometheus/index.md), [Prometheus](https://prometheus.io/) has established itself as a defacto standard for monitoring cloud-native applications. Prometheus makes it exceedingly easy to integrate metrics collection with just about any application. It is not uncommon to see applications include a small webserver that exposes internal metrics [in the Prometheus data format](https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md). Prometheus then collects these metrics and provides alerting and query services.
+
+The reason why Prometheus has established itself as a standard is its ability to monitor a dynamic number of machines. It first queries the the cloud provider for a list of IP addresses and then queries those IPs for the metrics. As machines are started and stopped Prometheus always keeps track of them.
+
+### Log collection
+
+Depending on how well written the application is it may expose more or less useful logs. One thing is certain: error counts can also be an early warning system for latent defects. For example, your access log may contain the individual entries of failed requests. A log aggregation system such as the [ELK stack](https://www.elastic.co/what-is/elk-stack) can discover patterns in your logs and give you alerts when something is going south. 
+
+### Dashboards
+
+No monitoring system is complete without a way to look at what's going on. This niche is filled by dashboards such as [Grafana](https://grafana.com/) which we will discuss in greater detail in [exercise 5](/exercises/5-grafana).
 
 ## Microservices
 
@@ -158,6 +182,3 @@ Service meshes like [Istio](https://istio.io/) do that. You don't strictly *need
 Alternatively, you can of course use the tools afforded by your framework. If you are in the Java world, you could use [Spring Cloud](https://spring.io/projects/spring-cloud), for example. Spring Cloud will let you register your services with a wide variety of backend services.
 
 However, keep in mind: microservices are hard. As a developer you will be curious and willing to learn about them, of course. However, your curiosity may not serve the company's interest as much as you may think it does.
-
-
-

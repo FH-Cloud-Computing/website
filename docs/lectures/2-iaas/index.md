@@ -94,6 +94,40 @@ This allowed customers to create virtual machines as they needed it and they wer
 The presence of an API makes the difference between IaaS and plain old virtual machines as a service. IaaS allows
 a customer to scale their application dynamically according to their current demand.
 
+{{ quiz("What component of the software stack runs on Ring 2 in virtual mode?", [
+    answer("The application", true),
+    answer("The kernel", false),
+    answer("The hypervisor", false),
+    answer("The management engine", false),
+]) }}
+
+{{ quiz("What component of the software stack runs on Ring 0 in virtual mode?", [
+    answer("The application", false),
+    answer("The kernel", true),
+    answer("The hypervisor", false),
+    answer("The management engine", false),
+]) }}
+
+{{ quiz("What component of the software stack runs on Ring -1 in virtual mode?", [
+    answer("The application", false),
+    answer("The kernel", false),
+    answer("The hypervisor", true),
+    answer("The management engine", false),
+]) }}
+
+{{ quiz("What component of the software stack runs on Ring -2 in virtual mode?", [
+    answer("The application", false),
+    answer("The kernel", false),
+    answer("The hypervisor", false),
+    answer("The management engine", true),
+]) }}
+
+{{ quiz("What does virtualization mean?", [
+    answer("Every instruction by a virtual machine is captured by the kernel and translated.", false),
+    answer("Critical instructions like memory operations are captured or translated by the kernel.", false),
+    answer("Critical instructions like memory operations are captured or translated by the CPU and the hypervisor.", true),
+]) }}
+
 ## Typical instance types
 
 When the cloud became popular in the late 2000s several providers attempted to offer a service that was fully dynamic
@@ -138,6 +172,12 @@ steps required.
 
 Tools like [Terraform](https://terraform.io/) or [Ansible](https://www.ansible.com/) assist with managing the whole 
 process of provisioning the virtual machines and supplying it with the correct user data script. 
+
+{{ quiz("What is the role of cloud-init?", [
+    answer("It initializes a cloud account.", false),
+    answer("It creates a virtual machine.", false),
+    answer("It runs initial machine configuration on a virtual machine.", true),
+]) }}
 
 ## Virtual machine pools
 
@@ -191,7 +231,16 @@ completely lost.
 
 It is therefore very advisable to solve redundancy on top of the virtual machine, e.g. by building a replicated database
 setup. If, however, your database is replicated anyway you may no longer need the more expensive storage options and 
-this can be a great way to save costs. 
+this can be a great way to save costs.
+
+{{ quiz("Which of the following is provided by local storage?", [
+    answer("Fault-tolerance in the face of a machine failure.", false),
+    answer("High IO performance.", true),
+    answer("The ability to move the data volume to a different machine.", false),
+    answer("The ability to access the data volume from several machines at once.", false),
+    answer("Data consistency.", true),
+]) }}
+
 
 ### Network Block Storage
 
@@ -209,6 +258,14 @@ Also note that Network Block Storage does not automatically come with redundancy
 At any rate, using Network Block Storage does not absolve you from the duty to make backups and have a documented and
 tested disaster recovery strategy.
 
+{{ quiz("Which of the following is provided by network block storage?", [
+    answer("Fault-tolerance in the face of a machine failure.", true),
+    answer("High IO performance.", false),
+    answer("The ability to move the data volume to a different machine.", true),
+    answer("The ability to access the data volume from several machines at once.", false),
+    answer("Data consistency.", true),
+]) }}
+
 ### Network File Systems
 
 In contrast to network block storage network file systems offer access to data not on a block level, but on a file
@@ -220,6 +277,14 @@ the same file in parallel the filesystem has to ensure that these writes are con
 file systems are either much slower than block-level access (e.g.
 [NFS](https://en.wikipedia.org/wiki/Network_File_System)) or require a great deal more CPU and RAM to keep track of
 the changes across the network (e.g. [CephFS](https://docs.ceph.com/docs/master/cephfs/)).
+
+{{ quiz("Which of the following is provided by network filesystems?", [
+    answer("Fault-tolerance in the face of a machine failure.", true),
+    answer("High IO performance.", false),
+    answer("The ability to move the data volume to a different machine.", true),
+    answer("The ability to access the data volume from several machines at once.", true),
+    answer("Data consistency.", true),
+]) }}
 
 ### Object storage
 
@@ -233,6 +298,14 @@ and stability issues.
 
 Operating system level integration should only be used as a last resort and object storages should be integrated on the
 application level. We will discuss object storage services in detail in our next lesson.
+
+{{ quiz("Which of the following is provided by object storages?", [
+    answer("Fault-tolerance in the face of a machine failure.", true),
+    answer("High IO performance.", false),
+    answer("The ability to move the data volume to a different machine.", true),
+    answer("The ability to access the data volume from several machines at once.", true),
+    answer("Data consistency.", false),
+]) }}
 
 ## Network
 
@@ -268,12 +341,14 @@ When we look at the network offerings by cloud providers there are three types:
    forwarded to the virtual machine on the private network using
    [Destination NAT](https://en.wikipedia.org/wiki/Network_address_translation#DNAT). Multiple private networks (VPC's)
    can be assigned to a virtual machine and they can work independently.
+   ![An illustration of the private-only network with NAT schema. A virtual machine is connected only to a private network with a private IP and a cloud-operated NAT gateway provides internet access.](private-only-nat.svg)
 2. **Default public IP**: This option is provided by smaller IaaS providers such as 
    [DigitalOcean](https://www.digitalocean.com/), [Exoscale](https://www.exoscale.com/),
    [Hetzner](https://www.hetzner.de/), [Linode](https://www.linode.com/), [Upcloud](https://upcloud.com/),
    and [Vultr](https://www.vultr.com/). In this setup each virtual machine is attached to a public network and is
    directly assigned one public IP address. Optionally private networks can be attached as well but the first public IP
    generally cannot be removed as it is required for user data to work.
+   ![An illustration of the default public IP schema. The illustration contains two virtual machines, each virtual machine connected to the public network with a public IP and a private network on the private IP.](public-private-network.svg)
 3. **Fully customizable:** This setup allows the customer to design their network connectivity as they see fit. This 
    setup is suitable for enterprise customers who want to move their on-premises setup into the cloud without
    changing their architecture (lift-and-shift). This option is offered by [1&1 IONOS](https://www.ionos.com/).
@@ -287,8 +362,6 @@ When we look at the network offerings by cloud providers there are three types:
 !!! note
     Out of group 2 it is worth mentioning that the services that are available on the public network
     (firewalls, load balancers) are often not available on private networks. 
-
-TODO: add illustration
 
 ### Firewalling
 
@@ -307,7 +380,7 @@ groups rather than specific IP addresses. For example, the `database` security g
 only from the `appserver` security group but not from anywhere else. This can help with the dynamic nature of the cloud
 since you do not need to hard-code the IP addresses of the application servers.
 
-TODO: add screenshot of security group configuration
+![An illustration of adding a firewall rule to a security group called "backend" allowing access to port 3306 from the security group "frontend".](sg.png)
 
 ### Network load balancers
 
@@ -315,7 +388,7 @@ Network load balancers are an option some cloud providers offer. In contrast to 
 do not offer protocol decoding (such as routing requests to backends based on the requested web address), they only
 balance incoming connections to a pool of backends.
 
-TODO add illustration
+![An illustration of a network load balancer sending data to multiple virtual machines.](nlb.png)
 
 Depending on the cloud provider in question network load balancers may or may not offer terminating encrypted 
 connections (SSL/TLS), and may be bound to virtual machine pools. It is also cloud provider specific if load balancers
@@ -390,6 +463,5 @@ monitoring agents you can install on your virtual machine to get more data in th
 cloud providers monitoring alerts can be integrated with virtual machine pools to provide automatic scaling, either
 automatically or using lambdas/FaaS, which we will talk about in the [next lecture](/lectures/3-xaas/).
 
-## Automation
-
-
+Often times the monitoring facilities offered by cloud providers are not sufficient for keeping an application running
+and more detailed systems are needed. These will be discussed in greater detail in the [lecture 5](/lectures/5-cloud-native/).
