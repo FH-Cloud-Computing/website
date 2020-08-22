@@ -5,7 +5,7 @@
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
 
-<h1>Containers & Kubernetes</h1>
+<h1>Containers & Container Orchestrators</h1>
 
 In the [second lecture](../2-iaas/index.md) we have talked about how applications interact with the kernel and the hardware. By now you know that applications running in ring 3 do not have direct access to things like the disk. To access those details they need to execute a [system call](https://en.wikipedia.org/wiki/System_call) to the kernel. The kernel will then give the application the details required, for example a file from the disk.
 
