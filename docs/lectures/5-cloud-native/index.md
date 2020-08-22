@@ -147,7 +147,10 @@ Microservices are also a good idea where boundaries are needed between applicati
 However, it makes very little sense for a small development team in a startup, using a homogeneous technology stack to use microservices. The changes are this team will be violating API boundaries all over the place and disregard the requirements for building a network-based distributed system.
 
 !!! tip "Ask the Authors"
-    If you want a fun story about how microservices can go horribly wrong, ask the authors in the consulting sessions. 
+    If you want a fun story about how microservices can go horribly wrong, ask the authors in the consulting sessions.
+    
+!!! warning "Be careful!"
+    It is easy to go over-board with microservices to the point where you have more Kubernetes manifests than actual program code! Don't forget, you not only have to write them, but also deploy them. If you go for services that are too small or your team is ill-equipped to handle a large number of tiny services in production you may have one of the many horrible microservices failures on your hand.
 
 !!! tip "Loosely typed languages"
     Be careful with loosely typed languages and systems like JavaScript! These systems are very tolerant towards missing parameters, or parameters with incorrect types. This can lead to some disastrous consequences.
