@@ -12,6 +12,10 @@ Containers are discussed in [lecture 4](../lectures/4-containers/index.md) and p
 
 A container orchestrator is responsible for managing containers across multiple virtual or physical servers. When a server fails or a container crashes the orchestrator is responsible for scheduling the container on a different server. Some orchestrators also manage integration with the cloud. Orchestrators are discussed in [lecture 4](../lectures/4-containers/index.md)
 
+## CDN
+
+A content delivery network replicates content across the globe to bring the content closer to the end user. CDNs are discussed in [lecture 3](../lectures/3-xaas/index.md).
+
 ## DBaaS
 
 Databases as a Service are discussed in [lecture 3](../lectures/3-xaas/index.md) providing managed databases to a cloud customer without needing to manage a server, or the database system.

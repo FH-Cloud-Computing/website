@@ -11,7 +11,7 @@ This lecture walks you through the most important services offered by cloud prov
 
 The easiest way to remember the difference is that IaaS offers virtual machines and connected services. In order to operate on top of an IaaS platform you need someone skilled in running an operating system. In other words, you need a system administrator.
 
-PaaS on the other hand is intended for developers. The platform services, on the other hand, are intended for developers. The main goal of PaaS services is enabling developers to deploy applications without having to manage the operating system of the underlying virtual machine.
+PaaS on the other hand is intended for developers. The main goal of PaaS services is enabling developers to deploy applications without having to manage the operating system of the underlying virtual machine.
 
 There is, however, nothing preventing you from mixing IaaS and PaaS services. A typical use case would be using a managed database with virtual machines. This helps smaller teams because operating a database proficiently on a small scale can be an undue burden.
 
@@ -33,7 +33,7 @@ Sticky sessions, however, present a problem: when a backend goes down the users 
 
 This has an adverse effect on user experience which is why newer, so-called &ldquo;cloud native&rdquo; applications don't use sticky sessions. Instead, cloud native applications put client-specific data (e.g. [session data](https://en.wikipedia.org/wiki/Session_(computer_science)#HTTP_session_token)) in database systems with redundancy. Sessions themselves [have their own race condition problems](https://pasztor.at/blog/stop-using-php-sessions/), but that is not a discussion for this lecture.
 
-## CDNs
+## Content Delivery Networks (CDNs)
 
 While it seems the Internet is blazing fast nowadays delivering content to the other side of the planet is still an issue. As you may know most of the Internet is comprised of [fiber optic cabling](https://en.wikipedia.org/wiki/Optical_fiber). Data is transmitted by turning a laser on and off in rapid succession.
 
@@ -41,7 +41,7 @@ Let's do a little mental exercise: the speed of light is 299.792.458 m/s. The ra
 
 ![An illustration of a fiber optic cable showing a light ray bouncing off the walls.](fiber.svg)
 
-The issue is that light does not go &ldquo;around the corner&rdquo;. Fiber optic cables work by having reflective walls so the light bounces off the walls repeatedly to reach the end. This multiplies the way light has to travel to reach the other side of the planet. This is further compounded by the fact that light can only travel so far in a fiber optic cable, repeaters and routers in between also need time to process the data.
+The issue is that light does not go &ldquo;around the corner&rdquo;. Fiber optic cables work by having reflective walls so the light bounces off the walls repeatedly to reach the end. This multiplies the distance light has to travel to reach the other side of the planet. This is further compounded by the fact that light can only travel so far in a fiber optic cable, repeaters and routers in between also need time to process the data.
 
 The problem is further compounded by how HTTP works. When a website is loaded there are several elements that have to wait for each other. The website may reference a style sheet (CSS file), the CSS file may reference an image and so on. This means several round trips have to be done to build a page. [HTTP/2 server push](https://www.smashingmagazine.com/2017/04/guide-http2-server-push/) attempts to mitigate this.
 
@@ -161,7 +161,7 @@ Note that containers are the topic of the next lecture so we won't cover them in
 
 One of the most complex setups to run in an on-premises environment is something nowadays known as a datalake. IT aggregates data from many different source databases  and allows data scientists to extract valuable information from it. It is not uncommon to see several dozen source database.
 
-What's more, some analysees require close to real time data processing.
+What's more, some analyses require close to real time data processing.
 
 The tools usually seen in such as setup are [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Apache Spark](https://spark.apache.org/), [Kafka](https://kafka.apache.org/), and several more. The number of source databases and the number of tools listed here should tell you how complex such a setup can be.
 

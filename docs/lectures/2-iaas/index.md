@@ -563,6 +563,7 @@ More advanced features may include automatic DNS failover. This involves running
 and if your primary service fails the DNS service can automatically switch to the secondary IP. There are even services
 that offer advanced functionality such as routing traffic to different servers based on the geographic location of the
 client. This can be used for advanced builds such as [building a custom CDN](https://pasztor.at/blog/building-your-own-cdn).
+CDNs are discussed in the [next lecture](/lectures/3-xaas/).
 
 ## Monitoring
 
