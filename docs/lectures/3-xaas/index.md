@@ -21,6 +21,9 @@ Similarly, building a redundant database system that can perform an automatic fa
 
 ## Application load balancers
 
+!!! tldr "In a hurry?"
+    Application Load Balancers offer load balancing on a HTTP level. They offer advanced routing capabilities based on HTTP requests.
+
 Application load balancers provide load balancing capabilities on [layer 7 of the OSI-model](https://en.wikipedia.org/wiki/OSI_model). In practice application load balancers on offer support [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) and HTTPS load balancing.
 
 HTTP is a request-response protocol. Typically connections are short-lived but longer connections (e.g. with [Websockets](https://en.wikipedia.org/wiki/WebSocket)) are also possible. Good application load balancers allow sending traffic to a different set of backends based on the host name (`example.com`) as well as the path (`/some/address`).
@@ -33,11 +36,40 @@ Sticky sessions, however, present a problem: when a backend goes down the users 
 
 This has an adverse effect on user experience which is why newer, so-called &ldquo;cloud native&rdquo; applications don't use sticky sessions. Instead, cloud native applications put client-specific data (e.g. [session data](https://en.wikipedia.org/wiki/Session_(computer_science)#HTTP_session_token)) in database systems with redundancy. Sessions themselves [have their own race condition problems](https://pasztor.at/blog/stop-using-php-sessions/), but that is not a discussion for this lecture.
 
+{{ quiz("What are HTTP cookies?", [
+    answer("Tasty treats for developers doing good work", false),
+    answer("A tiny piece of information stored on the user's computer", true),
+    answer("A secure way to transfer information from one computer to another", false),
+]) }}
+
+{{ quiz("What are sticky sessions?", [
+    answer("A connection that is stuck and needs to be terminated", false),
+    answer("A configuration on a load balancer to route requests from the same user to the same backend", true),
+]) }}
+
+{{ quiz("What ISO/OSI network layer do application load balancers work on?", [
+    answer("Layer 1", false),
+    answer("Layer 2", false),
+    answer("Layer 3", false),
+    answer("Layer 4", false),
+    answer("Layer 7", true),
+]) }}
+
+{{ quiz("What protocol do application load balancers typically balance?", [
+    answer("Ethernet", false),
+    answer("IP", false),
+    answer("TCP", false),
+    answer("HTTP", true),
+]) }}
+
 ## Content Delivery Networks (CDNs)
+
+!!! tldr "In a hurry?"
+    Network connections have a high latency because the light bounces around in the fiberoptic cable. Therefore, access from the other side of the globe is slow. This is resolved by CDN's, which offer a network of machines that cache the content close to the end user.
 
 While it seems the Internet is blazing fast nowadays delivering content to the other side of the planet is still an issue. As you may know most of the Internet is comprised of [fiber optic cabling](https://en.wikipedia.org/wiki/Optical_fiber). Data is transmitted by turning a laser on and off in rapid succession.
 
-Let's do a little mental exercise: the speed of light is 299.792.458 m/s. The radius of our planet is 6.371 km. A ray of light should be able to round the planet in `6.371.000 / 299.792.458 = 0.021` seconds. In other words any data transmitted should be able to travel around the world in ~21 milliseconds. Yet, in practice we see latencies upwards of 100 ms when transmitting data from Europe to India.
+Let's do a little mental exercise: the speed of light is 299.792.458 m/s. The circumference of our planet is 40,075 km. A ray of light should be able to round the planet in `40.075.000 / 299.792.458 = 0.113` seconds. In other words any data transmitted should be able to travel around the world in ~100 milliseconds. Yet, in practice we see latencies of around 300 milliseconds when transfering data to theother sie of the globe.
 
 ![An illustration of a fiber optic cable showing a light ray bouncing off the walls.](fiber.svg)
 
@@ -57,7 +89,23 @@ In essence, CDN's help with latency issues *if the content can be cached*. in ot
 !!! tip "Did you know?"
     SpaceX is building the [Starlink network](https://techcrunch.com/2020/06/15/spacex-will-have-to-starlink-internets-low-latency-within-the-next-month-to-qualify-for-up-to-16b-in-federal-funding/) to provide lower latency connectivity across the globe.
 
+{{ quiz("What is the typical latency from Sidney to Frankfurt? (16,473 km)", [
+    answer("108ms", false),
+    answer("290ms", true),
+    answer("1082ms", false),
+]) }}
+
+{{ quiz("What is latency?", [
+    answer("The time it takes for a data packet to travel from the source to the destination.", false),
+    answer("The time it takes for a data packet to travel from the source to the destination and back.", true),
+    answer("The time it takes to transfer a 1 kB file.", false),
+    answer("The maximum data transfer rate between two points.", false),
+]) }}
+
 ## Object Storage
+
+!!! tldr "In a hurry?"
+    Object storages are file storages that offer a limited set of operations (upload, download, list, delete, change access permissions, etc). Due to the limited feature set object storages are able to offer redundant, low cost file storage. Most object storages also allow publishing files to the internet directly.
 
 In the previous lecture we briefly mentioned object storages. As a reminder, traditional block storage devices and the filesystems implemented on top of them have several features you may consider advanced:
 
@@ -75,6 +123,23 @@ However, due to the limited featureset object storages have a few unique abiliti
 - Some object storage implementations offer the ability to keep *multiple versions* of files. Clients can be prevented from deleting older versions making versioning an effective data loss prevention mechanism.
 - Some object storage implementations offer the ability to lock files from being modified in the future. This is especially important when adhering to corporate or government data retention requirements.
 
+{{ quiz("What is a typical use case for an object storage?", [
+    answer("Long-term storage for backups", true),
+    answer("Storage of user-uploaded files (e.g. images)", true),
+    answer("Storage backend for databases.", false),
+]) }}
+
+{{ quiz("How are object storages typically integrated?", [
+    answer("They are mounted as a drive in the operating system.", false),
+    answer("The application typically supports using object storages directly.", true),
+]) }}
+
+{{ quiz("What filesystem feature do object storages NOT offer?", [
+    answer("The ability to partially write or read a file.", true),
+    answer("The ability to obtain an exclusive lock for exclusive access.", true),
+    answer("The ability to change access permissions.", false),
+]) }}
+
 ### Cold storage
 
 Some providers offer an extension to their object storage system that puts data in cold storage (e.g. [on tape](https://en.wikipedia.org/wiki/Magnetic_tape_data_storage)). Data can be uploaded directly via the API, or in the case of very large data amounts shipped to the provider on hard drives.
@@ -85,6 +150,10 @@ Some providers offer an extension to their object storage system that puts data 
 Since the data is stored on offline (cold) storage the data retrieval is not as immediate as with the object storage. To retrieve data from cold storage you often need to wait several hours until the data becomes available. Therefore, an effective backup strategy to the cloud often involves moving data to the object storage first and only older backups to cold storage. Amazon, for example, allows for automating this process using [S3 lifecycle rules](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). 
 
 ## Databases as a Service (DBaaS)
+
+!!! tldr "In a hurry?"
+    DBaaS offers managed databases. Different database types and replication methods offer different levels of consistency. ACID-compliant databases are typically used for cases where data must not be lost under any circumstances, while BASE databases (eventually consistent) are used where the loss of a few records in a failure scenario is acceptable.
+
 
 As mentioned before, one of the most difficult services to operate are ones that store state. They are also highly standardized between cloud providers. This makes them an ideal candidate for a company to use PaaS instead of managing everything in-house.
 
@@ -117,9 +186,19 @@ There are benefits for both and the appropriate database type must be chosen for
 
 ### Relational databases (SQL)
 
-SQL or relational databases are one of the more traditional database systems. They use predefined data tables with fixed columns and datatypes. Most SQL databases also allow creating references between tables. These references or foreign keys allow for validation. For example, you could create database that has an `articles` and a `comments` table. Since the `comments` table could reference the `articles` table it would be impossible to create a comment with an invalid article ID.
+SQL or relational databases (RDBMS) are one of the more traditional database systems. They use predefined data tables with fixed columns and datatypes. Most SQL databases also allow creating references between tables. These references or foreign keys allow for validation. For example, you could create database that has an `articles` and a `comments` table. Since the `comments` table could reference the `articles` table it would be impossible to create a comment with an invalid article ID.
 
 While it is easy to make the assumption that RDBMS implement ACID compliance (CP) in most cases it is only true when the database is run on a single node. When using replication most RDBMS implement asynchronous replication which puts them partially in the BASE / AP territory. When using a managed database make sure your cloud provider supports a replication that suits your consistency needs.
+
+Relational databases can be used for a wide variety of use cases, including the storage of large amounts of data. However, RDBMS meet their limits when it comes to structuring data. When a large number of relations are needed a graph database may be better suited for the task, while the storage of a deep structured object may call for a document database.
+
+Popular RDBMS systems are: Microsoft SQL Server, MySQL, PostgreSQL
+
+### Key-value stores
+
+Key-value stores are very simply databases that store data objects based on a *key*, a name for the object. The object itself is inherently opaque, the database engine does not know or care how it is structured. In other words, key-value stores treat the value part as a binary object.
+
+Typical key-value stores include: Memcached, Amazon S3 
 
 ### Document databases
 
@@ -129,6 +208,8 @@ While SQL databases enforce fixed columns, document databases often offer the ab
 
 Most document databases fall strictly in the BASE/AP category when it comes to replication.
 
+Popular document databases are: MongoDB, ElasticSearch, Amazon DynamoDB
+
 ### Time Series databases
 
 Time-series databases are usually used in monitoring systems and store numeric values associated with a certain timestamp. One of the most famous cloud-native monitoring system with an integrated time-series databases is [Prometheus](https://prometheus.io/).  
@@ -136,6 +217,15 @@ Time-series databases are usually used in monitoring systems and store numeric v
 ### Graph databases
 
 Graph databases are special databases that store relationships of datasets with each other and allow making queries over them. These database types can be used for creating social graphs, interests, etc.
+
+A popular graph database option is Neo4j
+
+{{ quiz("Which of the following database engines would be suitable to store transfers on a bank account?", [
+    answer("A cluster of eventually consistent NoSQL databases (e.g. MongoDB)", false),
+    answer("A single, strictly consistent NoSQL database (e.g. etcd)", false),
+    answer("A cluster of relational databases with asynchronous replication (e.g. vanilla MySQL)", false),
+    answer("A cluster of relational databases with synchronous replication (e.g. MySQL/Galera cluster)", true),
+]) }}
 
 ## Functions as a Service (FaaS / Lambda)
 
@@ -155,22 +245,20 @@ Containers are a way to run applications in an isolated environment without dedi
 
 Since Kubernetes and its alternatives are incredibly complex to operate many cloud providers take on this burden, and offer containers as a service to customers.
 
-Note that containers are the topic of the next lecture so we won't cover them in detail here.
+Note that containers are the topic of the [next lecture](../4-containers/index.md) so we won't cover them in detail here.
 
 ## Stream processing and Business Intelligence tools
 
-One of the most complex setups to run in an on-premises environment is something nowadays known as a datalake. IT aggregates data from many different source databases  and allows data scientists to extract valuable information from it. It is not uncommon to see several dozen source database.
+One of the most complex setups to run in an on-premises environment is something nowadays known as a datalake. IT aggregates data from many different source databases  and allows data scientists to extract valuable information from it. It is not uncommon to see several dozen source database. What's more, some analyses require close to real time data processing.
 
-What's more, some analyses require close to real time data processing.
-
-The tools usually seen in such as setup are [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Apache Spark](https://spark.apache.org/), [Kafka](https://kafka.apache.org/), and several more. The number of source databases and the number of tools listed here should tell you how complex such a setup can be.
-
-This is one of the reasons why even large, traditional corporations are seriously considering moving their data analytics into the cloud.
+The tools usually seen in such as setup are [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Apache Spark](https://spark.apache.org/), [Kafka](https://kafka.apache.org/), and several more. The number of source databases and the number of tools listed here should tell you how complex such a setup can be. This is one of the reasons why even large, traditional corporations are seriously considering moving their data analytics into the cloud.
 
 ## Deployment pipelines
 
-While there are many, many more services on offer in the cloud we'd like to mention a final piece to the puzzle: CI/CD systems or deployment pipelines. These deployment pipelines allow a DevOps engineer to build automatic software deployment systems with relative ease.
+While there are many, many more services on offer in the cloud we'd like to mention a final piece to the puzzle: deployment pipelines. These deployment pipelines allow a DevOps engineer to build automatic software deployment systems with relative ease. Deployment pipelines may start with something simple like a CI/CD system that an engineer can extend with calls to an API, or may include full-on code quality tools, test systems and management for the production environment.
 
 The general idea is that the code is handled in a version control system such as git. When the code is pushed into the version control system an automatic build and deployment process is started. This can involve compiling the source code to automatic tests running. The deployment pipeline then takes care of copying the software to the appropriate environment, such as creating a container and deploying it to the CaaS environment or creating virtual machines with the appropriate code.
 
 When this service is offered by the cloud provider that runs the infrastructure themselves, these are usually tightly integrated, allowing a prospective user to simply point-and-click to create the whole environment. It is debatable if such an automatically created environment is suitable for production use, but it may give a good starting point to customize the setup from.
+
+Typical services that offer deployment pipelines: CircleCI, GitHub actions, AWS CodePipeline
