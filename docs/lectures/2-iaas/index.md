@@ -13,6 +13,19 @@ built.
 
 ## Virtual machines
 
+
+!!! tldr "In a hurry?"
+    Modern CPUs have several operation modes:
+    
+    - Ring 3 (unprivileged) runs the application
+    - Ring 0 runs the operating system kernel
+    - Ring -1 runs the hypervisor managing serveral kernels
+    - Ring -2 runs the Intel Management Engine
+    
+    Other components are responsible for virtualizing other hardware components. For example, the IOMMU is responsible
+    for virtualizing direct memory access between applications and hardware components.
+    
+
 Virtualization is a surprisingly old technology. The first virtualized system was the IBM System/370 mainframe with the
 VM/370 operating system in 1972. The system was different from how we understand virtualization today, but the goal was
 the same: separate workloads from each other.
@@ -80,8 +93,7 @@ virtualization and sharing hardware devices between several virtual machines.
     [Intel Management Engine](https://en.wikipedia.org/wiki/Intel_Management_Engine), a chip that functions as an OOBM
     in modern Intel chips. The ME runs its own operating system, a [MINIX](https://en.wikipedia.org/wiki/MINIX) variant
     and has been the target of severe criticism for its secrecy and power over the machine. Several bugs have been found
-    in the ME that let an attacker hide a
-    [malware inside the ME](https://youtu.be/3CQUNd3oKBM).
+    in the ME that let an attacker hide a [malware inside the ME](https://youtu.be/3CQUNd3oKBM).
 
 Virtualization also gave rise to Infrastructure as a Service. [AWS](https://aws.amazon.com/) was the first service
 that offered virtual machines as a service starting in 2006 with a Xen-based offer. They not only offered virtual
@@ -94,7 +106,7 @@ This allowed customers to create virtual machines as they needed it and they wer
 The presence of an API makes the difference between IaaS and plain old virtual machines as a service. IaaS allows
 a customer to scale their application dynamically according to their current demand.
 
-{{ quiz("What component of the software stack runs on Ring 2 in virtual mode?", [
+{{ quiz("What component of the software stack runs on Ring 3 in virtual mode?", [
     answer("The application", true),
     answer("The kernel", false),
     answer("The hypervisor", false),
@@ -153,6 +165,16 @@ and high RAM workloads there are several different instance types, typically:
 
 ## Automation
 
+
+!!! tldr "In a hurry?"
+    - Cloud-init allows for running a script, or other initial configuration on virtual machines on first boot.
+    - It is also responsible for managing password resets when desired. It can be used to fully automate the setup of a virtual
+      machine.
+    - Terraform and Ansible are tools that interact with the cloud API to provision virtual machines programmatically.
+    - Ansible is also capable of running inside a virtual machine to configure the software within.
+    - Terraform requires full control of the machines it is managing and implements what's called immutable infrastructure.
+    
+
 As discussed before, that makes an IaaS cloud provider a cloud provider is the fact that they offer an API to automate
 the provisioning and deprovisioning of virtual machines as needed. However, that's not all. Simply starting a virtual
 machine is not enough, the software needs to be installed in it.
@@ -181,6 +203,10 @@ process of provisioning the virtual machines and supplying it with the correct u
 
 ## Virtual machine pools
 
+!!! tldr "In a hurry?"
+    - Virtual machine pools automatically create and destroy machines to keep up a desired pool size.
+    - Some implementations also have autoscaling.
+
 One other use of user data are virtual machine pools. Each cloud provider adopts a different name for them, ranging from
 instance pools to autoscaling groups. The concept is the same everywhere: you supply the cloud with a configuration
 how you would like your virtual machines to look like and the cloud will take care that the given number of machines
@@ -198,6 +224,14 @@ offering as well allowing you to run a custom function whenever a machine starts
 example, update your own service discovery database.
 
 ## Storage
+
+!!! tldr "In a hurry?"
+    - Local disks offer affordable performance at the cost of redundancy.
+    - Network block storage offers resilience to machine failures, but costs more to ensure the same performance. Not all
+      NBS implementations store data in a redundant fashion.
+    - Network file systems offer access from multiple virtual machines in parallel at the cost of performance.
+    - Object storage offers parallel access from multiple VMs and scalability at the cost of performance and consistency.
+    - Object storages are typically integrated on the application level rather than the OS level.
 
 When it comes to data storage virtual machines work exactly like your physical machine would: there is a physical disk
 (or multiple) that store the files. The difference is that in the cloud your virtual machine may make use of a 
@@ -241,7 +275,6 @@ this can be a great way to save costs.
     answer("Data consistency.", true),
 ]) }}
 
-
 ### Network Block Storage
 
 Network block storage means a block storage that is delivered over the network. The network here can mean a traditional
@@ -276,7 +309,8 @@ The filesystem has to keep track of which machine has which file open, or has lo
 the same file in parallel the filesystem has to ensure that these writes are consistent. This means that network
 file systems are either much slower than block-level access (e.g.
 [NFS](https://en.wikipedia.org/wiki/Network_File_System)) or require a great deal more CPU and RAM to keep track of
-the changes across the network (e.g. [CephFS](https://docs.ceph.com/docs/master/cephfs/)).
+the changes across the network (e.g. [CephFS](https://docs.ceph.com/docs/master/cephfs/)). Some cloud providers also
+offer this, for example [Amazon's EFS](https://aws.amazon.com/efs/).
 
 {{ quiz("Which of the following is provided by network filesystems?", [
     answer("Fault-tolerance in the face of a machine failure.", true),
@@ -305,6 +339,41 @@ application level. We will discuss object storage services in detail in our next
     answer("The ability to move the data volume to a different machine.", true),
     answer("The ability to access the data volume from several machines at once.", true),
     answer("Data consistency.", false),
+]) }}
+
+{{ quiz("Which storage type is Amazon's EBS?", [
+    answer("Local disk", false),
+    answer("Network block storage", true),
+    answer("Network filesystem", false),
+    answer("Object storage", false),
+]) }}
+
+{{ quiz("Which storage type is Amazon's EFS?", [
+    answer("Local disk", false),
+    answer("Network block storage", false),
+    answer("Network filesystem", true),
+    answer("Object storage", false),
+]) }}
+
+{{ quiz("Which storage type is Ceph RBD?", [
+    answer("Local disk", false),
+    answer("Network block storage", true),
+    answer("Network filesystem", false),
+    answer("Object storage", false),
+]) }}
+
+{{ quiz("Which storage type is iSCSI?", [
+    answer("Local disk", false),
+    answer("Network block storage", true),
+    answer("Network filesystem", false),
+    answer("Object storage", false),
+]) }}
+
+{{ quiz("Which storage type is S3?", [
+    answer("Local disk", false),
+    answer("Network block storage", false),
+    answer("Network filesystem", false),
+    answer("Object storage", true),
 ]) }}
 
 ## Network
@@ -382,6 +451,13 @@ since you do not need to hard-code the IP addresses of the application servers.
 
 ![An illustration of adding a firewall rule to a security group called "backend" allowing access to port 3306 from the security group "frontend".](sg.png)
 
+{{ quiz("What do security groups offer?", [
+    answer("Filtering based on IP address", true),
+    answer("Filtering based on the requested service", true),
+    answer("Filtering based on the requested domain name", false),
+    answer("Filtering based on the requested subpage on a website", false),
+]) }}
+
 ### Network load balancers
 
 Network load balancers are an option some cloud providers offer. In contrast to Application Load Balancers they
@@ -400,10 +476,23 @@ that combination may not be suitable for the task unless a specific trick such a
 [proxy protocol from Digital Ocean](https://www.digitalocean.com/blog/load-balancers-now-support-proxy-protocol/).
 Network load balancers without SSL/TLS termination should, in general, make the client IP available to the backends.
 
+In order to make sure requests are not sent to faulty backends NLBs include a health check feature. This health check
+either simply opens a connection to the respective backends (TCP check) or requests a webpage from the backend
+(HTTP check). If the check fails the backend is removed from the rotation. When integrated with virtual machine pools
+they *may* automatically shut down and replace the faulty machine, but this is often not the case. It is on the operator
+to destroy faulty machines.
+
 When talking about load balancers an interesting question is the load balancing strategy. Most load balancers support
 either round robin (selecting the next backend in the list) or source hashing (routing the same connecting IP to the
-same backend). Most load balancers also support health checks to take backends that are not able to serve traffic out
-of the rotation.
+same backend).
+
+{{ quiz("What do NLBs typically offer?", [
+    answer("Spreading incoming connections across multiple backend machines equally.", true),
+    answer("Spreading incoming connections across multiple backend machines, sending connections from the same source to the same backend.", true),
+    answer("Spreading incoming connections across multiple backend machines, based on the domain name)", false),
+    answer("Spreading incoming connections across multiple backend machines, based on the subpage requested)", false),
+    answer("Terminating encrypted connections so the backend doesn't have to (SSL/TLS offloading)", true),
+]) }}
 
 ### VPNs, private interconnects, and routing services
 
@@ -440,6 +529,26 @@ The only cloud service that offers a mobile device to cloud connectivity at the 
 
 It is also worth noting that VPN's can be used to connect cloud providers together.
 
+{{ quiz("What VPN type is offered by all major cloud providers?", [
+    answer("Site-to-site", true),
+    answer("Device-to-site", false),
+    answer("Device-to-device", false),
+]) }}
+
+{{ quiz("What VPN protocol is offered by all major cloud providers?", [
+    answer("OpenVPN", false),
+    answer("IPsec", true),
+    answer("SSTP", false),
+    answer("L2TP", false),
+    answer("PPTP", false),
+]) }}
+
+{{ quiz("What VPN type can IPsec offer by itself?", [
+    answer("Site-to-site", true),
+    answer("Device-to-site", false),
+    answer("Device-to-device", false),
+]) }}
+
 ### DNS
 
 The [Domain Name Service](https://en.wikipedia.org/wiki/Domain_Name_System) is one of the services that are all but
@@ -453,8 +562,7 @@ only on a private network without exposing it to the internet.
 More advanced features may include automatic DNS failover. This involves running regular health checks on your services
 and if your primary service fails the DNS service can automatically switch to the secondary IP. There are even services
 that offer advanced functionality such as routing traffic to different servers based on the geographic location of the
-client. This can be used for advanced builds such as
-[building a custom CDN](https://pasztor.at/blog/building-your-own-cdn).
+client. This can be used for advanced builds such as [building a custom CDN](https://pasztor.at/blog/building-your-own-cdn).
 
 ## Monitoring
 
