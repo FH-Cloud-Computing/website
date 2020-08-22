@@ -11,13 +11,9 @@ def define_env(env):
                "</div>"
 
     @env.macro
-    def answer(text: str, correct: bool):
+    def answer(text: str):
         id = str(uuid.uuid4())
-        if correct:
-            data = "data-correct"
-        else:
-            data = "data-incorrect"
         return "<div class=\"quiz__answer\">" +\
             "<input id=\"" + id + "\" type=\"checkbox\" />" +\
-            "<label for=\"" + id + "\" " + data + "> " + text + "</label>" +\
+            "<label for=\"" + id + "\"> " + text + "</label>" +\
             "</div>"

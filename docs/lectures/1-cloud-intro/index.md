@@ -54,16 +54,16 @@ Also in contrast to your home setup these servers contain an Out-Of-Bounds Manag
 When it comes to purchasing servers larger companies tend to go with the same components for a longer period of time and they also buy support from the vendor. This sometimes includes hardware replacement done entirely by the vendor in the datacenter without the need for the customer to have staff on site. However, purchasing a specific set of components or ordering larger quantities of servers presents a logistics challenge and can sometimes take up to 3-4 months. Buying hardware is also an up-front investment which is hard to justify when demands change rapidly.
 
 {{ quiz("What components are redundant in a server?", [
-    answer("Power supply", true),
-    answer("CPU", false),
-    answer("RAM", false),
-    answer("Fan", true),
-    answer("OOBM", false),
+    answer("Power supply"),
+    answer("CPU"),
+    answer("RAM"),
+    answer("Fan"),
+    answer("OOBM"),
 ]) }}
 
 {{ quiz("What is the purpose of an OOBM?", [
-    answer("Remotely manage a server", true),
-    answer("Receive hardware malfunction alerts", true)
+    answer("Remotely manage a server"),
+    answer("Receive hardware malfunction alerts")
 ]) }}
 
 ## The Anatomy of a Datacenter
@@ -125,17 +125,17 @@ Generally speaking providers can be classified into 3 categories. Tier 1 provide
 ![An illustration of how internet providers are connected. In this example Global A and Global B are two providers which are connected in the same level, Local A and Local B are connected to Global A, while Local C is connected to Global B. Local A and Local B also exchange data directly and Local B and C exchange data over a local internet exchange. The example datacenter customer is connected to Local B.](/lectures/1-cloud-intro/internet-tiers.svg)
 
 {{ quiz("Given there are 3 providers A, B, and C. B is connected to A and C, but A and C are not directly connected. Which of the following is true?", [
-    answer("A and C directly exchange IP address range information via BGP.", false),
-    answer("A and B directly exchange IP address range information via BGP.", true),
-    answer("B and C directly exchange IP address range information via BGP.", true),
-    answer("A and C cannot communicate.", false),
-    answer("A and C can communicate.", true),
-    answer("A forwards IP address range information from B to C", false),
-    answer("A forwards IP address range information from C to B", false),
-    answer("B forwards IP address range information from A to C", true),
-    answer("B forwards IP address range information from C to A", true),
-    answer("C forwards IP address range information from A to B", false),
-    answer("C forwards IP address range information from B to A", false),
+    answer("A and C directly exchange IP address range information via BGP."),
+    answer("A and B directly exchange IP address range information via BGP."),
+    answer("B and C directly exchange IP address range information via BGP."),
+    answer("A and C cannot communicate."),
+    answer("A and C can communicate."),
+    answer("A forwards IP address range information from B to C"),
+    answer("A forwards IP address range information from C to B"),
+    answer("B forwards IP address range information from A to C"),
+    answer("B forwards IP address range information from C to A"),
+    answer("C forwards IP address range information from A to B"),
+    answer("C forwards IP address range information from B to A"),
 ]) }}
 
 ## Software Stack
@@ -227,17 +227,17 @@ Generally speaking, cloud services can be classified into three categories: Infr
     SaaS will not be discussed in this course.
 
 {{ quiz("Which of the following can be considered cloud providers?", [
-    answer("An in-house team that provides you with virtual machines when requested via ticket.", false),
-    answer("A company that providers virtual machines as a service that are billed on a per-month basis.", false),
-    answer("A company that offers a databases as a service on a monthly basis.", false),
-    answer("An in-house service where you and other in-house teams can create virtual machines via an API or user interface automatically.", true),
-    answer("A company that provides video conversion on a per-video price upon upload.", true),
+    answer("An in-house team that provides you with virtual machines when requested via ticket."),
+    answer("A company that providers virtual machines as a service that are billed on a per-month basis."),
+    answer("A company that offers a databases as a service on a monthly basis."),
+    answer("An in-house service where you and other in-house teams can create virtual machines via an API or user interface automatically."),
+    answer("A company that provides video conversion on a per-video price upon upload."),
 ]) }}
 
 {{ quiz("When determining if a company is a true cloud provider which of the following do you look for?", [
-    answer("An API and/or user interface", true),
-    answer("Can I create resources (servers, etc) immediately?", true),
-    answer("Are my resources billed based on usage or per-minute/second", true),
+    answer("An API and/or user interface"),
+    answer("Can I create resources (servers, etc) immediately?"),
+    answer("Are my resources billed based on usage or per-minute/second"),
 ]) }}
 
 ### Infrastructure as a Service (IaaS)
@@ -249,9 +249,9 @@ IaaS also includes the network connectivity to the Internet. Almost all IaaS pro
 Note that network services can differ greatly. For example, some providers implement private networks on a regional basis while other providers offer private networks that can be used to connect virtual machines that are located in different regions.
 
 {{ quiz("Which of the following do you absolutely need to use an IaaS service?", [
-    answer("DevOps engineers, Linux or Windows system administrators", true),
-    answer("Developers", false),
-    answer("Neither", false),
+    answer("DevOps engineers, Linux or Windows system administrators"),
+    answer("Developers"),
+    answer("Neither"),
 ]) }}
 
 ### Managed Services (PaaS)
@@ -279,9 +279,9 @@ As you might imagine managed servies also have downsides. Most importantly they 
 It is also worth mentioning that managed services tend to work well for a large number of customers but a few number of customers can run into hard to debug problems. This debugging difficulty arises out of the inherent opacity of the services: you, the customer, don't see what's happening on the IaaS layer. If a database, for example, fills the available bandwidth may not be notified and are left guessing why your database misbehaves.
 
 {{ quiz("Which of the following do you absolutely need to use a PaaS service?", [
-    answer("DevOps engineers, Linux or Windows system administrators", false),
-    answer("Developers", true),
-    answer("Neither", false),
+    answer("DevOps engineers, Linux or Windows system administrators"),
+    answer("Developers"),
+    answer("Neither"),
 ]) }}
 
 ## Business Models
@@ -358,15 +358,15 @@ These features, especially the connectivity-related features, also allow for the
 While the definitions outlined by NIST and other organizations in this matter are clear, real life rarely is. In a real-world scenario you will find a wide range of mixes comprised from all of the above. To you as a cloud engineer it is more important to understand the benefits and drawbacks of each so you can make a good recommendation depending on the use case.
 
 {{ quiz("What are the advantages of a public cloud?", [
-    answer("Large amount of available resources", true),
-    answer("Public clouds automatically solve scaling problems", false),
-    answer("They are always cheaper than private clouds", false),
+    answer("Large amount of available resources"),
+    answer("Public clouds automatically solve scaling problems"),
+    answer("They are always cheaper than private clouds"),
 ]) }}
 
 {{ quiz("What are the advantages of a private cloud?", [
-    answer("Greater protection against hardware-bound attacks", true),
-    answer("Easier interconnect with an on-premises environment", true),
-    answer("They are always hosted on-premises", false),
+    answer("Greater protection against hardware-bound attacks"),
+    answer("Easier interconnect with an on-premises environment"),
+    answer("They are always hosted on-premises"),
 ]) }}
 
 ## Automation
@@ -393,15 +393,15 @@ Automation tools are also not equally suited for each task. Terraform, for examp
 Ansible, on the other hand, allows for manual changes but does not automatically implement a tear-down procedure for the environment that has been created. This makes Ansible environments, and Ansible code harder to test and maintain, but more suited for environments where traditional IT is still a concern.    
 
 {{ quiz("When would you use Ansible?", [
-    answer("I can use Terraform only once I already have my virtual machines installed.", false),
-    answer("I can use Ansible to partially manage a server and manually configure other parts.", true),
-    answer("I can use Ansible to fully manage my cloud environment.", true),
+    answer("I can use Terraform only once I already have my virtual machines installed."),
+    answer("I can use Ansible to partially manage a server and manually configure other parts."),
+    answer("I can use Ansible to fully manage my cloud environment."),
 ]) }}
 
 {{ quiz("When would you use Terraform?", [
-    answer("I can use it to install servers and then install the software manually.", false),
-    answer("I can use Terraform to implement immutable infrastructure.", true),
-    answer("I can use Terraform only install software within a virtual machine.", false),
+    answer("I can use it to install servers and then install the software manually."),
+    answer("I can use Terraform to implement immutable infrastructure."),
+    answer("I can use Terraform only install software within a virtual machine."),
 ]) }}
 
 ## Regulation
@@ -535,31 +535,31 @@ The second SCC is [Decision 2004/915/EC](https://eur-lex.europa.eu/legal-content
 The third SCC is [Decision 2010/87/EU](https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32010D0087) and was **adopted by Google and AWS**, for example. It creates a safety net for the cloud provider by only requiring them to disclose requests by law enforcement if that would not put criminal liability on them. It also puts any liability for damages on the *cloud user* unless they, for example, went bankrupt. In that case the cloud provider is only responsible for their own operations, not those of the cloud user. In order words, **you the cloud user are responsible for any breaches of data due to US law enforcement requests**.
 
 {{ quiz("Who is subject to the GDPR?", [
-    answer("Any company located in the EU.", false),
-    answer("Any company dealing with privately identifiable information of EU citizens world-wide.", true),
-    answer("Any company world-wide.", false),
+    answer("Any company located in the EU."),
+    answer("Any company dealing with privately identifiable information of EU citizens world-wide."),
+    answer("Any company world-wide."),
 ]) }}
 
 {{ quiz("Does an EU citizen have an absolute right to have their data deleted?", [
-    answer("Yes", false),
-    answer("No", true),
+    answer("Yes"),
+    answer("No"),
 ]) }}
 
 {{ quiz("As a EU-based company can you use US cloud providers to store privately identifiable information?", [
-    answer("Yes, under the Privacy Shield.", false),
-    answer("Yes, under the Standard Contract Clauses.", true),
-    answer("Yes, but only if the data is stored in an EU datacenter.", false),
-    answer("No.", false),
+    answer("Yes, under the Privacy Shield."),
+    answer("Yes, under the Standard Contract Clauses."),
+    answer("Yes, but only if the data is stored in an EU datacenter."),
+    answer("No."),
 ]) }}
 
 {{ quiz("You are operating a mailing list and someone contacts you to that they want their PII removed. What are your options?", [
-    answer("It is enough if I remove the mails sent by that individual.", false),
-    answer("I have to redact or delete all information regarding that persons identity.", true),
-    answer("I do not have to remove anything as archives fall under an exception.", false),
+    answer("It is enough if I remove the mails sent by that individual."),
+    answer("I have to redact or delete all information regarding that persons identity."),
+    answer("I do not have to remove anything as archives fall under an exception."),
 ]) }}
 
 {{ quiz("You are operating a webshop and a customer contacts you to remove all information about them. What do you have to remove?", [
-    answer("I have to them from my marketing mailing list.", true),
-    answer("I have to their user account.", true),
-    answer("I have to delete their invoices.", false),
+    answer("I have to them from my marketing mailing list."),
+    answer("I have to their user account."),
+    answer("I have to delete their invoices."),
 ]) }}

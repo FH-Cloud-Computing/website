@@ -37,29 +37,29 @@ Sticky sessions, however, present a problem: when a backend goes down the users 
 This has an adverse effect on user experience which is why newer, so-called &ldquo;cloud native&rdquo; applications don't use sticky sessions. Instead, cloud native applications put client-specific data (e.g. [session data](https://en.wikipedia.org/wiki/Session_(computer_science)#HTTP_session_token)) in database systems with redundancy. Sessions themselves [have their own race condition problems](https://pasztor.at/blog/stop-using-php-sessions/), but that is not a discussion for this lecture.
 
 {{ quiz("What are HTTP cookies?", [
-    answer("Tasty treats for developers doing good work", false),
-    answer("A tiny piece of information stored on the user's computer", true),
-    answer("A secure way to transfer information from one computer to another", false),
+    answer("Tasty treats for developers doing good work"),
+    answer("A tiny piece of information stored on the user's computer"),
+    answer("A secure way to transfer information from one computer to another"),
 ]) }}
 
 {{ quiz("What are sticky sessions?", [
-    answer("A connection that is stuck and needs to be terminated", false),
-    answer("A configuration on a load balancer to route requests from the same user to the same backend", true),
+    answer("A connection that is stuck and needs to be terminated"),
+    answer("A configuration on a load balancer to route requests from the same user to the same backend"),
 ]) }}
 
 {{ quiz("What ISO/OSI network layer do application load balancers work on?", [
-    answer("Layer 1", false),
-    answer("Layer 2", false),
-    answer("Layer 3", false),
-    answer("Layer 4", false),
-    answer("Layer 7", true),
+    answer("Layer 1"),
+    answer("Layer 2"),
+    answer("Layer 3"),
+    answer("Layer 4"),
+    answer("Layer 7"),
 ]) }}
 
 {{ quiz("What protocol do application load balancers typically balance?", [
-    answer("Ethernet", false),
-    answer("IP", false),
-    answer("TCP", false),
-    answer("HTTP", true),
+    answer("Ethernet"),
+    answer("IP"),
+    answer("TCP"),
+    answer("HTTP"),
 ]) }}
 
 ## Content Delivery Networks (CDNs)
@@ -90,16 +90,16 @@ In essence, CDN's help with latency issues *if the content can be cached*. in ot
     SpaceX is building the [Starlink network](https://techcrunch.com/2020/06/15/spacex-will-have-to-starlink-internets-low-latency-within-the-next-month-to-qualify-for-up-to-16b-in-federal-funding/) to provide lower latency connectivity across the globe.
 
 {{ quiz("What is the typical latency from Sidney to Frankfurt? (16,473 km)", [
-    answer("108ms", false),
-    answer("290ms", true),
-    answer("1082ms", false),
+    answer("108ms"),
+    answer("290ms"),
+    answer("1082ms"),
 ]) }}
 
 {{ quiz("What is latency?", [
-    answer("The time it takes for a data packet to travel from the source to the destination.", false),
-    answer("The time it takes for a data packet to travel from the source to the destination and back.", true),
-    answer("The time it takes to transfer a 1 kB file.", false),
-    answer("The maximum data transfer rate between two points.", false),
+    answer("The time it takes for a data packet to travel from the source to the destination."),
+    answer("The time it takes for a data packet to travel from the source to the destination and back."),
+    answer("The time it takes to transfer a 1 kB file."),
+    answer("The maximum data transfer rate between two points."),
 ]) }}
 
 ## Object Storage
@@ -124,20 +124,20 @@ However, due to the limited featureset object storages have a few unique abiliti
 - Some object storage implementations offer the ability to lock files from being modified in the future. This is especially important when adhering to corporate or government data retention requirements.
 
 {{ quiz("What is a typical use case for an object storage?", [
-    answer("Long-term storage for backups", true),
-    answer("Storage of user-uploaded files (e.g. images)", true),
-    answer("Storage backend for databases.", false),
+    answer("Long-term storage for backups"),
+    answer("Storage of user-uploaded files (e.g. images)"),
+    answer("Storage backend for databases."),
 ]) }}
 
 {{ quiz("How are object storages typically integrated?", [
-    answer("They are mounted as a drive in the operating system.", false),
-    answer("The application typically supports using object storages directly.", true),
+    answer("They are mounted as a drive in the operating system."),
+    answer("The application typically supports using object storages directly."),
 ]) }}
 
 {{ quiz("What filesystem feature do object storages NOT offer?", [
-    answer("The ability to partially write or read a file.", true),
-    answer("The ability to obtain an exclusive lock for exclusive access.", true),
-    answer("The ability to change access permissions.", false),
+    answer("The ability to partially write or read a file."),
+    answer("The ability to obtain an exclusive lock for exclusive access."),
+    answer("The ability to change access permissions."),
 ]) }}
 
 ### Cold storage
@@ -221,10 +221,10 @@ Graph databases are special databases that store relationships of datasets with 
 A popular graph database option is Neo4j
 
 {{ quiz("Which of the following database engines would be suitable to store transfers on a bank account?", [
-    answer("A cluster of eventually consistent NoSQL databases (e.g. MongoDB)", false),
-    answer("A single, strictly consistent NoSQL database (e.g. etcd)", false),
-    answer("A cluster of relational databases with asynchronous replication (e.g. vanilla MySQL)", false),
-    answer("A cluster of relational databases with synchronous replication (e.g. MySQL/Galera cluster)", true),
+    answer("A cluster of eventually consistent NoSQL databases (e.g. MongoDB)"),
+    answer("A single, strictly consistent NoSQL database (e.g. etcd)"),
+    answer("A cluster of relational databases with asynchronous replication (e.g. vanilla MySQL)"),
+    answer("A cluster of relational databases with synchronous replication (e.g. MySQL/Galera cluster)"),
 ]) }}
 
 ## Functions as a Service (FaaS / Lambda)

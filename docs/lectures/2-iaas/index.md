@@ -107,37 +107,37 @@ The presence of an API makes the difference between IaaS and plain old virtual m
 a customer to scale their application dynamically according to their current demand.
 
 {{ quiz("What component of the software stack runs on Ring 3 in virtual mode?", [
-    answer("The application", true),
-    answer("The kernel", false),
-    answer("The hypervisor", false),
-    answer("The management engine", false),
+    answer("The application"),
+    answer("The kernel"),
+    answer("The hypervisor"),
+    answer("The management engine"),
 ]) }}
 
 {{ quiz("What component of the software stack runs on Ring 0 in virtual mode?", [
-    answer("The application", false),
-    answer("The kernel", true),
-    answer("The hypervisor", false),
-    answer("The management engine", false),
+    answer("The application"),
+    answer("The kernel"),
+    answer("The hypervisor"),
+    answer("The management engine"),
 ]) }}
 
 {{ quiz("What component of the software stack runs on Ring -1 in virtual mode?", [
-    answer("The application", false),
-    answer("The kernel", false),
-    answer("The hypervisor", true),
-    answer("The management engine", false),
+    answer("The application"),
+    answer("The kernel"),
+    answer("The hypervisor"),
+    answer("The management engine"),
 ]) }}
 
 {{ quiz("What component of the software stack runs on Ring -2 in virtual mode?", [
-    answer("The application", false),
-    answer("The kernel", false),
-    answer("The hypervisor", false),
-    answer("The management engine", true),
+    answer("The application"),
+    answer("The kernel"),
+    answer("The hypervisor"),
+    answer("The management engine"),
 ]) }}
 
 {{ quiz("What does virtualization mean?", [
-    answer("Every instruction by a virtual machine is captured by the kernel and translated.", false),
-    answer("Critical instructions like memory operations are captured or translated by the kernel.", false),
-    answer("Critical instructions like memory operations are captured or translated by the CPU and the hypervisor.", true),
+    answer("Every instruction by a virtual machine is captured by the kernel and translated."),
+    answer("Critical instructions like memory operations are captured or translated by the kernel."),
+    answer("Critical instructions like memory operations are captured or translated by the CPU and the hypervisor."),
 ]) }}
 
 ## Typical instance types
@@ -196,9 +196,9 @@ Tools like [Terraform](https://terraform.io/) or [Ansible](https://www.ansible.c
 process of provisioning the virtual machines and supplying it with the correct user data script. 
 
 {{ quiz("What is the role of cloud-init?", [
-    answer("It initializes a cloud account.", false),
-    answer("It creates a virtual machine.", false),
-    answer("It runs initial machine configuration on a virtual machine.", true),
+    answer("It initializes a cloud account."),
+    answer("It creates a virtual machine."),
+    answer("It runs initial machine configuration on a virtual machine."),
 ]) }}
 
 ## Virtual machine pools
@@ -268,11 +268,11 @@ setup. If, however, your database is replicated anyway you may no longer need th
 this can be a great way to save costs.
 
 {{ quiz("Which of the following is provided by local storage?", [
-    answer("Fault-tolerance in the face of a machine failure.", false),
-    answer("High IO performance.", true),
-    answer("The ability to move the data volume to a different machine.", false),
-    answer("The ability to access the data volume from several machines at once.", false),
-    answer("Data consistency.", true),
+    answer("Fault-tolerance in the face of a machine failure."),
+    answer("High IO performance."),
+    answer("The ability to move the data volume to a different machine."),
+    answer("The ability to access the data volume from several machines at once."),
+    answer("Data consistency."),
 ]) }}
 
 ### Network Block Storage
@@ -292,11 +292,11 @@ At any rate, using Network Block Storage does not absolve you from the duty to m
 tested disaster recovery strategy.
 
 {{ quiz("Which of the following is provided by network block storage?", [
-    answer("Fault-tolerance in the face of a machine failure.", true),
-    answer("High IO performance.", false),
-    answer("The ability to move the data volume to a different machine.", true),
-    answer("The ability to access the data volume from several machines at once.", false),
-    answer("Data consistency.", true),
+    answer("Fault-tolerance in the face of a machine failure."),
+    answer("High IO performance."),
+    answer("The ability to move the data volume to a different machine."),
+    answer("The ability to access the data volume from several machines at once."),
+    answer("Data consistency."),
 ]) }}
 
 ### Network File Systems
@@ -313,11 +313,11 @@ the changes across the network (e.g. [CephFS](https://docs.ceph.com/docs/master/
 offer this, for example [Amazon's EFS](https://aws.amazon.com/efs/).
 
 {{ quiz("Which of the following is provided by network filesystems?", [
-    answer("Fault-tolerance in the face of a machine failure.", true),
-    answer("High IO performance.", false),
-    answer("The ability to move the data volume to a different machine.", true),
-    answer("The ability to access the data volume from several machines at once.", true),
-    answer("Data consistency.", true),
+    answer("Fault-tolerance in the face of a machine failure."),
+    answer("High IO performance."),
+    answer("The ability to move the data volume to a different machine."),
+    answer("The ability to access the data volume from several machines at once."),
+    answer("Data consistency."),
 ]) }}
 
 ### Object storage
@@ -334,46 +334,46 @@ Operating system level integration should only be used as a last resort and obje
 application level. We will discuss object storage services in detail in our next lesson.
 
 {{ quiz("Which of the following is provided by object storages?", [
-    answer("Fault-tolerance in the face of a machine failure.", true),
-    answer("High IO performance.", false),
-    answer("The ability to move the data volume to a different machine.", true),
-    answer("The ability to access the data volume from several machines at once.", true),
-    answer("Data consistency.", false),
+    answer("Fault-tolerance in the face of a machine failure."),
+    answer("High IO performance."),
+    answer("The ability to move the data volume to a different machine."),
+    answer("The ability to access the data volume from several machines at once."),
+    answer("Data consistency."),
 ]) }}
 
 {{ quiz("Which storage type is Amazon's EBS?", [
-    answer("Local disk", false),
-    answer("Network block storage", true),
-    answer("Network filesystem", false),
-    answer("Object storage", false),
+    answer("Local disk"),
+    answer("Network block storage"),
+    answer("Network filesystem"),
+    answer("Object storage"),
 ]) }}
 
 {{ quiz("Which storage type is Amazon's EFS?", [
-    answer("Local disk", false),
-    answer("Network block storage", false),
-    answer("Network filesystem", true),
-    answer("Object storage", false),
+    answer("Local disk"),
+    answer("Network block storage"),
+    answer("Network filesystem"),
+    answer("Object storage"),
 ]) }}
 
 {{ quiz("Which storage type is Ceph RBD?", [
-    answer("Local disk", false),
-    answer("Network block storage", true),
-    answer("Network filesystem", false),
-    answer("Object storage", false),
+    answer("Local disk"),
+    answer("Network block storage"),
+    answer("Network filesystem"),
+    answer("Object storage"),
 ]) }}
 
 {{ quiz("Which storage type is iSCSI?", [
-    answer("Local disk", false),
-    answer("Network block storage", true),
-    answer("Network filesystem", false),
-    answer("Object storage", false),
+    answer("Local disk"),
+    answer("Network block storage"),
+    answer("Network filesystem"),
+    answer("Object storage"),
 ]) }}
 
 {{ quiz("Which storage type is S3?", [
-    answer("Local disk", false),
-    answer("Network block storage", false),
-    answer("Network filesystem", false),
-    answer("Object storage", true),
+    answer("Local disk"),
+    answer("Network block storage"),
+    answer("Network filesystem"),
+    answer("Object storage"),
 ]) }}
 
 ## Network
@@ -452,10 +452,10 @@ since you do not need to hard-code the IP addresses of the application servers.
 ![An illustration of adding a firewall rule to a security group called "backend" allowing access to port 3306 from the security group "frontend".](sg.png)
 
 {{ quiz("What do security groups offer?", [
-    answer("Filtering based on IP address", true),
-    answer("Filtering based on the requested service", true),
-    answer("Filtering based on the requested domain name", false),
-    answer("Filtering based on the requested subpage on a website", false),
+    answer("Filtering based on IP address"),
+    answer("Filtering based on the requested service"),
+    answer("Filtering based on the requested domain name"),
+    answer("Filtering based on the requested subpage on a website"),
 ]) }}
 
 ### Network load balancers
@@ -464,7 +464,7 @@ Network load balancers are an option some cloud providers offer. In contrast to 
 do not offer protocol decoding (such as routing requests to backends based on the requested web address), they only
 balance incoming connections to a pool of backends.
 
-![An illustration of a network load balancer sending data to multiple virtual machines.](nlb.png)
+![An illustration of a network load balancer sending data to multiple virtual machines.](nlb.svg)
 
 Depending on the cloud provider in question network load balancers may or may not offer terminating encrypted 
 connections (SSL/TLS), and may be bound to virtual machine pools. It is also cloud provider specific if load balancers
@@ -487,11 +487,11 @@ either round robin (selecting the next backend in the list) or source hashing (r
 same backend).
 
 {{ quiz("What do NLBs typically offer?", [
-    answer("Spreading incoming connections across multiple backend machines equally.", true),
-    answer("Spreading incoming connections across multiple backend machines, sending connections from the same source to the same backend.", true),
-    answer("Spreading incoming connections across multiple backend machines, based on the domain name)", false),
-    answer("Spreading incoming connections across multiple backend machines, based on the subpage requested)", false),
-    answer("Terminating encrypted connections so the backend doesn't have to (SSL/TLS offloading)", true),
+    answer("Spreading incoming connections across multiple backend machines equally."),
+    answer("Spreading incoming connections across multiple backend machines, sending connections from the same source to the same backend."),
+    answer("Spreading incoming connections across multiple backend machines, based on the domain name)"),
+    answer("Spreading incoming connections across multiple backend machines, based on the subpage requested)"),
+    answer("Terminating encrypted connections so the backend doesn't have to (SSL/TLS offloading)"),
 ]) }}
 
 ### VPNs, private interconnects, and routing services
@@ -530,23 +530,23 @@ The only cloud service that offers a mobile device to cloud connectivity at the 
 It is also worth noting that VPN's can be used to connect cloud providers together.
 
 {{ quiz("What VPN type is offered by all major cloud providers?", [
-    answer("Site-to-site", true),
-    answer("Device-to-site", false),
-    answer("Device-to-device", false),
+    answer("Site-to-site"),
+    answer("Device-to-site"),
+    answer("Device-to-device"),
 ]) }}
 
 {{ quiz("What VPN protocol is offered by all major cloud providers?", [
-    answer("OpenVPN", false),
-    answer("IPsec", true),
-    answer("SSTP", false),
-    answer("L2TP", false),
-    answer("PPTP", false),
+    answer("OpenVPN"),
+    answer("IPsec"),
+    answer("SSTP"),
+    answer("L2TP"),
+    answer("PPTP"),
 ]) }}
 
 {{ quiz("What VPN type can IPsec offer by itself?", [
-    answer("Site-to-site", true),
-    answer("Device-to-site", false),
-    answer("Device-to-device", false),
+    answer("Site-to-site"),
+    answer("Device-to-site"),
+    answer("Device-to-device"),
 ]) }}
 
 ### DNS

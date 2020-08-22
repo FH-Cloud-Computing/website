@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 :root {
 /*
 Primary color:
@@ -39,12 +41,9 @@ Secondary coor:
   --md-code-bg-color:                  #4b5059;
   --md-code-fg-color:                  #f0f0f0;
 
-  --md-correct-color:                  #ffffff;
-  --md-correct-background-color:       #5ebd60;
-  --md-correct-border-color:           #00bd03;
-  --md-incorrect-color:                #ffffff;
-  --md-incorrect-background-color:     #bd5e5e;
-  --md-incorrect-border-color:         #bd0000;
+  --md-answer-color:                   #ffffff;
+  --md-answer-background-color:        var(--md-accent-fg-color);
+  --md-answer-border-color:            var(--md-accent-fg-color);
 }
 
 body,input{
@@ -195,18 +194,12 @@ code,kbd,pre{
   content:"◯";
 }
 .quiz__answers input:checked + label {
-  color: var(--md-incorrect-color);
-  border-color: var(--md-incorrect-background-color);
-  background-color: var(--md-incorrect-background-color);
+  color: var(--md-answer-color);
+  border-color: var(--md-answer-background-color);
+  background-color: var(--md-answer-background-color);
 }
 .quiz__answers input:checked + label::before {
-  content:"❌";
-}
-.quiz__answers input:checked + label[data-correct] {
-  color: var(--md-correct-color);
-  border-color: var(--md-correct-background-color);
-  background-color: var(--md-correct-background-color);
-}
-.quiz__answers input:checked + label[data-correct]::before {
-  content:"✔️";
+  color: var(--md-answer-color);
+  margin-top:-2px;
+  content:"⦻";
 }
