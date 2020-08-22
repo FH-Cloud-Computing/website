@@ -181,19 +181,21 @@ code,kbd,pre{
   border-radius:1rem;
   margin-top:0.75rem;
   margin-bottom:0.75rem;
-  height:2rem;
-  line-height:2rem;
-  padding-left:2rem;
+  min-height:2rem;
+  line-height:1.2rem;
+  font-size:0.8rem;
+  padding: 0.4rem 1rem 0.4rem 2rem;
   cursor: pointer;
 }
 .quiz__answers input + label::before {
   position: absolute;
-  top: 0;
+  top: 0.4rem;
   left: 0.2rem;
   height: 2rem;
   width: 2rem;
   text-align: center;
-  line-height: 2rem;
+  line-height:1.2rem;
+  font-size:0.8rem;
   content:"◯";
 }
 .quiz__answers input:checked + label {
@@ -203,6 +205,6 @@ code,kbd,pre{
 }
 .quiz__answers input:checked + label::before {
   color: var(--md-answer-color);
-  margin-top:-2px;
+  margin-top:-1px;
   content:"⦻";
 }
