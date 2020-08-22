@@ -168,6 +168,9 @@ code,kbd,pre{
   }
 }
 
+.question {
+  page-break-inside: avoid;
+}
 .quiz__answers input {
   display:none
 }
