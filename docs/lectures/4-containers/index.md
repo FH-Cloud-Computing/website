@@ -52,7 +52,7 @@ In essence, *containers don't exist*. They are a collection of technologies that
 
 !!! tip "Do you want to build your own container engine?"
     You can! Take a look at [Liz Rice's Containers From Scratch](https://www.youtube.com/watch?v=Utf-A4rODH8) talk!
-
+    
 ## Container images
 
 [Docker](https://www.docker.com/) was not the first technology to create containers using the modern Linux API's, but it was the one that made containers popular. The edge Docker had over its competitors was the way it dealt with images. Other container solutions at the time, like LXC, tried to emulate virtual machines where a full operating system would be installed, and then updated. Docker chose a different route. A `Dockerfile` would contain the instructions needed to build a container image containing the application that should be containerized. These instructions would be executed and resulted in a container image. This container image could then be used to launch one or more copies of it.
@@ -65,6 +65,18 @@ Docker went one step further, they introduced a way to share images between mach
 
 !!! warning
     Third party container images should be treated with the same due diligence like installing third party software on your computer! They can contain malicious code and can cause harm despite the containerization.
+
+{{ quiz("Which is not running in a container?", [
+    answer("A CPU"),
+    answer("A userspace"),
+    answer("A kernel"),
+]) }}
+
+{{ quiz("What is in a Dockerfile", [
+    answer("A container image"),
+    answer("A container snapshot"),
+    answer("An instruction set how to make a container image"),
+]) }}
 
 ## The container lifecycle
 
@@ -136,6 +148,32 @@ Alternatively, workloads can also make use of the **Ingress** resource that dyna
 
 To augment these capabilities the **Job** resource gives developers the ability to use Kubernetes as a queue system and run one-off workloads. To run regular jobs the **CronJob** resource can be used.
 
+{{ quiz("Which Kubernetes resource do you use to run a container on every node in a cluster?", [
+    answer("Pod"),
+    answer("Deployment"),
+    answer("ReplicaSet"),
+    answer("DaemonSet"),
+    answer("Job"),
+    answer("CronJob"),
+]) }}
+
+{{ quiz("Which of the following resources are managed by a Deployment in Kubernetes?", [
+    answer("Pod"),
+    answer("ReplicaSet"),
+    answer("DaemonSet"),
+    answer("Job"),
+    answer("CronJob"),
+]) }}
+
+{{ quiz("Which of the following is the smallest unit in Kubernetes?", [
+    answer("Pod"),
+    answer("Deployment"),
+    answer("ReplicaSet"),
+    answer("DaemonSet"),
+    answer("Job"),
+    answer("CronJob"),
+]) }}
+
 ### Architecture
 
 The Kubernetes architecture is highly modular and the description given here is fairly generic. Individual Kubernetes distributions may differ greatly in their use of tools.
@@ -157,3 +195,23 @@ The **kube-proxy** service also often runs on each Kubernetes node to provide lo
 The **Container Network Interface** (CNI) is a network plugin deployed alongside the kubelet and provides the previously-described overlay network. There is a wide range of CNI plugins from bare metal routing to [Calico](https://www.projectcalico.org/).
 
 As a final piece of the puzzle **Container Storage Interfaces** (CSI) provide a way to integrate just about any storage provider as a driver for PVs.
+
+{{ quiz("Which Kubernetes component talks to the container runtime?", [
+    answer("Controller-Manager"),
+    answer("Cloud Controller")
+    answer("API server"),
+    answer("Scheduler"),
+    answer("Kubelet"),
+    answer("kubectl"),
+    answer("kube-proxy"),
+]) }}
+
+{{ quiz("Which Kubernetes component is responsible for managing internal load balancers?", [
+    answer("Controller-Manager"),
+    answer("Cloud Controller")
+    answer("API server"),
+    answer("Scheduler"),
+    answer("Kubelet"),
+    answer("kubectl"),
+    answer("kube-proxy"),
+]) }}
