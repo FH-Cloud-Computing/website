@@ -4,7 +4,7 @@
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
 
-<h1>Introduction to the Cloud</h1>
+<h1>Infrastructure as a Service</h1>
 
 This exercise will guide you through the basics of setting up a cloud account, configuring your first firewall and configuring your first instance. Since the [project work](../../projectwork/index.md) is based on Exoscale this account will showcase using Exoscale. The principles shown here can be applied to any cloud provider.
 
