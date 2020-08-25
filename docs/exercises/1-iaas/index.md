@@ -103,6 +103,21 @@ Tip of the day:
 
 !!! warning "Be careful!"
     If you store the user data script on a Windows machine it will do so with Windows line endings. This will not work on Linux systems. Make sure to use an editor that can save the script with Linux line endings.
+    
+## Creating a virtual machine pool
+
+Creating a virtual machine pool is very similar to creating an instance. Assuming you have saved your User Data script in a file called `userdata.sh` you can start a pool with 2 machines with the following command:
+
+```
+exo instancepool create autoscaling \
+    --service-offering Tiny \
+    --template "Linux Ubuntu 20.04 LTS 64-bit" \
+    --zone at-vie-1 \
+    --security-group autoscaling \
+    --cloud-init userdata.sh \
+    --disk 10 \
+    --size 2 
+```
 
 ## Destroying your instances
 
