@@ -208,7 +208,7 @@ As a final piece of the puzzle **Container Storage Interfaces** (CSI) provide a 
 
 {{ quiz("Which Kubernetes component is responsible for managing internal load balancers?", [
     answer("Controller-Manager"),
-    answer("Cloud Controller")
+    answer("Cloud Controller"),
     answer("API server"),
     answer("Scheduler"),
     answer("Kubelet"),
