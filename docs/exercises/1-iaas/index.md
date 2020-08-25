@@ -110,10 +110,10 @@ Creating a virtual machine pool is very similar to creating an instance. Assumin
 
 ```
 exo instancepool create autoscaling \
-    --service-offering Tiny \
+    --service-offering Micro \
     --template "Linux Ubuntu 20.04 LTS 64-bit" \
     --zone at-vie-1 \
-    --security-group autoscaling \
+    --security-group default \
     --cloud-init userdata.sh \
     --disk 10 \
     --size 2 
