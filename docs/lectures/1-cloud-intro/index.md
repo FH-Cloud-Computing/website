@@ -124,6 +124,19 @@ Generally speaking providers can be classified into 3 categories. Tier 1 provide
 
 ![An illustration of how internet providers are connected. In this example Global A and Global B are two providers which are connected in the same level, Local A and Local B are connected to Global A, while Local C is connected to Global B. Local A and Local B also exchange data directly and Local B and C exchange data over a local internet exchange. The example datacenter customer is connected to Local B.](/lectures/1-cloud-intro/internet-tiers.svg)
 
+{{ quiz("What IP addresses does a CIDR of 1.2.3.4/0 cover?", [
+    answer("Only the 1.2.3.4 IP address"),
+    answer("All IP addresses from 1.2.3.0 to 1.2.3.255"),
+    answer("All IP addresses from 1.2.0.0 to 1.2.255.255"),
+    answer("All IP addresses from 1.0.0.0 to 1.255.255.255"),
+    answer("All IP addresses"),
+]) }}
+
+{{ quiz("Is 192.168.2.1 in the network range 192.168.1.0/24", [
+    answer("Yes"),
+    answer("No"),
+]) }}
+
 {{ quiz("Given there are 3 providers A, B, and C. B is connected to A and C, but A and C are not directly connected. Which of the following is true?", [
     answer("A and C directly exchange IP address range information via BGP."),
     answer("A and B directly exchange IP address range information via BGP."),
