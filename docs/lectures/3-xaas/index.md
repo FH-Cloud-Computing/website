@@ -89,7 +89,7 @@ In essence, CDN's help with latency issues *if the content can be cached*. in ot
 !!! tip "Did you know?"
     SpaceX is building the [Starlink network](https://techcrunch.com/2020/06/15/spacex-will-have-to-starlink-internets-low-latency-within-the-next-month-to-qualify-for-up-to-16b-in-federal-funding/) to provide lower latency connectivity across the globe.
 
-{{ quiz("What is the typical latency from Sidney to Frankfurt? (16,473 km)", [
+{{ quiz("What is the typical latency from Sydney to Frankfurt? (16,473 km)", [
     answer("108ms"),
     answer("290ms"),
     answer("1082ms"),
