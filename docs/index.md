@@ -10,24 +10,24 @@ Please note that this lecture is worth 4 ECTS. This is calculated to be roughly 
 
 ---
 
+## Pre-requisites
+
+In order to pass this course you are expected to have an understanding of computer systems and networks (operating a Linux system, IP addresses, netmasks, etc) as well as basic skills in writing shell scripts. You will also require a computer you can install a small number of tools on (Terraform, etc).
+
+---
+
 ## Lectures
 
-Lectures are provided on the [lectures page](/lectures). Each lecture contains a text document, a PPTX, an audio book
-in MP3 and M4B (Apple) format, as well as a [video](https://www.youtube.com/channel/UC4U8FauY-SiYQJAbwDA_68g/). You can
-also listen to individual sections from the text document. **All content is available in all formats** so you only need
-to use the formats you prefer.
+Lectures are provided on the [lectures page](/lectures). Each lecture contains a text document, a PPTX, an audio book in MP3 and M4B (Apple) format, as well as a [video](https://www.youtube.com/channel/UC4U8FauY-SiYQJAbwDA_68g/). You can also listen to individual sections from the text document. **All content is available in all formats** so you only need to use the formats you prefer.
 
-**You are expected to understand and memorize the *&bdquo;In a hurry?&rdquo;* sections from the text version** for the
-theory test.
+**The theory test will require an understanding of these materials**. Take a look at the sample questions included in the text version. 
 
 ---
 
 ## Practice
 
-Practice sections are provided on the [practice page](/practice). Each practice session is provided as a written
-tutorial and a video as well. **All content is present in the video and the text** so you only need to use the format
-you prefer. Source code is provided as a Git repository.
- 
+Practice sections are provided on the [practice page](/practice). Each practice session is provided as a written tutorial and a video as well. **All content is present in the video and the text** so you only need to use the format you prefer. Source code is provided as a [Git repository](https://github.com/FH-Cloud-Computing).
+
 **You are expected to do each practice session at least once.**
 
 ---
@@ -37,15 +37,13 @@ you prefer. Source code is provided as a Git repository.
 Project work is **based on the practice sessions**. Your project work assignment is described on the
 [project work page](/projectwork). Deadlines are described on the [deadlines page](/deadlines).
 
-**You are expected to hand in your project work continuously,** please don't leave it for the last second. You have
-the option to hand in early.
+**You are expected to hand in your project work continuously,** please don't leave it for the last second. You have the option to hand in early.
 
 ---
 
 ## Online consultations & getting help.
 
-Online consultations are provided on a regular basis. Please find detailed description on how to find help on the
-[getting help page](/help).
+Online consultations are provided on a regular basis. Please find detailed description on how to find help on the [getting help page](/help).
 
 ---
 
