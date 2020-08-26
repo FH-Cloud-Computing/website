@@ -4,7 +4,7 @@ Furthermore, if you run out of budget on your Exoscale account **a -15% penalty*
 
 ## Sprint 1: Instance Pools
 
-**Deadline:** 1<sup>st</sup> of October 2020 
+**Deadline:** 15<sup>th</sup> of October 2020 
 
 In this sprint you must demonstrate your ability to set up an instance pool and a network load balancer.
 
@@ -12,7 +12,7 @@ In this sprint you must demonstrate your ability to set up an instance pool and 
 
 ## Sprint 2: Monitoring
 
-**Deadline:** 1<sup>st</sup> of November 2020
+**Deadline:** 15<sup>th</sup> of November 2020
 
 In this sprint you must demonstrate your ability to monitor a varying number of instances set up on an instance pool in the previous sprint.
 
@@ -21,7 +21,7 @@ Prometheus must track the instances in the instance pool using custom service di
 
 ## Sprint 3: Autoscaling
 
-**Deadline:** 1<sup>st</sup> of December 2020
+**Deadline:** 15<sup>th</sup> of December 2020
 
 In this sprint you must demonstrate your ability to receive a webhook from Grafana and adjust the number of instances in the instance pool from the previous sprint under load.
 
