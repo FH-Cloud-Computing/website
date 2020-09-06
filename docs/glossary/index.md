@@ -44,6 +44,10 @@ The Hypertext Transfer Protocol is the protocol that powers the world wide web a
 
 Infrastructure as a Service is discussed in [lecture 2](../lectures/2-iaas/index.md) and provides virtual machines and related services to cloud customers.
 
+## IOMMU
+
+The IOMMU is the memory management unit that virtualizes the Direct Memory Access (DMA) requests from I/O components and separates them from each other to prevent attacks over Thunderbolt/USB.
+
 ## Istio
 
 [Istio](https://istio.io/) is a service mesh used in conjunction with Kubernetes to facilitate microservices. Istio is discussed in [lecture 5](../lectures/5-cloud-native/index.md)
@@ -59,6 +63,10 @@ Load balancers provide either network or application level traffic distribution 
 ## Microservices
 
 Microservices are a concept discussed in [lecture 5](../lectures/5-cloud-native/index.md) for creating multiple small applications working together across the network.
+
+## MMU
+
+The Memory Management Unit is the component of the CPU that translates virtual memory addresses to real addresses. It is used to separate applications from each other.
 
 ## PaaS
 
