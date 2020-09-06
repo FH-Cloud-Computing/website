@@ -175,7 +175,7 @@ and high RAM workloads there are several different instance types, typically:
     - Terraform requires full control of the machines it is managing and implements what's called immutable infrastructure.
     
 
-As discussed before, that makes an IaaS cloud provider a cloud provider is the fact that they offer an API to automate
+As discussed before, what makes an IaaS cloud provider a cloud provider is the fact that they offer an API to automate
 the provisioning and deprovisioning of virtual machines as needed. However, that's not all. Simply starting a virtual
 machine is not enough, the software needs to be installed in it.
 
@@ -185,7 +185,7 @@ service and fetch its manifest of software to install.
 
 Thankfully in the last decade a lot has happened and [Cloud Init](https://cloudinit.readthedocs.io/en/latest/) has
 established itself as a defacto standard in the IaaS world. Every cloud provider nowadays offers the ability to submit
-a *user data* field when creating a virtual machine. This user data file is read by Cloud Init (or its Windows
+a *user data* field when creating a virtual machine. This user data field is read by Cloud Init (or its Windows
 alternative [Cloudbase Init](https://cloudbase.it/cloudbase-init/)) and is executed at the first start of the virtual
 machine.
 
@@ -241,7 +241,7 @@ on the machine that runs the virtual machine so a hardware failure on that machi
 However, a distributed storage system is generally either slower or more expensive for the same performance by several
 magnitudes so using a local storage may still be needed for some use cases.
 
-When we talk about storage systems we are talking about two types: block devices and filesystems. On they physical
+When we talk about storage systems we are talking about two types: block devices and filesystems. On the physical
 disk data is stored in its raw form so the disk itself has no information about which data belongs to which file.
 Filesystems organize data into *blocks* of a fixed or dynamic size and then create a database (mapping table) of 
 which file entry consists of which blocks of data. Keep in mind that the blocks of a single file may be distributed
@@ -260,7 +260,7 @@ is locally attached to the physical machine running the VM. This option offers y
 relatively low price point. The reason for that is that it is the simplest and cheapest to build.
 
 Some cloud providers offer disk redundancy ([RAID](https://en.wikipedia.org/wiki/RAID)) while others don't. At any rate
-a hardware failure on they physical machine means that your data may become unavailable for a period of time or may be
+a hardware failure of the physical machine means that your data may become unavailable for a period of time or may be
 completely lost.
 
 It is therefore very advisable to solve redundancy on top of the virtual machine, e.g. by building a replicated database
@@ -425,7 +425,7 @@ When we look at the network offerings by cloud providers there are three types:
 
 !!! note
     There are several other cloud providers which we have no information on, such as the
-    [Deutsche/Open Telekom Cloud](https://cloud.telekom.de/en), or the [Alibaba Cloud](https://us.alibabacloud.com/).
+    [Deutsche Telekom/Open Telekom Cloud](https://cloud.telekom.de/en), or the [Alibaba Cloud](https://us.alibabacloud.com/).
     You can classify any cloud provider you come across into these categories.
 
 !!! note
@@ -542,7 +542,7 @@ More advanced features may include automatic DNS failover. This involves running
 
 ## Monitoring
 
-Some cloud providers offer included basic monitoring, such as CPU or memory usage. Some providers are offering
+Some cloud providers offer includes basic monitoring, such as CPU or memory usage. Some providers are offering
 monitoring agents you can install on your virtual machine to get more data in the monitoring interface. With some cloud providers monitoring alerts can be integrated with virtual machine pools to provide automatic scaling, either automatically or using lambdas/FaaS, which we will talk about in the [next lecture](/lectures/3-xaas/).
 
 Often times the monitoring facilities offered by cloud providers are not sufficient for keeping an application running and more detailed systems are needed. These will be discussed in greater detail in the [lecture 5](/lectures/5-cloud-native/).
