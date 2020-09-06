@@ -55,3 +55,23 @@ docker run -ti myimagename
 !!! tip
     The `-ti` parameter is only required for interactive sessions. For non-interactive sessions it is not required.
 
+Inside the container you can do operations just as you normally would. For example, you could run `apt update`, then `apt install mc`, and finally `mc` to launch the midnight commander. Once you are finished with the interactive session you can use the `exit` command or <kbd>Ctrl</kbd><kbd>D</kbd>` to exit.
+
+However, as discussed in [lecture 4](../../lectures/4-containers/index.md) the main benefit containers bring to the table is reusability. If you treat a container like you would treat a virtual machine, updating, installing things manually, you lose the main benefit of using containers.
+
+Let's extend our `Dockerfile` to install the `nginx` webserver:
+
+```Dockerfile
+FROM ubuntu:20.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt update
+RUN apt install nginx
+``` 
+
+There are two new commands here: the `ENV` and the `RUN` command. The `ENV` command instructs Docker to set an environment variable. The `DEBIAN_FRONTEND=noninteractive` environment variable instructs the `apt` and `dpkg` packaging utilities in Ubuntu to run in non-interactive mode and not ask questions. Instead, these commands will use default values. The `RUN` command simply runs the specified command.
+
+If you run `docker build .` command now the build will fail:
+
+
