@@ -1,7 +1,6 @@
 <div class="download">
 <a href="fh-cloud-computing-lecture-1-intro.pptx"><button>Download PPTX 💻</button></a>
 <a href="fh-cloud-computing-lecture-1-intro.mp3"><button>Download MP3 🎧</button></a>
-<a href="fh-cloud-computing-lecture-1-intro.m4b"><button>Download M4B 🎧</button></a>
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
 
@@ -68,6 +67,8 @@ When it comes to purchasing servers larger companies tend to go with the same co
 
 ## The Anatomy of a Datacenter
 
+<audio preload="none" controls src="audio/The%20Anatomy%20of%20a%20Datacenter.mp3"></audio>
+
 !!! tldr "In a hurry?"
     **Datacenter components:**
     
@@ -96,6 +97,8 @@ On the networking side of things, matters get slightly more complicated. Some da
 It is also worth noting that larger customers (banks, cloud providers, etc) usually prefer to have their own racks in a separated gated area called a &ldquo;cage&rdquo; to which they control access.
 
 ## The Anatomy of the Internet
+
+<audio preload="none" controls src="audio/The%20Anatomy%20of%20the%20Internet.mp3"></audio>
 
 !!! tldr "In a hurry?"
     **Internet:**
@@ -153,6 +156,8 @@ Generally speaking providers can be classified into 3 categories. Tier 1 provide
 
 ## Software Stack
 
+<audio preload="none" controls src="audio/Software%20Stack.mp3"></audio>
+
 !!! tldr "In a hurry?"
     **Software stack:**
     
@@ -181,6 +186,8 @@ One notable exception to the runtime environment requirement is the programming 
 
 ## The Cloud
 
+<audio preload="none" controls src="audio/The%20Cloud.mp3"></audio>
+
 !!! tldr "In a hurry?"
     **Typical cloud features:**
     
@@ -194,7 +201,7 @@ One notable exception to the runtime environment requirement is the programming 
     - PaaS service offerings typically include a managed service ready to be consumed by a developer.
     - SaaS service offerings typically include a managed service ready to be consumed by a non-technical end user.
 
-All of the previously discussed things were available before the &ldquo;cloud&rdquo;. You could pay a provider to give you access to a virtual machine where you could run your applications. What changed with the cloud, however, is the fact that you no longer had to write a support ticket for changed and everything became self service.
+All of the previously discussed things were available before the &ldquo;cloud&rdquo;. You could pay a provider to give you access to a virtual machine where you could run your applications. What changed with the cloud, however, is the fact that you no longer had to write a support ticket and everything became self service.
 
 The cloud age started with an infamous e-mail from [Jeff Bezos](https://en.wikipedia.org/wiki/Jeff_Bezos) to his engineers in 2002 forcing them to use APIs to exchange data between teams. The exact e-mail is no longer available but it went along these lines:
 
@@ -255,6 +262,8 @@ Generally speaking, cloud services can be classified into three categories: Infr
 
 ### Infrastructure as a Service (IaaS)
 
+<audio preload="none" controls src="audio/IaaS.mp3"></audio>
+
 The most basic of cloud service offerings is IaaS. IaaS means that the cloud provider will manage the infrastructure used by the customer. Infrastructure in this sense means the ability to manage (provision, start,stop) virtual machines. In very rare cases some providers also offer &ldquo;bare metal&rdquo; machines in this fashion. However, most bare metal providers do not offer a true IaaS as machines cannot be ordered using an API, have an up-front fee and are billed on a monthly basis.
 
 IaaS also includes the network connectivity to the Internet. Almost all IaaS providers also offer a built-in firewall, virtual private networks (VPC) that can be used to connect virtual machines together without sending the traffic over the Internet, and other network services.
@@ -268,6 +277,8 @@ Note that network services can differ greatly. For example, some providers imple
 ]) }}
 
 ### Managed Services (PaaS)
+
+<audio preload="none" controls src="audio/PaaS.mp3"></audio>
 
 !!! tldr "In a hurry?"
     **Managed services:**
@@ -298,6 +309,8 @@ It is also worth mentioning that managed services tend to work well for a large 
 ]) }}
 
 ## Business Models
+
+<audio preload="none" controls src="audio/Business%20Models.mp3"></audio>
 
 !!! tldr "In a hurry?"
     **Billing models:**
@@ -352,19 +365,21 @@ These comparisons can be quite misleading because they often don't contain any c
 
 ## Private vs. Public Cloud
 
+<audio preload="none" controls src="audio/Public%20vs%20Private.mp3"></audio>
+
 !!! tldr "In a hurry?"
     **Private cloud:**
     
     - Hosted on-premises or in the public cloud using only private connections.
     - Large cloud providers offer their services &ldquo;in a box&rdquo; to host yourself.
 
-Most cloud applications will reside on a **public cloud** and be accessible from the Internet. However, for some use cases access over the public Internet is not desirable or even strictly forbidden by laws or regulations. In order cases companies may decide that it is their policy that certain systems must never be connected to the public Internet, or only connect via a self-hosted gateway.
+Most cloud applications will reside on a **public cloud** and be accessible from the Internet. However, for some use cases access over the public Internet is not desirable or even strictly forbidden by laws or regulations. In other cases companies may decide that it is their policy that certain systems must never be connected to the public Internet, or only connect via a self-hosted gateway.
 
 In these cases a **private cloud** is desirable to minimize the risk of cross-contamination or data exposure due to other tenants being on the same infrastructure. Such cross-contamination is not uncommon, for example in recent years there have been a litany of CPU bugs such as [Meltdown and Spectre](https://meltdownattack.com/).
 
 A special form of a private cloud is a cloud offering that is dedicated to a special set of consumers, such as a research cloud with special hardware, or discounted rates for several research organizations or universities. The NIST classifies this as a **community cloud**.
 
-Public cloud providers have extended their offers to address these concerns. Their service offerings now include dedicated hypervisors to mitigate CPU bugs, the ability to [connect the cloud bypassing the Internet](https://aws.amazon.com/directconnect/), or [accessing the cloud API's from a private network](https://aws.amazon.com/blogs/compute/introducing-amazon-api-gateway-private-endpoints/). Some cloud providers even went as far offering a [self-hosted setup](https://aws.amazon.com/outposts/) where the public cloud offering can be brought on-premises.
+Public cloud providers have extended their offers to address these concerns. Their service offerings now include dedicated hypervisors to mitigate CPU bugs, the ability to [connect the cloud over a non-Internet connection (e.g. MPLS tunnel)](https://aws.amazon.com/directconnect/), or [accessing the cloud API's from a private network](https://aws.amazon.com/blogs/compute/introducing-amazon-api-gateway-private-endpoints/). Some cloud providers even went as far offering a [self-hosted setup](https://aws.amazon.com/outposts/) where the public cloud offering can be brought on-premises.
 
 These features, especially the connectivity-related features, also allow for the creation of a **hybrid cloud** where a traditional infrastructure can be connected to the cloud. This gives a company the ability to leverage the flexibility of the cloud but also keep static / legacy systems for financial or engineering reasons.
 
@@ -383,6 +398,8 @@ While the definitions outlined by NIST and other organizations in this matter ar
 ]) }}
 
 ## Automation
+
+<audio preload="none" controls src="audio/Automation.mp3"></audio>
 
 !!! tldr "In a hurry?"
     **Automation:**
@@ -448,6 +465,8 @@ Ansible, on the other hand, allows for manual changes but does not automatically
 
 ### General Data Protection Regulation (G.D.P.R., EU)
 
+<audio preload="none" controls src="audio/GDPR.mp3"></audio>
+
 The GDPR (or DSGVO in German-speaking countries) is the general overhaul of privacy protections in the EU. The GDPR replaces much of the previously country-specific privacy protections present in the EU.
 
 #### Jurisdiction
@@ -508,11 +527,15 @@ This means that companies can no longer sweep data breaches under the rug and mu
 
 ### Clarifying Lawful Overseas Use of Data Act (C.L.O.U.D., 2018, USA)
 
+<audio preload="none" controls src="audio/CLOUD-act.mp3"></audio>
+
 The CLOUD Act, or House Rule 4943 is the latest addition to the US legislation pertaining to cloud providers. This act says that **a cloud provider must hand over data to US authorities if requested even if that data is stored in a different country.**
 
 This act has been widely criticized and is, according to several legal scholars, in contradiction of the GDPR. The large US cloud providers have opened up subsidiaries in the EU in order to try and shield their european customers from this act and a few purely EU cloud providers have also capitalized on this. It remains to be seen how effective this move is. 
 
 ### Digital Millennium Copyright Act (D.M.C.A., 1998, USA)
+
+<audio preload="none" controls src="audio/DMCA.mp3"></audio>
 
 The Digital Millenium Copyright Act clarifies how copyright works in the USA. Since the USA is part of the WIPO copyright treaty and a significant amount of providers are based in the USA nowadays all countries align themselves with the DMCA when it comes to dealing with online copyright infringement.
 
@@ -522,24 +545,30 @@ If the DMCA takedown notice has been sent erroneously the original uploader is f
 
 ### Communications Decency Act, Section 230 (C.D.A., 1996, USA)
 
+<audio preload="none" controls src="audio/CDA.mp3"></audio>
+
 This section of of the CDA is very short:
 
 > No provider or user of an interactive computer service shall be treated as the publisher or speaker of any information provided by another information content provider.
 
 To someone not well versed in US legal lingo this may be sound like gibberish but it is, in fact, one of the most important pieces of legislation pertaining to operating platforms in the cloud.
 
-In US legal history the speaker or publisher of certain information is responsible for the information being provided. Before the CDA any provider hosting illegal content would be responsible for said content. The CDA changed that by shielding providers from liability. This included web hosting providers as well as newspapers that had a content section.
+In US legal history the speaker or publisher of certain information is responsible for the information being provided. Before the CDA any provider hosting illegal content would be responsible for said content. The CDA changed that by shielding providers from liability. This included web hosting providers as well as newspapers that had a user content section.
 
 The CDA is not limitless, providers still have to remove infringing content if notified. They may also employ moderation
 proactively.
 
 ### The fall of Privacy Shield and Standard Contract Clauses (2020, EU-US)
 
-The Privacy Shield agreement (2016) was the successor to the failed International Safe Harbor Privacy Principles framework and is intend to protect the privacy of EU citizens when using US services or their data is transferred to the USA.
+<audio preload="none" controls src="audio/Privacy%20Shield.mp3"></audio>
+
+The Privacy Shield agreement (2016) was the successor to the failed International Safe Harbor Privacy Principles framework and was intend to protect the privacy of EU citizens when using US services or their data is transferred to the USA.
 
 The Privacy Shield has been enhanced in 2017 by the EU–US Umbrella Agreement which fixed many of the issues with the Privacy Shield.
 
 Unfortunately for cloud users, Privacy Shield has been [invalidated by the CJEU](https://noyb.eu/en/cjeu). This decision means that you, as a European cloud user, can no longer *automatically* use a US-governed cloud provider without accepting liability.
+
+Instead, US data processors have to use one of three standard contract clauses approved by the EU.
 
 The first SCC is [Decision 2001/497/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32001D0497&from=en) which states that both parties (you as the cloud user, and the cloud provider) are both jointly and severely liable for any data breaches.
 
