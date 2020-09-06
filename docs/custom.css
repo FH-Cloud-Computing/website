@@ -143,7 +143,7 @@ code,kbd,pre{
   margin-bottom: 2rem;
 }
 
-.md-content h3 + audio {
+.md-content h3 + audio, .md-content h4 + audio, .md-content h5 audio {
   position:relative;
   display: block;
   width:100%;
