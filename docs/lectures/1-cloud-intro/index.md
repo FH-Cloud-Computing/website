@@ -48,9 +48,9 @@ Servers also come with a high level of redundancy. While you may have a single p
 Also in contrast to your home setup these servers contain an Out-Of-Bounds Management interface that allows remote management of servers even when they are turned off. The hardware components built into the server report their health status to this OOB management interface which allows for the simultaneous monitoring of thousands of machines.
 
 !!! note
-    This is a fairly generic description of servers. Different vendors may chose to leave out certain features of their more &ldquo;budget&rdquo; line of servers, or call certain components differently. HP, for example, calls their OOBM &ldquo;Integrated Lights Out&rdquo;, Dell &ldquo;DRAC - Dell Remote Access Control&rdquo;, etc.
+    This is a fairly generic description of servers. Different vendors may choose to leave out certain features of their more &ldquo;budget&rdquo; line of servers or call certain components differently. HP, for example, calls their OOBM &ldquo;Integrated Lights Out&rdquo;, Dell &ldquo;DRAC - Dell Remote Access Control&rdquo;, etc.
 
-When it comes to purchasing servers larger companies tend to go with the same components for a longer period of time and they also buy support from the vendor. This sometimes includes hardware replacement done entirely by the vendor in the datacenter without the need for the customer to have staff on site. However, purchasing a specific set of components or ordering larger quantities of servers presents a logistics challenge and can sometimes take up to 3-4 months. Buying hardware is also an up-front investment which is hard to justify when demands change rapidly.
+When it comes to purchasing servers, larger companies tend to go with the same components for a longer period of time and they also buy support from the vendor. This sometimes includes hardware replacement done entirely by the vendor in the datacenter without the need for the customer to have staff on site. However, purchasing a specific set of components or ordering larger quantities of servers presents a logistics challenge and can sometimes take up to 3-4 months. Buying hardware is also an up-front investment which is hard to justify when demands change rapidly.
 
 {{ quiz("What components are redundant in a server?", [
     answer("Power supply"),
@@ -81,7 +81,7 @@ When it comes to purchasing servers larger companies tend to go with the same co
 
 Since the cloud is just somebody else's computer, that computer needs to be hosted somewhere. Servers are almost exclusively hosted in datacenters. Let's take a look at what is involved in running a datacenter.
 
-First of all, as mentioned above, most servers are going to be rack-mounted so you need a bunch of racks. These racks are installed in rows, often with a fake floor to allow for cabling to go under the floor.
+First of all, as mentioned above, most servers are going to be rack-mounted, so you need a bunch of racks. These racks are installed in rows, often with a fake floor to allow for cabling to go under the floor.
 
 ![A data center containing a bunch of racks for servers](/lectures/1-cloud-intro/datacenter.jpg)
 *A datacenter with racks. Source: [Wikipedia](https://en.wikipedia.org/wiki/Data_center#/media/File:Datacenter_de_ARSAT.jpg)*
@@ -111,7 +111,7 @@ Once the physical infrastructure is set up there is also the question of how to 
 
 ![A diagram showing a typical datacenter networking setup.](/lectures/1-cloud-intro/datacenter-cabling.svg)
 
-Again, generally speaking racks will be equipped with a Top-of-Rack switch to provide [layer 2 (Ethernet)](https://en.wikipedia.org/wiki/Data_link_layer) connectivity between servers. Several ToR may have interconnects between each other and are usually connected to one or more routers. Routers provide [layer 3 (IP)](https://en.wikipedia.org/wiki/Network_layer) routing to other customers in the same datacenter, [internet exchange](https://en.wikipedia.org/wiki/Internet_exchange_point), or may be connected via dedicated fiber to another provider.
+Again, generally speaking, racks will be equipped with a Top-of-Rack switch to provide [layer 2 (Ethernet)](https://en.wikipedia.org/wiki/Data_link_layer) connectivity between servers. Several ToR may have interconnects between each other and are usually connected to one or more routers. Routers provide [layer 3 (IP)](https://en.wikipedia.org/wiki/Network_layer) routing to other customers in the same datacenter, [internet exchange](https://en.wikipedia.org/wiki/Internet_exchange_point), or may be connected via dedicated fiber to another provider.
 
 !!! note
     If you are not familiar with computer networks we recommend giving the [Geek University CCNA course a quick read](https://geek-university.com/ccna/computer-network-explained/). While you will not need everything, you **will** have to understand how IP addresses, netmasks, etc work in order to pass this course. 
@@ -122,7 +122,7 @@ Providers have agreements with each other, or with an Internet Exchange, about e
 providers can come to an arrangement to exchange traffic for free. Internet exchanges facilitate the exchange between many providers for a modest fee allowing cost-effective exchange of data. Depending on the exchange the rules are 
 different. Local exchanges, for example, may only allow advertising local (in-country) addresses, while others are built for a specific purpose.
 
-Generally speaking providers can be classified into 3 categories. Tier 1 providers are the global players that are present on every continent. They form the backbone of the Internet. At the time of writing there are
+Generally speaking, providers can be classified into 3 categories. Tier 1 providers are the global players that are present on every continent. They form the backbone of the Internet. At the time of writing there are
 [16 such networks](https://en.wikipedia.org/wiki/Tier_1_network). Tier 2 are the providers who are directly connected to the tier 1 providers, while tier 3 is everyone else.
 
 ![An illustration of how internet providers are connected. In this example Global A and Global B are two providers which are connected in the same level, Local A and Local B are connected to Global A, while Local C is connected to Global B. Local A and Local B also exchange data directly and Local B and C exchange data over a local internet exchange. The example datacenter customer is connected to Local B.](/lectures/1-cloud-intro/internet-tiers.svg)
@@ -223,7 +223,7 @@ The cloud age started with an infamous e-mail from [Jeff Bezos](https://en.wikip
 This marked the beginning of Amazon Web Services the first and also the most successful public cloud offering. The first public release of AWS was in 2004 with SQS their message queue service, and got completely overhauled in 2006 where the
 Elastic Compute (EC2) and the Simple Storage Service (S3) service made its first public appearance.
 
-The APIs provided by cloud providers allow for a large amount of flexibility. If new servers are needed they can be launched within a few minutes. If there are too many servers they can be deleted. The same goes for other services: with the API (and the appropriate billing model) comes flexibility to adapt to change.
+The APIs provided by cloud providers allow for a large amount of flexibility. If new servers are needed, they can be launched within a few minutes. If there are too many servers, they can be deleted. The same goes for other services: with the API (and the appropriate billing model) comes flexibility to adapt to change.
 
 The other factor that makes it easy to adapt to change is of course the fact that these services are managed. The cloud customer doesn't need to hire a team of engineers to build a database service, for example, it can be consumed without knowing how exactly the database is set up.
 
@@ -298,7 +298,7 @@ The pricing of these managed services varies greatly but they usually follow the
 
 The massive benefit of using these managed services is, of course, that you do not need to have in-house knowledge about how to operate them. You don't need an in-house database operator, you *&ldquo;just&rdquo;* need to know how to set up the database in the cloud. This lets your company focus on the core business they are trying to build and outsource the know-how required to build these services on top of the IaaS layer.
 
-As you might imagine managed servies also have downsides. Most importantly they present a clear vendor lock-in. This means that if you want to move to a different cloud provider you will have a hard time doing so if you are using one of the more specialized services. In other words the level of standardization across providers matters.
+As you might imagine managed services also have downsides. Most importantly they present a clear vendor lock-in. This means that if you want to move to a different cloud provider you will have a hard time doing so if you are using one of the more specialized services. In other words the level of standardization across providers matters.
 
 It is also worth mentioning that managed services tend to work well for a large number of customers but a few number of customers can run into hard to debug problems. This debugging difficulty arises out of the inherent opacity of the services: you, the customer, don't see what's happening on the IaaS layer. If a database, for example, fills the available bandwidth may not be notified and are left guessing why your database misbehaves.
 
@@ -306,6 +306,29 @@ It is also worth mentioning that managed services tend to work well for a large 
     answer("DevOps engineers, Linux or Windows system administrators"),
     answer("Developers"),
     answer("Neither"),
+]) }}
+
+{{ quiz("What is a vendor lock-in?", [
+    answer("A contractual clause that forces you to use a certain cloud provider for a specified time."),
+    answer("A technological incompatibility or hurdle that makes moving to a different provider hard."),
+]) }}
+
+{{ quiz("A cloud user uses virtual machines, network load balancers, network firewalls. Which is this?", [
+    answer("IaaS"),
+    answer("PaaS"),
+    answer("SaaS"),
+]) }}
+
+{{ quiz("A cloud user's developers deploy their application purely as functions as a service and managed databases. Which is this?", [
+    answer("IaaS"),
+    answer("PaaS"),
+    answer("SaaS"),
+]) }}
+
+{{ quiz("A cloud user uses a cloud offering using only the web interface. Which is this?", [
+    answer("IaaS"),
+    answer("PaaS"),
+    answer("SaaS"),
 ]) }}
 
 ## Business Models
@@ -349,7 +372,7 @@ Almost every service has usage spikes depending on the time of day. This can be 
 
 ### Per-request billing
 
-IaaS services are typically priced based on an allocated amount of resources determined at the start of the virtual machines. Some PaaS services also use this billing model. (Typically Databases as a Service.) Other PaaS services often opt for a per-request or a data volume based billing approach.
+IaaS services are typically priced based on an allocated amount of resources determined at the start of the virtual machines. Some PaaS services also use this billing model. (Typically Databases as a Service.) Other PaaS services often opt for a per-request or a data volume-based billing approach.
 
 ### Cost planning with the cloud
 
