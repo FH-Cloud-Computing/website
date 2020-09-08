@@ -439,7 +439,7 @@ It will also be hard to create a near-identical copy of the environment for deve
 
 The rise of API's brought a much welcome change: automation tools such as Puppet, Ansible and Terraform not only *automate* the installation of a certain software but also *document* how the setup works.
 
-When engineers first go into automation they tend to reserve a part of the work to be done manually. For example they might use Ansible to create virtual machines and install some basic tools and install the rest of the software stack by hand. This approach is workable where the software stack cannot be automated but should be avoided for software where this is not the case as the lack of automation usually also means a lack of documentation as described above.
+When engineers first go into automation, they tend to reserve a part of the work to be done manually. For example they might use Ansible to create virtual machines and install some basic tools and install the rest of the software stack by hand. This approach is workable where the software stack cannot be automated but should be avoided for software where this is not the case as the lack of automation usually also means a lack of documentation as described above.
 
 Automation tools are also not equally suited for each task. Terraform, for example, expects full control of the infrastructure that is created by it. Manual installation steps afterwards are not supported. This approach gives Terraform the advantage that it can also *remove* the infrastructure it creates. Removing the infrastructure is paramount when there are multiple temporary environments deployed such as a dev or testing environment.
 
@@ -562,7 +562,7 @@ This act has been widely criticized and is, according to several legal scholars,
 
 The Digital Millenium Copyright Act clarifies how copyright works in the USA. Since the USA is part of the WIPO copyright treaty and a significant amount of providers are based in the USA nowadays all countries align themselves with the DMCA when it comes to dealing with online copyright infringement.
 
-Title II of the DMCA creates a safe harbor for online service providers against copyright infringement committed by their users. However, they have to remove infringing content as soon as they are properly notified of it via a DMCA takedown notice. The author of a DMCA takedown notice must swear by the penalty of perjury that they are, or are acting on behalf of the copyright owner. (If they were to make this pledge in bad faith they could end up in prison.)
+Title II of the DMCA creates a safe harbor for online service providers against copyright infringement committed by their users. However, they have to remove infringing content as soon as they are properly notified of it via a DMCA takedown notice. The author of a DMCA takedown notice must swear by the penalty of perjury that they are or are acting on behalf of the copyright owner. (If they were to make this pledge in bad faith they could end up in prison.)
  
 If the DMCA takedown notice has been sent erroneously the original uploader is free to send a counter-notification, also swearing under the penalty of perjury. In this case the provider notifies the original sender and restores the content. The original sender then has to take the uploader to court to pursue the matter further.
 
@@ -574,7 +574,7 @@ This section of of the CDA is very short:
 
 > No provider or user of an interactive computer service shall be treated as the publisher or speaker of any information provided by another information content provider.
 
-To someone not well versed in US legal lingo this may be sound like gibberish but it is, in fact, one of the most important pieces of legislation pertaining to operating platforms in the cloud.
+To someone not well versed in US legal lingo this may be sound like gibberish, but it is, in fact, one of the most important pieces of legislation pertaining to operating platforms in the cloud.
 
 In US legal history the speaker or publisher of certain information is responsible for the information being provided. Before the CDA any provider hosting illegal content would be responsible for said content. The CDA changed that by shielding providers from liability. This included web hosting providers as well as newspapers that had a user content section.
 
