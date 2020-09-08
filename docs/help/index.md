@@ -10,6 +10,6 @@ can get help.
 
 ## Where to ask for help
 
-- The primary avenue of getting help is on the [Slack channel for this course](https://join.slack.com/t/cloud-computing-2020/shared_invite/zt-e5xq8r07-BtUH_yft2Pol_akLvL2LKQ).
+- The primary avenue of getting help is on the [Slack channel for this course](https://moodle.fh-campuswien.ac.at/mod/url/view.php?id=319750).
 - Join the weekly online consultation sessions.
 - If you need to send us something, please do so on the [email addresses on the introduction page](../index.md).
