@@ -68,7 +68,7 @@ This has an adverse effect on user experience which is why newer, so-called &ldq
 
 While it seems the Internet is blazing fast nowadays delivering content to the other side of the planet is still an issue. As you may know most of the Internet is comprised of [fiber optic cabling](https://en.wikipedia.org/wiki/Optical_fiber). Data is transmitted by turning a laser on and off in rapid succession.
 
-Let's do a little mental exercise: the speed of light is 299.792.458 m/s. The circumference of our planet is 40,075 km. A ray of light should be able to round the planet in `40.075.000 / 299.792.458 = 0.113` seconds. In other words any data transmitted should be able to travel around the world in ~100 milliseconds. Yet, in practice we see latencies of around 300 milliseconds when transfering data to theother sie of the globe.
+Let's do a little mental exercise: the speed of light is 299.792.458 m/s. The circumference of our planet is 40,075 km. A ray of light should be able to round the planet in `40.075.000 / 299.792.458 = 0.113` seconds. In other words any data transmitted should be able to travel around the world in ~100 milliseconds. Yet, in practice we see latencies of around 300 milliseconds when transfering data to the other side of the globe.
 
 ![An illustration of a fiber optic cable showing a light ray bouncing off the walls.](fiber.svg)
 
