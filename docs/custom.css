@@ -18,8 +18,8 @@ Secondary coor:
   --md-default-fg-color--light:        #333333;
   --md-default-fg-color--lighter:      #555555;
   --md-default-fg-color--lightest:     #777777;
-  --md-default-bg-color:               #f0f0f0;
-  --md-default-bg-color--light:        #fafafa;
+  --md-default-bg-color:               #fafafa;
+  --md-default-bg-color--light:        #fefefe;
   --md-default-bg-color--lighter:      #fefefe;
   --md-default-bg-color--lightest:     #ffffff;
 
@@ -36,10 +36,6 @@ Secondary coor:
   --md-accent-fg-color--transparent:   #000000;
   --md-accent-bg-color:                #f0f0f0;
   --md-accent-bg-color--light:         #ffffff;
-
-  /* Code block color shades */
-  --md-code-bg-color:                  #4b5059;
-  --md-code-fg-color:                  #f0f0f0;
 
   --md-answer-color:                   #ffffff;
   --md-answer-background-color:        var(--md-accent-fg-color);
@@ -207,4 +203,19 @@ code,kbd,pre{
   color: var(--md-answer-color);
   margin-top:-1px;
   content:"⦻";
+}
+body .md-content kbd {
+  display: inline-block;
+  margin-left:.1rem;
+  margin-right:.1rem;
+  font-size:0.75rem;
+  line-height:1rem;
+  height:1rem;
+  border-radius: .1rem;
+  padding: 0 .375rem;
+  background:#f0f0f0;
+  box-shadow:
+          0 .05rem 0 .1rem var(--md-default-fg-color--lighter),
+          0 .1rem 0 var(--md-default-fg-color--lighter),
+          inset 0 -0.1rem .2rem var(--md-default-bg-color);
 }
