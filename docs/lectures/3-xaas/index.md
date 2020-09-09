@@ -115,7 +115,7 @@ In the previous lecture we briefly mentioned object storages. As a reminder, tra
 Object storages are different. The most popular [Amazon S3](https://en.wikipedia.org/wiki/Amazon_S3) protocol offers the ability to up- and download, list and delete files. However, files can only be uploaded as a whole, partial reads
 or writes are not possible. Consistency is also not guaranteed when multiple programs are accessing the same files in parallel.
 
-However, due to the limited featureset object storages have a few unique abilities not afforded by traditional block storage:
+However, due to the limited feature set object storages have a few unique abilities not afforded by traditional block storage:
 
 - They are redundant over multiple servers by design. The loss of a single physical machine does not mean a data loss.
 - The S3 protocol offers the ability to place ACL's (access control lists) on the objects uploaded to the object storage. This allows making files publicly accessible over the web without needing to maintain a server.
