@@ -25,7 +25,7 @@ Or does it? In the Linux kernel the filesystem root directory (starting with `/`
 
     You should now be able to run `ls -la` or similar commands and see that you are in an almost empty filesystem with no ability to access the files outside. 
 
-This alone only isolates the two process on a filesystem level, there are still plenty of opportunities for two processes to interact, for example:
+This alone only isolates the two processes on a filesystem level, there are still plenty of opportunities for two processes to interact, for example:
 
 - On the network
 - [Interprocess Communication (IPC)](https://en.wikipedia.org/wiki/Inter-process_communication)
