@@ -183,7 +183,7 @@ At the core of Kubernetes is the **API server**. This central piece is the endpo
 
 The **scheduler** is responsible for deciding which container is supposed to run on which worker node. As the name says, it *schedules* the workload.
 
-The **controller-manager** is a component if many small parts that decides what to run. For example, the ReplicaSet controller is responsible for creating multiple copies of the same pod.
+The **controller-manager** is a component composed of many small parts that decides what to run. For example, the ReplicaSet controller is responsible for creating multiple copies of the same pod.
 
 The **cloud controller** is responsible for the cloud provider integration. This is optional for a static cluster, but required if autoscaling, or a load balancer integration is required.
 
