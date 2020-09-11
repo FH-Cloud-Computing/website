@@ -14,7 +14,7 @@ Cloud providers offer a wide range of tools to interact with their API's. Most i
 When basic scripting is required the CLI may entirely be enough for the task. For example, you can query the list of instances in an instace pool as follows:
 
 ```bash
-exo instancepool show INSTANCE-POOL-NAME --output-template "{{ .Instances }}" --output-format json
+exo instancepool show INSTANCE-POOL-NAME --output-format json
 ```
 
 You can use this command to generate your service discovery JSON file. Similarly, you could change the instance pool size:
