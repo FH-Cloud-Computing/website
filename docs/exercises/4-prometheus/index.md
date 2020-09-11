@@ -141,7 +141,7 @@ Finally, let's place the following file in `/srv/custom_servers.json` on the hos
 ```json
 [
   {
-    "targets": [ "1.2.3.4:9090" ]
+    "targets": [ "1.2.3.4:9100" ]
   }
 ]
 ```
