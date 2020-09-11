@@ -41,7 +41,7 @@ After running the previous command you can now enter the IP address of your serv
 
 ## Querying Prometheus
 
-Prometheus is running and gathering its own metrics. You can check the successful metrics scraping bynavigating to Status &rarr; Targets. You can also visualize the gathered metrics from the Graph interface by clicking the `- insert metric at cursor -` dropdown. For example, you can add the `prometheus_http_requests_total` metric to show the HTTP requests Prometheus has received on each endpoint:
+Prometheus is running and gathering its own metrics. You can check the successful metrics scraping by navigating to Status &rarr; Targets. You can also visualize the gathered metrics from the Graph interface by clicking the `- insert metric at cursor -` dropdown. For example, you can add the `prometheus_http_requests_total` metric to show the HTTP requests Prometheus has received on each endpoint:
 
 ![A screenshot of Prometheus showing the interface with the prometheus_http_requests_total metric selected and a graph displayed below. The graph contains multiple growing lines, one for each HTTP endpoint.](prometheus-http-requests.png)
 
@@ -57,7 +57,7 @@ You can read more about the available query functions in PromQL [in the official
 
 ## Configuring a node exporter
 
-Prometheus in and of itself does not do anything. It needs to read from an exporter. The easiest and probably most useful exporter to start with is the [node exporter](https://github.com/prometheus/node_exporter). The node exporter exposes the the basic metrics of a machine, such as CPU and memory usage.
+Prometheus in and of itself does not do anything. It needs to read from an exporter. The easiest and probably most useful exporter to start with is the [node exporter](https://github.com/prometheus/node_exporter). The node exporter exposes the basic metrics of a machine, such as CPU and memory usage.
 
 Let's start by launching the node exporter on the same host as Prometheus:
 

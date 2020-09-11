@@ -6,11 +6,9 @@ title: Cloud Computing Fall 2020
 
 <h1>Cloud Computing Fall 2020</h1>
 
-Welcome to the Cloud Computing Fall 2020! On this page you will find all learning
-materials you need to learn in order to pass the course.
+Welcome to the Cloud Computing Fall 2020! On this page you will find all learning materials you need to learn in order to pass the course.
 
-Please note that this lecture is worth 4 ECTS. This is calculated to be roughly 112 hours of study
-(5-7 hours of study per week recommended).
+Please note that this lecture is worth 4 ECTS. This is calculated to be roughly 112 hours of study/exercise/project work (5-7 hours per week recommended).
 
 ---
 
@@ -38,8 +36,7 @@ Exercise sections are provided on the [exercises page](/exercises/). Each exerci
 
 ## Project work
 
-Project work is **based on the practice sessions**. Your project work assignment is described on the
-[project work page](/projectwork). Deadlines are described on the [deadlines page](/deadlines).
+Project work is **based on the practice sessions**. Your project work assignment is described on the [project work page](/projectwork). Deadlines are described on the [deadlines page](/deadlines).
 
 **You are expected to hand in your project work continuously,** please don't leave it for the last second. You have the option to hand in early.
 
@@ -87,7 +84,6 @@ Twitter: [twitter.com/janoszen/](https://twitter.com/janoszen/) <br />
 E-mail: [janos.pasztor@edu.fh-campuswien.ac.at](mailto:janos.pasztor@edu.fh-campuswien.ac.at) <br />
 
 - Software developer and DevOps engineer background (10+ years experience)
-- Web Focused Career
-- Tech Lead at Deloitte Digital
-- Previously: A1 Group, Entrecloud (startup), Ixolit group, Docler group.
+- Cloud Focused Career
+- Deloitte, A1 Group, Entrecloud (startup), Ixolit group, Docler group.
 - Certified Kubernetes Application Developer

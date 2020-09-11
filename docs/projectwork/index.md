@@ -29,7 +29,7 @@ Optionally, you can make use of the following (**incurs a 5% point-penalty each*
 
 ## Handing in your project work
 
-In order to hand in your project work you must upload your code to a Git repository, for example on GitHub. Submit the link of the Git repository [in Moodle](https://moodle.fh-campuswien.ac.at/course/view.php?id=14657)
+In order to hand in your project work you must upload your code to a Git repository, for example on GitHub. Submit the link of the Git repository [in Moodle](https://moodle.fh-campuswien.ac.at/course/view.php?id=14657).
 
 Your Terraform code **must** be able to install the complete infrastructure into an empty Exoscale account. It **must** ask for the Exoscale API key and secret using the `exoscale_key` and `exoscale_secret` variable.
 

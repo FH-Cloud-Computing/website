@@ -4,7 +4,7 @@
 
 <h1>Terraform</h1>
 
-In the [previous exercise](../1-iaas/index.md) we have discussed how to set up an infrastructure manually. For the purposes of this lecture [Terraform](https://terraform.io) is our tool of choice when it comes to cloud automation. There are, of course, many other open source tools like [Ansible](https://www.ansible.com/), or provider-dependent tools like [AWS CloudFormation](https://aws.amazon.com/cloudformation/). We specifically chose Terraform because it is provider-independent and can be used to provision cloud resources with a [wide range of providers](https://registry.terraform.io/browse/providers)
+In the [previous exercise](../1-iaas/index.md) we have discussed how to set up an infrastructure manually. For the purposes of this lecture [Terraform](https://terraform.io) is our tool of choice when it comes to cloud automation. There are, of course, many other open source tools like [Ansible](https://www.ansible.com/), or provider-dependent tools like [AWS CloudFormation](https://aws.amazon.com/cloudformation/). We specifically chose Terraform because it is provider-independent and can be used to provision cloud resources with a [wide range of providers](https://registry.terraform.io/browse/providers).
 
 You can download Terraform to your own computer. As it is a program written in Go you can simply unpack it and use it. We recommend adding it to your `PATH` environment variable for easy access. Since Terraform is capable of using multiple files we also recommend using an IDE or an editor with a directory listing function. The [Intellij IDEA Community Edition](https://www.jetbrains.com/idea/download/) has a plugin for Terraform that also offers code completion.
 
