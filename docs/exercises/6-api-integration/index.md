@@ -98,6 +98,9 @@ This little program will increase the instance pool size by 1. You can run it wi
 
 A second popular language for cloud programming is Python. Exoscale also [has an SDK for Python](https://exoscale.github.io/python-exoscale/).
 
+!!! note
+    The Python library for Exoscale currently [does not work on Windows](https://github.com/exoscale/python-exoscale/issues/22).
+
 First, let's create a `requirements.txt`:
 
 ```
