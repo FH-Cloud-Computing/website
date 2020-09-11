@@ -23,7 +23,7 @@ Similarly, building a redundant database system that can perform an automatic fa
 !!! tldr "In a hurry?"
     Application Load Balancers offer load balancing on a HTTP level. They offer advanced routing capabilities based on HTTP requests.
 
-Application load balancers provide load balancing capabilities on [layer 7 of the OSI-model](https://en.wikipedia.org/wiki/OSI_model). In practice application load balancers on offer support [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) and HTTPS load balancing.
+Application load balancers provide load balancing capabilities on [layer 7 of the OSI-model](https://en.wikipedia.org/wiki/OSI_model). In practice application load balancers  support [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) and HTTPS load balancing.
 
 HTTP is a request-response protocol. Typically connections are short-lived but longer connections (e.g. with [Websockets](https://en.wikipedia.org/wiki/WebSocket)) are also possible. Good application load balancers allow sending traffic to a different set of backends based on the host name (`example.com`) as well as the path (`/some/address`).
 
@@ -68,7 +68,7 @@ This has an adverse effect on user experience which is why newer, so-called &ldq
 
 While it seems the Internet is blazing fast nowadays delivering content to the other side of the planet is still an issue. As you may know most of the Internet is comprised of [fiber optic cabling](https://en.wikipedia.org/wiki/Optical_fiber). Data is transmitted by turning a laser on and off in rapid succession.
 
-Let's do a little mental exercise: the speed of light is 299.792.458 m/s. The circumference of our planet is 40,075 km. A ray of light should be able to round the planet in `40.075.000 / 299.792.458 = 0.113` seconds. In other words any data transmitted should be able to travel around the world in ~100 milliseconds. Yet, in practice we see latencies of around 300 milliseconds when transfering data to theother sie of the globe.
+Let's do a little mental exercise: the speed of light is 299.792.458 m/s. The circumference of our planet is 40,075 km. A ray of light should be able to round the planet in `40.075.000 / 299.792.458 = 0.113` seconds. In other words any data transmitted should be able to travel around the world in ~100 milliseconds. Yet, in practice we see latencies of around 300 milliseconds when transfering data to the other side of the globe.
 
 ![An illustration of a fiber optic cable showing a light ray bouncing off the walls.](fiber.svg)
 
@@ -76,11 +76,11 @@ The issue is that light does not go &ldquo;around the corner&rdquo;. Fiber optic
 
 The problem is further compounded by how HTTP works. When a website is loaded there are several elements that have to wait for each other. The website may reference a style sheet (CSS file), the CSS file may reference an image and so on. This means several round trips have to be done to build a page. [HTTP/2 server push](https://www.smashingmagazine.com/2017/04/guide-http2-server-push/) attempts to mitigate this.
 
-CDN's work around this problem by replicating content to servers closer to the users. When a user requests a certain file that request lands on the CDN's *edge node* first. If the CDN has the file in the cache the delivery is very fast. If, however, the CDN does not have the content in cache the delivery will take longer.
+CDN's work around this problem by replicating content to servers closer to the users. When a user requests a certain file, that request first lands on the CDN's *edge node*. If the CDN has the file in the cache the delivery is very fast. If, however, the CDN does not have the content in cache the delivery will take longer.
 
 ![An illustration showing that with the CDN the user gets the content from the CDN, which is much faster than fetching it from the origin server. However, when the CDN needs to fetch the data from the origin, delivery may even be slower.](cdn.svg)
 
-In essence, CDN's help with latency issues *if the content can be cached*. in other words, this helps mostly with static content, but in combination with functions as a service (see below) dynamic content can also be delivered from edge nodes to some extent.
+In essence, CDN's help with latency issues *if the content can be cached*. In other words, this helps mostly with static content, but in combination with functions as a service (see below) dynamic content can also be delivered from edge nodes to some extent.
 
 !!! tip "Did you know?"
     Low latency connections are important not just for delivering content. Stock exchanges benefit from very low latencies. For example, there is a [private microwave network between Frankfurt and London](https://arstechnica.com/information-technology/2016/11/private-microwave-networks-financial-hft/) that has twice the speed of the public internet.
@@ -115,7 +115,7 @@ In the previous lecture we briefly mentioned object storages. As a reminder, tra
 Object storages are different. The most popular [Amazon S3](https://en.wikipedia.org/wiki/Amazon_S3) protocol offers the ability to up- and download, list and delete files. However, files can only be uploaded as a whole, partial reads
 or writes are not possible. Consistency is also not guaranteed when multiple programs are accessing the same files in parallel.
 
-However, due to the limited featureset object storages have a few unique abilities not afforded by traditional block storage:
+However, due to the limited feature set object storages have a few unique abilities not afforded by traditional block storage:
 
 - They are redundant over multiple servers by design. The loss of a single physical machine does not mean a data loss.
 - The S3 protocol offers the ability to place ACL's (access control lists) on the objects uploaded to the object storage. This allows making files publicly accessible over the web without needing to maintain a server.

@@ -25,7 +25,7 @@ Or does it? In the Linux kernel the filesystem root directory (starting with `/`
 
     You should now be able to run `ls -la` or similar commands and see that you are in an almost empty filesystem with no ability to access the files outside. 
 
-This alone only isolates the two process on a filesystem level, there are still plenty of opportunities for two processes to interact, for example:
+This alone only isolates the two processes on a filesystem level, there are still plenty of opportunities for two processes to interact, for example:
 
 - On the network
 - [Interprocess Communication (IPC)](https://en.wikipedia.org/wiki/Inter-process_communication)
@@ -183,7 +183,7 @@ At the core of Kubernetes is the **API server**. This central piece is the endpo
 
 The **scheduler** is responsible for deciding which container is supposed to run on which worker node. As the name says, it *schedules* the workload.
 
-The **controller-manager** is a component if many small parts that decides what to run. For example, the ReplicaSet controller is responsible for creating multiple copies of the same pod.
+The **controller-manager** is a component composed of many small parts that decides what to run. For example, the ReplicaSet controller is responsible for creating multiple copies of the same pod.
 
 The **cloud controller** is responsible for the cloud provider integration. This is optional for a static cluster, but required if autoscaling, or a load balancer integration is required.
 
