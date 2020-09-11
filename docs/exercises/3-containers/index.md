@@ -266,6 +266,22 @@ docker run -d -p 8080:8080 myapp
 
 There you go! That's your app built and running in a single file. You can see a few additional commands above, feel free to look them up in the [official documentation](https://docs.docker.com/engine/reference/builder/).
 
+## Service discovery
+
+Docker has a built-in service discovery model. Containers can address each other by their *names* as long as you specify the `--name` parameter when creating or running the container, and the containers are attached to the same network.
+
+Let's take the following example:
+
+```bash
+docker run --name a -ti ubuntu
+docker run --name b -ti ubuntu
+docker network create test
+docker network connect test a
+docker network connect test b
+```
+
+In this case both A and B containers will be able to talk to each other over the network with their respective names. Alternatively, you can also provide the `--network` option to `docker run`
+
 ## Volumes
 
 One last item we need to talk about are *volumes*. Containers are designed to be *immutable*. When a new version comes along we simply destroy the existing container and create a new one. Some services like database, however, need to store data in a persistent fashion. That's what we need volumes for.

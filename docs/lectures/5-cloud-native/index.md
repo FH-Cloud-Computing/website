@@ -82,6 +82,9 @@ In practice each application contains at least some basic logic to filter logs t
 
 The [admin process recommendation](https://12factor.net/admin-processes) concerns itself with the command line tools needed to operate the application. These are things like running database migrations, etc. The recommendation says that these tools should be runnable directly from the applications directory without much extra configuration or installation.
 
+!!! tip
+    These factors are, of course, not exhaustive. IBM has published a whole host of [additional factors](https://medium.com/ibm-cloud/7-missing-factors-from-12-factor-application-2a3e1169bd9d).
+
 ## Monitoring and metrics collection
 
 The above 12 factors are, by necessity, limited in scope. The author(s) of those 12 factors have taken many things into account, yet left out others.

@@ -1,5 +1,9 @@
 title: Cloud Computing Fall 2020
 
+<div class="download">
+<a href="about.pptx"><button>Download PPTX 💻</button></a>
+</div>
+
 <h1>Cloud Computing Fall 2020</h1>
 
 Welcome to the Cloud Computing Fall 2020! On this page you will find all learning
@@ -24,11 +28,11 @@ Lectures are provided on the [lectures page](/lectures). Each lecture contains a
 
 ---
 
-## Practice
+## Exercises
 
-Practice sections are provided on the [practice page](/practice). Each practice session is provided as a written tutorial and a video as well. **All content is present in the video and the text** so you only need to use the format you prefer. Source code is provided as a [Git repository](https://github.com/FH-Cloud-Computing).
+Exercise sections are provided on the [exercises page](/exercises/). Each exercise session is provided as a written tutorial and a video as well. **All content is present in the video and the text** so you only need to use the format you prefer. Source code is provided as a [Git repository](https://github.com/FH-Cloud-Computing).
 
-**You are expected to do each practice session at least once.**
+**You are expected to do each exercise session at least once.**
 
 ---
 
@@ -61,7 +65,7 @@ Grading is described on the [grading page](/grading). Testing is described on th
 <img src="peter-wenzl.jpg" alt="A photo of Peter Wenzl, a middle aged man with short gray hair and square glasses." />
 </aside>
 
-Linkedin: [www.linkedin.com/in/peterwenzl/](https://www.linkedin.com/in/peterwenzl/) <br />
+Linkedin: [linkedin.com/in/peterwenzl/](https://www.linkedin.com/in/peterwenzl/) <br />
 E-mail: [peter.wenzl@edu.fh-campuswien.ac.at](mailto:peter.wenzl@edu.fh-campuswien.ac.at)
 
 - Computer Science Master (Dipl. Ing.), TU Wien, 2000
@@ -77,9 +81,10 @@ E-mail: [peter.wenzl@edu.fh-campuswien.ac.at](mailto:peter.wenzl@edu.fh-campuswi
 <img src="janos-pasztor.jpg" alt="A photo of Janos Pasztor, a man in his thirties with short, dark brown hair and round glasses." />
 </aside>
 
-E-mail: [janos.pasztor@edu.fh-campuswien.ac.at](mailto:janos.pasztor@edu.fh-campuswien.ac.at) <br />
-Linkedin: [www.linkedin.com/in/janoszen/](https://www.linkedin.com/in/janoszen/) <br />
 Website: [pasztor.at](https://pasztor.at)
+Linkedin: [linkedin.com/in/janoszen/](https://www.linkedin.com/in/janoszen/) <br />
+Twitter: [twitter.com/janoszen/](https://twitter.com/janoszen/) <br />
+E-mail: [janos.pasztor@edu.fh-campuswien.ac.at](mailto:janos.pasztor@edu.fh-campuswien.ac.at) <br />
 
 - Software developer and DevOps engineer background (10+ years experience)
 - Web Focused Career

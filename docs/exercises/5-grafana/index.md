@@ -17,3 +17,6 @@ docker run -d \
 ```
 
 This will launch Grafana on port 3000 of your node.
+
+## Setting up Grafana with Prometheus
+

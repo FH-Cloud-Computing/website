@@ -48,6 +48,14 @@ This exercise will guide you through the basics of using Terraform to provision 
 Before you can begin you will need to configure your cloud provider. In our case that will be Exoscale, so our first piece of code in a file called `provider.tf` will be as follows:
 
 ```hcl-terraform
+terraform {
+  required_providers {
+    exoscale = {
+      source  = "terraform-providers/exoscale"
+    }
+  }
+}
+
 provider "exoscale" {
   key = "EXO..."
   secret = "..."
@@ -199,6 +207,9 @@ EOF
 ```
 
 As you can see we are referencing the previously-created security groups by name. This reference is important as Terraform attempts to execute resource creation *in parallel* and uses variables to determine which resources depend on each other. In other words, if you do not use a variable reference but hard-code the name Terraform will not be able to execute the instructions in the correct order.
+
+!!! tip
+    You can force Terraform to destroy and recreate a resource by using `terraform taint exoscale_compute.ubuntu`.
 
 ## About your state file
 
