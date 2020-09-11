@@ -265,3 +265,35 @@ docker run -d -p 8080:8080 myapp
 ```
 
 There you go! That's your app built and running in a single file. You can see a few additional commands above, feel free to look them up in the [official documentation](https://docs.docker.com/engine/reference/builder/).
+
+## Volumes
+
+One last item we need to talk about are *volumes*. Containers are designed to be *immutable*. When a new version comes along we simply destroy the existing container and create a new one. Some services like database, however, need to store data in a persistent fashion. That's what we need volumes for.
+
+In the container world we can mount volumes directly from the host machine, or we can mount a network-based storage as discussed in the lectures. In our example we will showcase how to mount a volume from a local folder using Docker.
+
+Assuming we want to launch a webserver we can mount the document root from our previous example:
+
+```
+docker run -d -p 80:80 -v /srv/www:/var/www/html mynginx
+```
+
+In this case the `/srv/www` folder of the host machine will be mounted in `/var/www/html` inside the container. This can be used to persist data, but also during development when files change frequently.
+
+## Security hardening
+
+One more aspect of containerization we need to talk about is security. With our configuration above our container is running as root. While the container has a security boundary, running as root can still present a security risk. In fact, enterprise Kubernetes setups like [OpenShift](https://www.openshift.com/) do not allow containers to run as root.
+
+Let's change our Go container so it doesn't run as root:
+
+```Dockerfile
+...
+FROM alpine AS run
+RUN addgroup -S --gid 1000 app && adduser -S app --uid 1000 -G app
+COPY --from=build /srv/myapp/main /app
+CMD ["/app"]
+USER 1000:1000
+EXPOSE 8080
+```
+
+Note that we are specifying the user ID and group ID to run as in numeric form (`1000`). The `USER` command allows user names to be passed as well, but in a hardened Kubernetes setup this will not be accepted.
