@@ -28,7 +28,7 @@ Lectures are provided on the [lectures page](/lectures). Each lecture contains a
 
 ## Exercises
 
-Exercise sections are provided on the [exercises page](/exercises/). Each exercise session is provided as a written tutorial and a video as well. **All content is present in the video and the text** so you only need to use the format you prefer. Source code is provided as a [Git repository](https://github.com/FH-Cloud-Computing).
+Exercise sections are provided on the [exercises page](/exercises/). Each exercise session is provided as a written tutorial. Source code is provided as a [Git repository](https://github.com/FH-Cloud-Computing).
 
 **You are expected to do each exercise session at least once.**
 

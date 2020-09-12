@@ -1,5 +1,4 @@
 <div class="download">
-<a href="#"><button>Watch Video 🎬</button></a>
 </div>
 
 <h1>Infrastructure as a Service</h1>

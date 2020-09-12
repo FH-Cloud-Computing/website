@@ -6,12 +6,15 @@
 
 <h1>Infrastructure as a Service</h1>
 
+<audio preload="none" controls src="audio/01-iaas.mp3"></audio>
+
 Infrastructure as a Service, or IaaS is a service offering by most cloud providers that provides *virtual machines*
 and the accompanying infrastructure as a service. This lecture will discuss the details of how an IaaS service is
 built.
 
 ## Virtual machines
 
+<audio preload="none" controls src="audio/02-vms.mp3"></audio>
 
 !!! tldr "In a hurry?"
     Modern CPUs have several operation modes:
@@ -141,6 +144,8 @@ a customer to scale their application dynamically according to their current dem
 
 ## Typical instance types
 
+<audio preload="none" controls src="audio/03-instance-types.mp3"></audio>
+
 When the cloud became popular in the late 2000s several providers attempted to offer a service that was fully dynamic
 in their sizes. The customer could set how many GB of RAM they needed and how many CPU cores. However, this model has
 been phased out by most providers since it is difficult to manage such a dynamic environment.
@@ -164,6 +169,7 @@ and high RAM workloads there are several different instance types, typically:
 
 ## Automation
 
+<audio preload="none" controls src="audio/04-automation.mp3"></audio>
 
 !!! tldr "In a hurry?"
     - Cloud-init allows for running a script, or other initial configuration on virtual machines on first boot.
@@ -202,6 +208,8 @@ process of provisioning the virtual machines and supplying it with the correct u
 
 ## Virtual machine pools
 
+<audio preload="none" controls src="audio/05-pools.mp3"></audio>
+
 !!! tldr "In a hurry?"
     - Virtual machine pools automatically create and destroy machines to keep up a desired pool size.
     - Some implementations also have autoscaling.
@@ -223,6 +231,8 @@ offering as well allowing you to run a custom function whenever a machine starts
 example, update your own service discovery database.
 
 ## Storage
+
+<audio preload="none" controls src="audio/06-storage.mp3"></audio>
 
 !!! tldr "In a hurry?"
     - Local disks offer affordable performance at the cost of redundancy.
@@ -254,6 +264,8 @@ policy. In other words, one block storage device can only ever be used by a sing
 
 ### Local Storage
 
+<audio preload="none" controls src="audio/07-local-storage.mp3"></audio>
+
 As described above the simplest and most widely supported option to store data from your virtual machine is a disk that
 is locally attached to the physical machine running the VM. This option offers you the highest performance at a
 relatively low price point. The reason for that is that it is the simplest and cheapest to build.
@@ -275,6 +287,8 @@ this can be a great way to save costs.
 ]) }}
 
 ### Network Block Storage
+
+<audio preload="none" controls src="audio/08-nbs.mp3"></audio>
 
 Network block storage means a block storage that is delivered over the network. The network here can mean a traditional
 IP network or a dedicated [Fibre Channel](https://en.wikipedia.org/wiki/Fibre_Channel_Protocol) infrastructure.
@@ -300,11 +314,13 @@ tested disaster recovery strategy.
 
 ### Network File Systems
 
+<audio preload="none" controls src="audio/09-nfs.mp3"></audio>
+
 In contrast to network block storage network file systems offer access to data not on a block level, but on a file
 level. Over the various network file system protocols machines using these file systems can open, read and write files,
 and even place locks on them.
 
-The filesystem has to keep track of which machine has which file open, or has locks on which file. When machine edit
+The filesystem has to keep track of which machine has which file open, or has locks on which file. When multiple machines edit
 the same file in parallel the filesystem has to ensure that these writes are consistent. This means that network
 file systems are either much slower than block-level access (e.g.
 [NFS](https://en.wikipedia.org/wiki/Network_File_System)) or require a great deal more CPU and RAM to keep track of
@@ -320,6 +336,8 @@ offer this, for example [Amazon's EFS](https://aws.amazon.com/efs/).
 ]) }}
 
 ### Object storage
+
+<audio preload="none" controls src="audio/10-object-storage.mp3"></audio>
 
 Object storage systems are similar to network file systems in that they deal with files rather than blocks. However,
 they do not have the same synchronization capabilities as network file systems. Files can generally only be read 
@@ -377,12 +395,12 @@ application level. We will discuss object storage services in detail in our next
 
 ## Network
 
+<audio preload="none" controls src="audio/11-network.mp3"></audio>
+
 The next big topic concerning IaaS services is networks. Before we go into the cloud-aspect let's look at how the 
 underlying infrastructure is built. As indicated in the first lecture it is strongly recommended that you 
 familiarize yourself with the basics of computer networking, such as the Ethernet, IP and TCP protocols as you will
 need them to understand this section.
-
-### How cloud networks are built
 
 So, let's get started. Imagine a data center from the first lecture. Your task is to build an IaaS cloud provider.
 You put your servers that will serve as your hosts for virtual machines in the racks. These servers will be connected
@@ -397,7 +415,9 @@ has to the switching fabric, but not the specific bandwidth between two distinct
 This is part of the reason why in the cloud scaling horizontally (adding more machines) is preferred rather than
 creating huge instances with lots of resources.
 
-### Network architectures offered by cloud providers
+## Network architectures offered by cloud providers
+
+<audio preload="none" controls src="audio/12-network-architectures.mp3"></audio>
 
 When we look at the network offerings by cloud providers there are three types:
 
@@ -431,7 +451,9 @@ When we look at the network offerings by cloud providers there are three types:
     Out of group 2 it is worth mentioning that the services that are available on the public network
     (firewalls, load balancers) are often not available on private networks. 
 
-### Firewalling
+## Firewalling
+
+<audio preload="none" controls src="audio/13-firewall.mp3"></audio>
 
 IaaS providers often also offer network firewalls as a service, included in the platform. Firewalls generally have
 two rule types: `INGRESS` (from the Internet or other machines to the current VM) and `EGRESS` (from the current VM to
@@ -457,7 +479,9 @@ since you do not need to hard-code the IP addresses of the application servers.
     answer("Filtering based on the requested subpage on a website"),
 ]) }}
 
-### Network load balancers
+## Network load balancers
+
+<audio preload="none" controls src="audio/14-nlbs.mp3"></audio>
 
 Network load balancers are an option some cloud providers offer. In contrast to Application Load Balancers they
 do not offer protocol decoding (such as routing requests to backends based on the requested web address), they only
@@ -495,9 +519,11 @@ same backend).
 
 ### VPNs, private interconnects, and routing services
 
+<audio preload="none" controls src="audio/15-vpns.mp3"></audio>
+
 While it seems convenient at first to use only the public network several organizations have security models that prevent accidental public exposure of services not only by implementing the appropriate firewalls (e.g. with security groups) but also by not having private services on the public internet at all. To connect these internal services you must be on a private network.
 
-However, this presents a problem when moving data between several, geographically distributed locations. Most companies don't own continent-spanning fiber channel backbones where they could simply create a private network without going on the internet on. This means that most companies have to choose one of two methods if they want to create a private connectivity between locations (and the cloud): an [MPLS tunnel](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) or [VPN](https://en.wikipedia.org/wiki/Virtual_private_network).
+However, this presents a problem when moving data between several, geographically distributed locations. Most companies don't own continent-spanning fiber channel backbones where they could simply create a private network without going on the internet. This means that most companies have to choose one of two methods if they want to create a private connectivity between locations (and the cloud): an [MPLS tunnel](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) or [VPN](https://en.wikipedia.org/wiki/Virtual_private_network).
 
 MPLS tunnels create a virtual connectivity that does not go on the Internet. While being expensive and slow to set up, it can offer a guaranteed bandwidth, latency and better security than a VPN.
 
@@ -533,6 +559,8 @@ It is also worth noting that VPN's can be used to connect cloud providers togeth
 
 ### DNS
 
+<audio preload="none" controls src="audio/16-dns.mp3"></audio>
+
 The [Domain Name Service](https://en.wikipedia.org/wiki/Domain_Name_System) is one of the services that are all but required for building an infrastructure. It provides domain name to IP address resolution, such as pointing your domain `example.com` to an IP address of your servers.
 
 There is a difference, however, between DNS services on offer. Some DNS services by cloud providers offer only simple resolution, other providers offer more advanced features. These features include being able to host the DNS service only on a private network without exposing it to the internet.
@@ -540,6 +568,8 @@ There is a difference, however, between DNS services on offer. Some DNS services
 More advanced features may include automatic DNS failover. This involves running regular health checks on your services and if your primary service fails the DNS service can automatically switch to the secondary IP. There are even services that offer advanced functionality such as routing traffic to different servers based on the geographic location of the client. This can be used for advanced builds such as [building a custom CDN](https://pasztor.at/blog/building-your-own-cdn). CDNs are discussed in the [next lecture](/lectures/3-xaas/).
 
 ## Monitoring
+
+<audio preload="none" controls src="audio/17-monitoring.mp3"></audio>
 
 Some cloud providers offer includes basic monitoring, such as CPU or memory usage. Some providers are offering
 monitoring agents you can install on your virtual machine to get more data in the monitoring interface. With some cloud providers monitoring alerts can be integrated with virtual machine pools to provide automatic scaling, either automatically or using lambdas/FaaS, which we will talk about in the [next lecture](/lectures/3-xaas/).
