@@ -6,6 +6,8 @@
 
 <h1>Beyond IaaS</h1>
 
+<audio preload="none" controls src="audio/01-beyond-iaas.mp3"></audio>
+
 This lecture walks you through the most important services offered by cloud providers beyond the IaaS layers. Sometimes this is called "PaaS" (Platform as a Service) indicating that it is intended as a developer platform.
 
 The easiest way to remember the difference is that IaaS offers virtual machines and connected services. In order to operate on top of an IaaS platform you need someone skilled in running an operating system. In other words, you need a system administrator.
@@ -19,6 +21,8 @@ This might not seem like a big deal but consider that databases store data. Ever
 Similarly, building a redundant database system that can perform an automatic failover requires a high skill level in managing that specific database engine. This skill level may not be available in small teams, or a small team may not want to spend time on managing the database instead of focusing on their core objective.
 
 ## Application load balancers
+
+<audio preload="none" controls src="audio/02-albs.mp3"></audio>
 
 !!! tldr "In a hurry?"
     Application Load Balancers offer load balancing on a HTTP level. They offer advanced routing capabilities based on HTTP requests.
@@ -63,6 +67,8 @@ This has an adverse effect on user experience which is why newer, so-called &ldq
 
 ## Content Delivery Networks (CDNs)
 
+<audio preload="none" controls src="audio/03-cdns.mp3"></audio>
+
 !!! tldr "In a hurry?"
     Network connections have a high latency because the light bounces around in the fiberoptic cable. Therefore, access from the other side of the globe is slow. This is resolved by CDN's, which offer a network of machines that cache the content close to the end user.
 
@@ -103,6 +109,8 @@ In essence, CDN's help with latency issues *if the content can be cached*. In ot
 
 ## Object Storage
 
+<audio preload="none" controls src="audio/04-object-storage.mp3"></audio>
+
 !!! tldr "In a hurry?"
     Object storages are file storages that offer a limited set of operations (upload, download, list, delete, change access permissions, etc). Due to the limited feature set object storages are able to offer redundant, low cost file storage. Most object storages also allow publishing files to the internet directly.
 
@@ -141,6 +149,8 @@ However, due to the limited feature set object storages have a few unique abilit
 
 ### Cold storage
 
+<audio preload="none" controls src="audio/05-cold-storage.mp3"></audio>
+
 Some providers offer an extension to their object storage system that puts data in cold storage (e.g. [on tape](https://en.wikipedia.org/wiki/Magnetic_tape_data_storage)). Data can be uploaded directly via the API, or in the case of very large data amounts shipped to the provider on hard drives.
 
 !!! tip "Did you know?"
@@ -150,6 +160,8 @@ Since the data is stored on offline (cold) storage the data retrieval is not as 
 
 ## Databases as a Service (DBaaS)
 
+<audio preload="none" controls src="audio/06-dbaas.mp3"></audio>
+
 !!! tldr "In a hurry?"
     DBaaS offers managed databases. Different database types and replication methods offer different levels of consistency. ACID-compliant databases are typically used for cases where data must not be lost under any circumstances, while BASE databases (eventually consistent) are used where the loss of a few records in a failure scenario is acceptable.
 
@@ -157,6 +169,8 @@ Since the data is stored on offline (cold) storage the data retrieval is not as 
 As mentioned before, one of the most difficult services to operate are ones that store state. They are also highly standardized between cloud providers. This makes them an ideal candidate for a company to use PaaS instead of managing everything in-house.
 
 ### Database consistency
+
+<audio preload="none" controls src="audio/07-consistency.mp3"></audio>
 
 When considering which database offering to use database consistency plays a key role. It is a common occurrence that startups pick, for example, MongoDB because of its &ldquo;hipness&rdquo; instead of it considering the benefits and drawbacks of this (or any other) database solution.
 
@@ -185,6 +199,8 @@ There are benefits for both and the appropriate database type must be chosen for
 
 ### Relational databases (SQL)
 
+<audio preload="none" controls src="audio/08-rdbms.mp3"></audio>
+
 SQL or relational databases (RDBMS) are one of the more traditional database systems. They use predefined data tables with fixed columns and datatypes. Most SQL databases also allow creating references between tables. These references or foreign keys allow for validation. For example, you could create database that has an `articles` and a `comments` table. Since the `comments` table could reference the `articles` table it would be impossible to create a comment with an invalid article ID.
 
 While it is easy to make the assumption that RDBMS implement ACID compliance (CP) in most cases it is only true when the database is run on a single node. When using replication most RDBMS implement asynchronous replication which puts them partially in the BASE / AP territory. When using a managed database make sure your cloud provider supports a replication that suits your consistency needs.
@@ -195,11 +211,15 @@ Popular RDBMS systems are: Microsoft SQL Server, MySQL, PostgreSQL
 
 ### Key-value stores
 
+<audio preload="none" controls src="audio/09-kv.mp3"></audio>
+
 Key-value stores are very simply databases that store data objects based on a *key*, a name for the object. The object itself is inherently opaque, the database engine does not know or care how it is structured. In other words, key-value stores treat the value part as a binary object.
 
 Typical key-value stores include: Memcached, Amazon S3 
 
 ### Document databases
+
+<audio preload="none" controls src="audio/10-document-db.mp3"></audio>
 
 Document databases offer the user the ability to store a structured document, such as a JSON file. Often it also creates indexes over these documents that allow for quick searching.
 
@@ -211,9 +231,13 @@ Popular document databases are: MongoDB, ElasticSearch, Amazon DynamoDB
 
 ### Time Series databases
 
+<audio preload="none" controls src="audio/11-tsdb.mp3"></audio>
+
 Time-series databases are usually used in monitoring systems and store numeric values associated with a certain timestamp. One of the most famous cloud-native monitoring system with an integrated time-series databases is [Prometheus](https://prometheus.io/).  
 
 ### Graph databases
+
+<audio preload="none" controls src="audio/12-graphdb.mp3"></audio>
 
 Graph databases are special databases that store relationships of datasets with each other and allow making queries over them. These database types can be used for creating social graphs, interests, etc.
 
@@ -228,6 +252,8 @@ A popular graph database option is Neo4j
 
 ## Functions as a Service (FaaS / Lambda)
 
+<audio preload="none" controls src="audio/13-faas.mp3"></audio>
+
 Functions as a Service or Lambdas are a way to run custom code without having to worry about the runtime environment. These pieces of code are triggered by events: a timer, a message in a message queue, or an incoming HTTP request.
 
 To make this easier to understand let's consider a hypothetical scenario: let's say you want to have an up to date list of IP addresses of all virtual machines you are running. In this case you have two options. Option one is to run a piece of code every few minutes to update the IP list. However, this may not be fast enough, and it may also not scale with a very large number of machines.
@@ -240,6 +266,8 @@ However, keep in mind that FaaS may have limitations in terms of performance. To
 
 ## Containers as a Service (CaaS)
 
+<audio preload="none" controls src="audio/14-caas.mp3"></audio>
+
 Containers are a way to run applications in an isolated environment without dedicating a full virtual machine to them. However, as you might imagine, containers are not magic and cannot automatically move from one physical server to another. This, and many other tasks are the job of container orchestrators such as Kubernetes.
 
 Since Kubernetes and its alternatives are incredibly complex to operate many cloud providers take on this burden, and offer containers as a service to customers.
@@ -248,11 +276,15 @@ Note that containers are the topic of the [next lecture](../4-containers/index.m
 
 ## Stream processing and Business Intelligence tools
 
+<audio preload="none" controls src="audio/15-datalake.mp3"></audio>
+
 One of the most complex setups to run in an on-premises environment is something nowadays known as a datalake. IT aggregates data from many different source databases  and allows data scientists to extract valuable information from it. It is not uncommon to see several dozen source database. What's more, some analyses require close to real time data processing.
 
 The tools usually seen in such as setup are [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Apache Spark](https://spark.apache.org/), [Kafka](https://kafka.apache.org/), and several more. The number of source databases and the number of tools listed here should tell you how complex such a setup can be. This is one of the reasons why even large, traditional corporations are seriously considering moving their data analytics into the cloud.
 
 ## Deployment pipelines
+
+<audio preload="none" controls src="audio/16-deployment.mp3"></audio>
 
 While there are many, many more services on offer in the cloud we'd like to mention a final piece to the puzzle: deployment pipelines. These deployment pipelines allow a DevOps engineer to build automatic software deployment systems with relative ease. Deployment pipelines may start with something simple like a CI/CD system that an engineer can extend with calls to an API, or may include full-on code quality tools, test systems and management for the production environment.
 
