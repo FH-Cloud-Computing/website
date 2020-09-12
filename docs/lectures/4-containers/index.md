@@ -6,6 +6,8 @@
 
 <h1>Containers & Container Orchestrators</h1>
 
+<audio preload="none" controls src="audio/01-containers.mp3"></audio>
+
 In the [second lecture](../2-iaas/index.md) we have talked about how applications interact with the kernel and the hardware. By now you know that applications running in ring 3 do not have direct access to things like the disk. To access those details they need to execute a [system call](https://en.wikipedia.org/wiki/System_call) to the kernel. The kernel will then give the application the details required, for example a file from the disk.
 
 Let's play a hypothetical game: process A wants to access a file called `test.txt`. It calls the kernel, the file is opened, and process A is now free to read the contents. When process B comes along and does the same, it will receive the same file.
@@ -39,7 +41,7 @@ Starting around 2006 several companies, including Google, IBM, SGI, Bull, and th
 !!! tip "Do you want to know more about history?"
     The history of containerization is surprisingly hard to piece together despite the relative young age of the technology. If you want a bit of a deeper dive take a look at [&ldquo;A Brief History of Containers (by Jeff Victor & Kir Kolyshkin)&rdquo;](https://www.youtube.com/watch?v=doUktZIcXF0).
 
-All these isolation technologies, together, form what's today known as Linux containers. Windows has undergone a similar development in recent years, and has *virtualized* the typical Windows interaction points between processe: job objects, process table, registry, filesystem, etc.
+All these isolation technologies, together, form what's today known as Linux containers. Windows has undergone a similar development in recent years, and has *virtualized* the typical Windows interaction points between processes: job objects, process table, registry, filesystem, etc.
 
 In essence, *containers don't exist*. They are a collection of technologies that provide process-level isolation for an application. These isolation techniques can, among others, include:
 
@@ -53,6 +55,8 @@ In essence, *containers don't exist*. They are a collection of technologies that
     You can! Take a look at [Liz Rice's Containers From Scratch](https://www.youtube.com/watch?v=Utf-A4rODH8) talk!
     
 ## Container images
+
+<audio preload="none" controls src="audio/02-images.mp3"></audio>
 
 [Docker](https://www.docker.com/) was not the first technology to create containers using the modern Linux API's, but it was the one that made containers popular. The edge Docker had over its competitors was the way it dealt with images. Other container solutions at the time, like LXC, tried to emulate virtual machines where a full operating system would be installed, and then updated. Docker chose a different route. A `Dockerfile` would contain the instructions needed to build a container image containing the application that should be containerized. These instructions would be executed and resulted in a container image. This container image could then be used to launch one or more copies of it.
 
@@ -79,6 +83,8 @@ Docker went one step further, they introduced a way to share images between mach
 
 ## The container lifecycle
 
+<audio preload="none" controls src="audio/03-lifecycle.mp3"></audio>
+
 You can, of course, update a running container just as you would a traditional virtual machine. However, that is not the intended, or indeed, optimal way to use them. The intention of containers is *immutable infrastructure*. Immutable infrastructure means that containers are *never updated*. Instead, they are replaced. When a new version of a software needs to be installed the old container is shut down and a new one is launched from a new image.
 
 Immutable infrastructure presents a massive benefit: instead of having to deal with a downtime when the upgrade is ran, the updated version can be tested before it is launched.
@@ -86,6 +92,8 @@ Immutable infrastructure presents a massive benefit: instead of having to deal w
 However, this concept reaches its limits when it comes to running software that needs to store data in a persistent fashion, for example, databases. For this purpose containers can designate special folders to be mounted as *volumes*. Volumes can be persisted by either mounting them as a folder from the host machine, or by mounting a network-based storage system.
 
 ## Orchestration (Swarm, Kubernetes, etc)
+
+<audio preload="none" controls src="audio/04-orchestration.mp3"></audio>
 
 Docker and other container runtimes do not manage containers across multiple servers by themselves. Docker has received an addon called Docker Swarm, but nowadays the clear winner of the &ldquo;Container Wars&rdquo; is [Kubernetes](https://kubernetes.io).
 
@@ -98,6 +106,8 @@ Depending on the cloud provider Kubernetes can automatically move block storage 
 This flexibility comes at a cost: Kubernetes is very complex. A detailed explanation on how to deploy an application on Kubernetes would vastly exceed the bounds of this course. If you are interested in this topic we recommend taking a look at one of the many [Certified Kubernetes Application Developer](https://www.cncf.io/certification/ckad/) courses on the Internet.
 
 ## Container networking
+
+<audio preload="none" controls src="audio/05-networking.mp3"></audio>
 
 As mentioned previously, containers regularly have their own, virtual network interfaces. This virtual network interface can be connected in a number of ways.
 
@@ -117,17 +127,21 @@ Since everything required to run an application can be stored in a Dockerfile an
 
 ## Kubernetes
 
+<audio preload="none" controls src="audio/06-kubernetes.mp3"></audio>
+
 We have talked about Kubernetes before, but we are dedicating this section to more detail as it has become quite apparent that Kubernetes is going to be the de-facto standard for container orchestration in the future.
 
 The history of Kubernetes lies in the [Borg orchestrator from Google](https://en.wikipedia.org/wiki/Borg_(cluster_manager)). The intention is to be able to orchestrate workloads across thousands of machines. Since Kubernetes is highly scalable its design is difficult to use at small scale.
 
 ### Developer aspect
 
-Developers of Kubernetes are only confronted with a subset of Kubernetes' complexity. A developer can create a Kubernetes manifest file (in YAML format) that instructs Kubernetes to run a certain set of containers, network them together, provide load balancers, etc.
+<audio preload="none" controls src="audio/07-developer-aspect.mp3"></audio>
+
+Developers using Kubernetes are only confronted with a subset of Kubernetes' complexity. A developer can create a Kubernetes manifest file (in YAML format) that instructs Kubernetes to run a certain set of containers, network them together, provide load balancers, etc.
 
 The basic unit of scheduling is a **Pod**. A pod is a unit consisting of one or more containers that share a network namespace and can potentially also share other resources. Pods can either run continuously or can be scheduled to run to completion for one-off jobs or cronjobs.
  
-However, unlike a simple Docker installation Kubernetes offers a way to manage Pods on a higher level. **Deployments** offer a way to create resource to manage downtimeless deployments and roll back to a previous version with a simple rollback command if desired. They do this by using **ReplicaSets**, an automatic resource creating multiple copies of a Pod.
+However, unlike a simple Docker installation Kubernetes offers a way to manage Pods on a higher level. **Deployments** offer a way to create a resource to manage downtimeless deployments and roll back to a previous version with a simple rollback command if desired. They do this by using **ReplicaSets**, an automatic resource creating multiple copies of a Pod.
 
 As you can already see this highlights what we will discuss in the [next lecture](../5-cloud-native/index.md): a cloud-native application has to be ready to have multiple parallel copies of itself running.
 
@@ -139,9 +153,9 @@ Since some Pods need to store data Kubernetes offers a flexible way to allocate 
 
 It is worth remembering though that a single PV can only be used by a single PVC. This makes allocation in a larger cluster cumbersome. Naturally, Kubernetes has a solution for this problem called **provisioners**. These provisioners can dynamically create PVs as needed, usually by creating a network block storage volume in the cloud.
 
-It is also worth noting that local storage provides no resilience against host machine failure, as we discussed in [lecture 2](../2-iaas/index.md). While using local storage with Kubernetes is possible and Kubernetes won't reschedule a workload with an attached local storage, it also limits the ability for Kubernetes to react to a node failure and move workloads.
+It is also worth noting that, while local storage is supported, it provides no resilience against host machine failure, as we discussed in [lecture 2](../2-iaas/index.md). While Kubernetes will do its best to support local storage and won't reschedule a workload with such an attached storage, it also limits the ability for Kubernetes to react to a node failure and move workloads.
 
-In order to facilitate internal and external load balancing Kubernetes introduces the concept of **Services** to create *network load balancers* for each service. These services use the Pod labels to track which Pods they should send traffic to. A special type of service is the **Loadbalancer** which, given a cloud integration, dynamically creates an external IP address for a specific service.
+In order to facilitate internal and external load balancing Kubernetes introduces the concept of **Services** to create *internal network load balancers* for each service. These services use the Pod labels to track which Pods they should send traffic to. A special type of service is the **Loadbalancer** which, given a cloud integration, dynamically creates an external IP address for a specific service.
 
 Alternatively, workloads can also make use of the **Ingress** resource that dynamically configures the ingress controller to send HTTP workloads to specific pods. The ingress controller acts as an *application load balancer* for Kubernetes.
 
@@ -173,7 +187,23 @@ To augment these capabilities the **Job** resource gives developers the ability 
     answer("CronJob"),
 ]) }}
 
+{{ quiz("With which resource can you create a queue in Kubernetes?", [
+    answer("Queue"),
+    answer("Pipe"),
+    answer("Job"),
+    answer("CronJob"),
+]) }}
+
+{{ quiz("Which resource guarantees the startup order of pods?", [
+    answer("OrderedSet"),
+    answer("StatefulSet"),
+    answer("Job"),
+    answer("Deployment"),
+]) }}
+
 ### Architecture
+
+<audio preload="none" controls src="audio/08-architecture.mp3"></audio>
 
 The Kubernetes architecture is highly modular and the description given here is fairly generic. Individual Kubernetes distributions may differ greatly in their use of tools.
 
@@ -187,9 +217,9 @@ The **controller-manager** is a component composed of many small parts that deci
 
 The **cloud controller** is responsible for the cloud provider integration. This is optional for a static cluster, but required if autoscaling, or a load balancer integration is required.
 
-The **kubelet** runs on every node and is presponsible for talking to the Container Runtime (e.g. containerd) to run the containers the scheduler deems necessary. It is worth mentioning that the Kubelet must be able to reach the API server on a network level, and vice versa. HTTP request flow in both directions in order to make a Kubernetes cluster work.
+The **kubelet** runs on every node and is responsible for talking to the Container Runtime (e.g. containerd) to run the containers the scheduler deems necessary. It is worth mentioning that the Kubelet must be able to reach the API server on a network level, and vice versa. HTTP request flow in both directions in order to make a Kubernetes cluster work.
 
-The **kube-proxy** service also often runs on each Kubernetes node to provide load balancing services, but there are replacements for this component.
+The **kube-proxy** service also often runs on each Kubernetes node to provide load balancing, but there are replacements for this component.
 
 The **Container Network Interface** (CNI) is a network plugin deployed alongside the kubelet and provides the previously-described overlay network. There is a wide range of CNI plugins from bare metal routing to [Calico](https://www.projectcalico.org/).
 

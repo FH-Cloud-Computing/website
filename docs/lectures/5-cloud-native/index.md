@@ -6,9 +6,13 @@
 
 <h1>Cloud Native Software Development</h1>
 
+<audio preload="none" controls src="audio/01-cloud-native.mp3"></audio>
+
 Software development doesn't exist in a vacuum. The software will need to run somewhere. While not every software needs to, or indeed will, scale to Google levels, a little forethought can go a long way towards surviving the first contact with the customer hordes.
 
 ## The enemy of scalability: state
+
+<audio preload="none" controls src="audio/02-state.mp3"></audio>
 
 Any application that does not store or access data is easy to scale. Simply run more copies of it and put a load balancer in front of it.
 
@@ -22,11 +26,13 @@ A similar issue arises when near-realtime data exchange is desired between a lar
 
 ## The Twelve Factor App
 
-Once we survive the first night after the launch of our application it often becomes time to deal with long-term architectural problems. The [12 factor app](https://12factor.net/) is a concept that collects the current best practices of writing applications for the cloud. Keep in mind that these are just guidelines and you should never make a religious tyrade out of following these guidelines. Instead, apply common sense and be pragmatic about what to do.
+<audio preload="none" controls src="audio/03-12-factor.mp3"></audio>
+
+Once we survive the first night after the launch of our application it often becomes time to deal with long-term architectural problems. The [12 factor app](https://12factor.net/) is a concept that collects the current best practices of writing applications for the cloud. Keep in mind that these are just guidelines and you should never make a religious tirade out of following these guidelines. Instead, apply common sense and be pragmatic about what to do.
 
 ### 1. Codebase
 
-This [first guideline](https://12factor.net/codebase) is pretty simple: keep your application in a version control system. While this should be the default in 2020 it unfortunately still bears saying.  
+This [first guideline](https://12factor.net/codebase) is pretty simple: keep your application in a version control system. While this should be the default in 2020, it unfortunately still bears saying.  
 
 ### 2. Dependencies
 
@@ -42,7 +48,7 @@ While in older times configuration files had many formats, modern, container-bas
 
 External databases, caches, etc. [should be treated as such](https://12factor.net/backing-services). This means that the connection options (server name, url, username, password, etc) should be configurable via environment variable and should also be replacable by a system administrator by simply reconfiguring the container.
 
-Testing the testability is especially important with services that are not as well standardized as a MySQL database. For example, many S3 implementations only support Amazon's version and cannot be configured to use alternative providers. An application following this recommendation should be tested against at least one other S3 provider.
+Testing is also important with services that are not as well standardized as, for example, a MySQL database. For example, many S3 implementations only support Amazon's version and cannot be configured to use alternative providers. An application following this recommendation should be tested against at least one other S3 provider.
 
 ### 5. The build process
 
@@ -64,7 +70,7 @@ While this may seem as trivial with a green field project, it is definitely a ch
 
 ### 9. Disposability
 
-This [recommendation](https://12factor.net/disposability) states that an application should have a fast startup and should also shut down quickly when receiving the TERM signal. Applications should also be able to recover from unexpected crashes.
+This [recommendation](https://12factor.net/disposability) states that an application should have a fast startup and should also shut down quickly when receiving the `TERM` signal. Applications should also be able to recover from unexpected crashes.
 
 ### 10. Development/production gap
 
@@ -74,7 +80,7 @@ Smaller change sets make tracking down issues with deployments easier, but can b
 
 ### 11. Logs
 
-The [logs recommendation](https://12factor.net/logs) should simply write logs to the standard output in a standardized form (e.g. JSON). Everything else, like routing or storing logs, is not the applications concern.
+The [logs recommendation](https://12factor.net/logs) states that an app should simply write logs to the standard output in a standardized form (e.g. JSON). Everything else, like routing or storing logs, is not the applications concern.
 
 In practice each application contains at least some basic logic to filter logs to make it easier to configure the logging level.
 
@@ -87,6 +93,8 @@ The [admin process recommendation](https://12factor.net/admin-processes) concern
 
 ## Monitoring and metrics collection
 
+<audio preload="none" controls src="audio/04-monitoring.mp3"></audio>
+
 The above 12 factors are, by necessity, limited in scope. The author(s) of those 12 factors have taken many things into account, yet left out others.
 
 One of the most important aspects left out of the list above is monitoring. Any developer wanting to working a cloud-native environment needs to consider monitoring. After all, the journey to the cloud is supposed to bring greater stability and facilitate rapid development cycles.
@@ -94,6 +102,8 @@ One of the most important aspects left out of the list above is monitoring. Any 
 In this section we will discuss the monitoring types and their practical implementation.
 
 ### Periodic checks
+
+<audio preload="none" controls src="audio/05-periodic-checks.mp3"></audio>
 
 One of the most classic forms of monitoring are periodic checks. Periodic checks run a certain check, for example a connection, against the application. If the connection succeeds the check is green, if not the check is red and an alert is sent out. The check types are varied, ranging from a simple connection attempt to a fully blown interaction with the application.
 
@@ -103,11 +113,15 @@ The important question to consider with periodic checks is the rate of false pos
 
 ### Feature tests
 
-A very special case of periodic checks are full-on feature tests. These feature tests blur the boundaries between development-time software testing and operations. The intention is to run a full application test, such as a [Selenium](https://www.selenium.dev/) test suite, against a production application. This test could test a full signup, for example. This level of testing ensures that the application keeps working even after deployment.
+<audio preload="none" controls src="audio/06-feature-tests.mp3"></audio>
 
-While not practical in every scenario these tests can ensure a high level of certainty and can also function as a regression test when the infrastructure changes rather then the application.
+A very special case of periodic checks are full-on feature tests. These feature tests blur the boundaries between development-time software testing and operations. The intention is to run a full application test, such as with the [Selenium](https://www.selenium.dev/) test suite, against a production application. This test could test a full signup, for example. This level of testing ensures that the application keeps working even after deployment.
+
+While not practical in every scenario these tests can ensure a high level of certainty and can also function as a regression test when the infrastructure changes rather than the application.
 
 ### Metrics collection
+
+<audio preload="none" controls src="audio/07-metrics.mp3"></audio>
 
 Another important aspect of monitoring is metrics collection. Periodic checks can only check what's there, but they cannot indicate a brewing trouble before it happens. Metrics can be an early warning system for a failure in the application. For example, a software rollout can significantly impact signups. While the change may have been entirely intentional it is business critical to observe this happening and alert immediately to a potential defect in the software. Are the loading times too long? Did the layout change make the process too confusing? Metrics can help. 
 
@@ -117,23 +131,29 @@ The reason why Prometheus has established itself as a standard is its ability to
 
 ### Log collection
 
+<audio preload="none" controls src="audio/08-logs.mp3"></audio>
+
 Depending on how well written the application is it may expose more or less useful logs. One thing is certain: error counts can also be an early warning system for latent defects. For example, your access log may contain the individual entries of failed requests. A log aggregation system such as the [ELK stack](https://www.elastic.co/what-is/elk-stack) can discover patterns in your logs and give you alerts when something is going south. 
 
 ### Dashboards
+
+<audio preload="none" controls src="audio/09-logs.mp3"></audio>
 
 No monitoring system is complete without a way to look at what's going on. This niche is filled by dashboards such as [Grafana](https://grafana.com/) which we will discuss in greater detail in [exercise 5](/exercises/5-grafana).
 
 ## Microservices
 
-The proliferation of containers has brought about a change in software design aswell: microservices. Microservices is a concept where, instead of building one monolithic application one builds a tiny service for each need. These services are connected across the network, usually via HTTP.
+<audio preload="none" controls src="audio/10-microservices.mp3"></audio>
 
-On its face this solves the problem of creating an incoherent giant ball of code with code quality. However, experience has shown that this is not true. **A team or company that is not able to write a good quality monolith is also not able to design and maintain microservices properly.**
+The proliferation of containers has brought about a change in software design as well: microservices. Microservices is a concept where, instead of building one monolithic application one builds a tiny service for each need. These services are connected across the network, usually via HTTP.
 
-To write a well designed system, no matter if microservices or monolith, needs to have clean API boundaries between the different parts of the system. Unfortunately, there is no simple way to achieve clean boundaries as there is a host of literature on Clean Code that would exceed the bounds of this course.
+On its face this solves the problem of creating an incoherent giant ball of code with bad code quality. However, experience has shown that this is not true. **A team or company that is not able to write a good quality monolith is also not able to design and maintain microservices properly.**
 
-Where's the difference? For one, it's the *network*. When you write a monolith you can rely on every call across API boundaries will always, reliably return. With microservices, this is not true. Microservices calls can hang indefinitely. It is possible that the other service simply disappears from the network and you won't even know it. That's why a microservices architecture always needs to include the [Circuit Breaker pattern](https://martinfowler.com/bliki/CircuitBreaker.html)
+To write a well designed system, no matter if microservices or monolith, one needs to have clean API boundaries between the different parts of the system. Unfortunately, there is no simple way to achieve clean boundaries as there is a host of literature on Clean Code that would exceed the bounds of this course.
 
-Second, it's the runtime. If there are several microservices calling each other, each service being *reasonably* fast, the run time can still add up. Imagine 5 microservices calling each other, each woth a maximum runtime of 200ms. That's a one second response time right there!
+Where's the difference microservices and a monolith? For one, it's the *network*. When you write a monolith you can rely on every call across API boundaries to always, reliably return. With microservices, this is not true. Microservices calls can hang indefinitely. It is possible that the other service simply disappears from the network and you won't even know it. That's why a microservices architecture always needs to include the [Circuit Breaker pattern](https://martinfowler.com/bliki/CircuitBreaker.html)
+
+Second, it's the runtime. If there are several microservices calling each other, each service being *reasonably* fast, the run time can still add up. Imagine 5 microservices calling each other, each with a maximum runtime of 200ms. That's a one second response time right there!
 
 Third, it's the API design. If you break your API in a monolithic application chances are your compiler will bark at you and refuse to compile the code. If you break compatibility across microservices possibly nothing happens. With badly written microservices that ignore missing parameters, for example, systems can break in a really horrifying manner.
 
@@ -146,13 +166,13 @@ Conway formulated this in 1968, long before microservices. It still holds true t
 
 Microservices are also a good idea where boundaries are needed between applications with different technology stacks (e.g. to pass information from Java to Javascript, etc.)
 
-However, it makes very little sense for a small development team in a startup, using a homogeneous technology stack to use microservices. The changes are this team will be violating API boundaries all over the place and disregard the requirements for building a network-based distributed system.
+However, it makes very little sense for a small development team in a startup, using a homogeneous technology stack to use microservices. Chances are, this team will be violating API boundaries all over the place and disregard the requirements for building a network-based distributed system.
 
 !!! tip "Ask the Authors"
     If you want a fun story about how microservices can go horribly wrong, ask the authors in the consulting sessions.
     
 !!! warning "Be careful!"
-    It is easy to go over-board with microservices to the point where you have more Kubernetes manifests than actual program code! Don't forget, you not only have to write them, but also deploy them. If you go for services that are too small or your team is ill-equipped to handle a large number of tiny services in production you may have one of the many horrible microservices failures on your hand.
+    It is easy to go over-board with microservices to the point where you have more Kubernetes manifests than actual program code! Don't forget, you not only have to write them, but also deploy them. If you go for services that are too small, or your team is ill-equipped to handle a large number of tiny services in production, you may have one of the many horrible microservices failures on your hand.
 
 !!! tip "Loosely typed languages"
     Be careful with loosely typed languages and systems like JavaScript! These systems are very tolerant towards missing parameters, or parameters with incorrect types. This can lead to some disastrous consequences.
@@ -178,6 +198,8 @@ However, it makes very little sense for a small development team in a startup, u
 
 ## Service meshes, Frameworks, and Tools
 
+<audio preload="none" controls src="audio/11-service-mesh.mp3"></audio>
+
 Service meshes are a tool to help with building microservices. As mentioned before, microservices are hard. Not only do you have to take the network into account, not only do you have to make the API work together across many different components, you also have to make sure that components find each other.
 
 Kubernetes makes sure that there are internal load balancers for each service allowing you to do a basic rollout. However, Kubernetes does not retry failed calls, allow for versioning, implement a circuit breaker, etc.
@@ -186,4 +208,4 @@ Service meshes like [Istio](https://istio.io/) do that. You don't strictly *need
 
 Alternatively, you can of course use the tools afforded by your framework. If you are in the Java world, you could use [Spring Cloud](https://spring.io/projects/spring-cloud), for example. Spring Cloud will let you register your services with a wide variety of backend services.
 
-However, keep in mind: microservices are hard. As a developer you will be curious and willing to learn about them, of course. However, your curiosity may not serve the company's interest as much as you may think it does.
+However, keep in mind: microservices are hard. As a developer you will be curious and willing to learn about them, of course. But, your curiosity may not serve the company's interest as much as you may think it does.
