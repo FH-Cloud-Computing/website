@@ -1,7 +1,7 @@
 <div class="download">
 <a href="fh-cloud-computing-lecture-2-iaas.pptx"><button>Download PPTX 💻</button></a>
 <a href="fh-cloud-computing-lecture-2-iaas.mp3"><button>Download MP3 🎧</button></a>
-<a href="#"><button>Watch Video 🎬</button></a>
+<a href="https://youtu.be/KJhbQy-MCG4"><button>Watch Video 🎬</button></a>
 </div>
 
 <h1>Infrastructure as a Service</h1>
@@ -415,7 +415,7 @@ has to the switching fabric, but not the specific bandwidth between two distinct
 This is part of the reason why in the cloud scaling horizontally (adding more machines) is preferred rather than
 creating huge instances with lots of resources.
 
-## Network architectures offered by cloud providers
+### Network architectures offered by cloud providers
 
 <audio preload="none" controls src="audio/12-network-architectures.mp3"></audio>
 
