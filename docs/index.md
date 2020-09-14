@@ -1,4 +1,4 @@
-title: Cloud Computing Fall 2020
+title: Welcome
 
 <div class="download">
 <a href="about.pptx"><button>Download PPTX 💻</button></a>
