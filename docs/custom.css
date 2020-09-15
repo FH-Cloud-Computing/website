@@ -219,3 +219,21 @@ body .md-content kbd {
           0 .1rem 0 var(--md-default-fg-color--lighter),
           inset 0 -0.1rem .2rem var(--md-default-bg-color);
 }
+.md-typeset ol li {
+  position:relative;
+}
+@media print {
+  .md-content h3 + audio, .md-content h4 + audio, .md-content h5 audio, audio {
+    display:none;
+  }
+  .md-content img {
+    max-width:100%;
+  }
+  .md-typeset .admonition {
+    page-break-inside: avoid;
+  }
+
+  .md-content ul li {
+    position:relative;
+  }
+}

@@ -1,5 +1,3 @@
-import pprint
-
 from bs4 import BeautifulSoup
 
 
@@ -19,6 +17,20 @@ def get_stylesheet() -> str:
         .noprint {
             display: none;
         }
+    }
+    
+    img {
+        max-width:100%;
+    }
+    ul li img, ol li img {
+        width:80% !important;
+    }
+    .md-content aside {
+      float:none !important;
+      margin-left:none !important;
+    }
+    body {
+        font-size: 10px;
     }
     """
 

@@ -8,14 +8,15 @@
     {% set title = title | striptags %}
   {% endif %}
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="{{ title }}" />
+  <meta name="title" property="og:title" content="{{ title }}" />
   <meta property="og:site_name " content="{{ config.site_name }}" />
-  <meta property="og:description" content="{{ config.site_description }}" />
+  <meta name="description" property="og:description" content="{{ config.site_description }}" />
   <meta property="og:url" content="{{ page.canonical_url }}" />
-  <meta property="og:image" content="{{ config.site_url }}opengraph.png" />
+  <meta name="image" property="og:image" content="{{ config.site_url }}social.png" />
   <meta name="author" content="Janos Pasztor, Peter Wenzl, Günther Pospischil">
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{{ title }} | {{ config.site_name }}" />
   <meta name="twitter:description" content="{{ config.site_description }}" />
-  <meta name="twitter:image" content="{{ config.site_url }}opengraph.png" />
+  <meta name="twitter:image" content="{{ config.site_url }}social.png" />
+  <meta name="date" content="2020-09-14" />
 {% endblock %}

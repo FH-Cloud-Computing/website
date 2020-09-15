@@ -1,5 +1,5 @@
 site_name: Cloud Computing 2020
-site_description: Course material for the Cloud Computing course of Fall 2020 at the FH Campus Wien.
+site_description: Course material for the Cloud Computing course of Fall 2020 at the FH Campus Wien. This course goes through the theory and practice of implementing applications for the cloud.
 nav:
   - About the course:
     - Overview: index.md
