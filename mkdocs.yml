@@ -45,6 +45,8 @@ plugins:
   - pdf-export:
       theme_handler_path: pdf-theme-handler.py
       enabled_if_env: ENABLE_PDF_EXPORT
+      media_type: print
+      verbose: true
   - exclude:
       glob: []
 markdown_extensions:
