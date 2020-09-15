@@ -121,3 +121,14 @@ if __name__ == "__main__":
 ```
 
 That's it!
+
+## Other languages
+
+Like every cloud provider, Exoscale provides [a well documented API](https://community.exoscale.com/api/). There are third party SDK's available for several languages:
+
+- [Java](https://github.com/Autonomiccs/apache-cloudstack-java-client)
+- [Javascript](https://github.com/Autonomiccs/apache-cloudstack-javascript-client)
+- [C#](https://github.com/richardlawley/cloudstack.net)
+
+!!! warning
+    We have not tested these SDKs. We recommend sticking to the officially supported languages and may not be able to help if you work with the unofficial libraries.
