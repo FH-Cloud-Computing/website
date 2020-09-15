@@ -11,5 +11,5 @@ can get help.
 ## Where to ask for help
 
 - The primary avenue of getting help is on the [Slack channel for this course](https://moodle.fh-campuswien.ac.at/mod/url/view.php?id=319750).
-- Join the weekly online consultation sessions.
+- Join the bi-weekly online consultation sessions.
 - If you need to send us something, please do so on the [email addresses on the introduction page](../index.md).
