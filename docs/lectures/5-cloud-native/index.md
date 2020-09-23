@@ -137,7 +137,7 @@ Depending on how well written the application is it may expose more or less usef
 
 ### Dashboards
 
-<audio preload="none" controls src="audio/09-logs.mp3"></audio>
+<audio preload="none" controls src="audio/09-dashboards.mp3"></audio>
 
 No monitoring system is complete without a way to look at what's going on. This niche is filled by dashboards such as [Grafana](https://grafana.com/) which we will discuss in greater detail in [exercise 5](/exercises/5-grafana).
 
