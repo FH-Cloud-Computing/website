@@ -40,6 +40,9 @@ If you opt to only implement the manual method (without Terraform) please enter 
 
 !!! note
     The automated version has to run without manual intervention beyond inserting variables. Additionally, the solutions will be spot-checked for duplication, and you may be required to jump on a 10 minute call to quickly explain your call.
+    
+!!! note
+    If your code does not run after handing it in and that error is due to a **minor** mistake in your Terraform code you will be given a chance to fix it within 5 days.
 
 ## Acceptance criteria
 
