@@ -44,15 +44,6 @@ If you opt to only implement the manual method (without Terraform) please enter 
 !!! note
     If your code does not run after handing it in and that error is due to a **minor** mistake in your Terraform code you will be given a chance to fix it within 5 days.
 
-## Acceptance criteria
-
-The system will be tested with Apache Benchmark using the following command line:
-
-```
-ab -c 2 -n 1000 http://your-nlb-ip/load
-```
-
-Your system must be able to launch enough instances within 10 minutes to get the average load back under 80%. When AB is stopped, your system must scale down the instance pool to 1 instance within 10 minutes.
 
 ## Getting help
 
