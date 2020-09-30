@@ -8,7 +8,7 @@ Furthermore, if you run out of budget on your Exoscale account **a -15% penalty*
 
 In this sprint you must demonstrate your ability to set up an instance pool and a network load balancer.
 
-### Pass criteria:**
+### Pass criteria:
 
 #### Manual solution (5%)
 
