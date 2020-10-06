@@ -118,7 +118,7 @@ scrape_configs:
       - targets:
           - '1.2.3.4:9100'
   - job_name: Custom
-    file_sd_config:
+    file_sd_configs:
       - files:
           - /custom_servers.json
         refresh_interval: 10s
