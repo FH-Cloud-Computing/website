@@ -78,7 +78,7 @@ E-mail: [peter.wenzl@edu.fh-campuswien.ac.at](mailto:peter.wenzl@edu.fh-campuswi
 <img src="janos-pasztor.jpg" alt="A photo of Janos Pasztor, a man in his thirties with short, dark brown hair and round glasses." />
 </aside>
 
-Website: [pasztor.at](https://pasztor.at)
+Website: [pasztor.at](https://pasztor.at) <br />
 Linkedin: [linkedin.com/in/janoszen/](https://www.linkedin.com/in/janoszen/) <br />
 Twitter: [twitter.com/janoszen/](https://twitter.com/janoszen/) <br />
 E-mail: [janos.pasztor@edu.fh-campuswien.ac.at](mailto:janos.pasztor@edu.fh-campuswien.ac.at) <br />
@@ -87,3 +87,4 @@ E-mail: [janos.pasztor@edu.fh-campuswien.ac.at](mailto:janos.pasztor@edu.fh-camp
 - Cloud Focused Career
 - Deloitte, A1 Group, Entrecloud (startup), Ixolit group, Docler group.
 - Certified Kubernetes Application Developer
+- Certified Kubernetes Administrator
