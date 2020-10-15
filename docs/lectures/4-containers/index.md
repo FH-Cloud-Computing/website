@@ -81,6 +81,20 @@ Docker went one step further, they introduced a way to share images between mach
     answer("An instruction set how to make a container image"),
 ]) }}
 
+{{ quiz("What component typically provides separation between Linux containers?", [
+    answer("The CPU"),
+    answer("The Kernel"),
+    answer("The Container Runtime"),
+    answer("The Userspace"),
+]) }}
+
+{{ quiz("What component typically provides separation between virtual machines?", [
+    answer("The CPU"),
+    answer("The Kernel"),
+    answer("The Container Runtime"),
+    answer("The Userspace"),
+]) }}
+
 ## The container lifecycle
 
 <audio preload="none" controls src="audio/03-lifecycle.mp3"></audio>
@@ -199,6 +213,14 @@ To augment these capabilities the **Job** resource gives developers the ability 
     answer("StatefulSet"),
     answer("Job"),
     answer("Deployment"),
+]) }}
+
+{{ quiz("Assuming you have standard, managed Kubernetes setup and a managed database, which of the following do you need to deploy a stateless application and expose it to the Internet?", [
+    answer("Deployment"),
+    answer("Job"),
+    answer("Ingress"),
+    answer("DaemonSet"),
+    answer("StatefulSet"),
 ]) }}
 
 ### Architecture

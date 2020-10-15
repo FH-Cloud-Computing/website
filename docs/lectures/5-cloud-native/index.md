@@ -196,6 +196,11 @@ However, it makes very little sense for a small development team in a startup, u
     - Distributed systems
         - [Distributed Systems in One Lesson](https://www.youtube.com/watch?v=Y6Ev8GIlbxc)
 
+{{ quiz("What is the Circuit-Breaker Pattern?", [
+    answer("It ensures there are no loops when microservices call each other"),
+    answer("It cancels API calls to other services if they take too long"),    
+]) }}
+
 ## Service meshes, Frameworks, and Tools
 
 <audio preload="none" controls src="audio/11-service-mesh.mp3"></audio>

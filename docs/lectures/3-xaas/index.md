@@ -65,6 +65,11 @@ This has an adverse effect on user experience which is why newer, so-called &ldq
     answer("HTTP"),
 ]) }}
 
+{{ quiz("Can a NETWORK load balancer balance based on HTTP request URL's (e.g. send `login` to a different set of servers than the rest of the website)", [
+    answer("Yes"),
+    answer("No"),
+]) }}
+
 ## Content Delivery Networks (CDNs)
 
 <audio preload="none" controls src="audio/03-cdns.mp3"></audio>
