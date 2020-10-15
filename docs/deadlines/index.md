@@ -25,6 +25,8 @@ You must upload your Terraform to GitHub or an alternative Git service and submi
 - When deleting all instances from the instance pool, the instance pool must provision the new instances and the health check must become green within 5 minutes,
 - When accessing the IP address of the NLB with the `/health` URL, that URL should respond with "OK" and a HTTP status code 200. (The easiest way to achieve this is to run the [http load generator](https://github.com/FH-Cloud-Computing/http-load-generator).)
 
+Please make sure your your code is in the **main/master branch** of your Git repository.
+
 ## Sprint 2: Monitoring
 
 **Deadline:** 15<sup>th</sup> of November 2020
