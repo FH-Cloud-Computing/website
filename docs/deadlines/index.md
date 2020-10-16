@@ -37,7 +37,7 @@ In this sprint you must demonstrate your ability to monitor a varying number of 
 
     #### Minimum requirements (5%)
     
-    You must demonstrate on a call that everything from Sprint 1 still works. In addition to Sprint 1:
+    For manual hand-ins only: You must demonstrate on a call that everything from Sprint 1 still works, as well as the following points.
     
     - You must create one extra instance with Prometheus running on it on port 9090, accessible from the internet. (Yes, this is not production-grade, but we need it for testing.)
     - When querying Prometheus for the `up` metric, the metric must display the instances in the instance pool.
