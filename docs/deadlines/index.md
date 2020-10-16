@@ -55,7 +55,7 @@ In this sprint you must demonstrate your ability to monitor a varying number of 
     - `terraform apply` must succeed with the `exoscale_key` and `exoscale_secret` variables passed to it.
     - `terraform destroy` must succeed and must leave no resources behind.
     - After applying the configuration, all resources from Sprint 1 must be present, plus one single monitoring instance.
-    - Prometheus must be accessesible using port 9090 on the public IP of the monitoring instance.
+    - Prometheus must be accessesible using port 9090 on the public IP of the monitoring instance within 5 minutes.
     
     #### Service discovery implementation (+5%)
     
