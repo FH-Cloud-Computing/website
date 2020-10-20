@@ -120,7 +120,7 @@ scrape_configs:
   - job_name: Custom
     file_sd_configs:
       - files:
-          - /custom_servers.json
+          - /service-discovery/custom_servers.json
         refresh_interval: 10s
 ```
 
@@ -130,12 +130,12 @@ To make this work you will have to mount an additional volume for Prometheus:
 docker run \
     -d \
     -p 9090:9090 \
-    -v /srv/custom_servers.json:/custom_servers.json \
+    -v /srv/service-discovery/:/service-discovery/custom_servers.json \
     -v /srv/prometheus.yml:/etc/prometheus/prometheus.yml \
     prom/prometheus
 ```
 
-Finally, let's place the following file in `/srv/custom_servers.json` on the host:
+Finally, let's place the following file in `/srv/service-discovery/custom_servers.json` on the host:
 
 ```json
 [
