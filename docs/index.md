@@ -85,6 +85,6 @@ E-mail: [janos.pasztor@edu.fh-campuswien.ac.at](mailto:janos.pasztor@edu.fh-camp
 
 - Software developer and DevOps engineer background (10+ years experience)
 - Cloud Focused Career
-- Deloitte, A1 Group, Entrecloud (startup), Ixolit group, Docler group.
-- Certified Kubernetes Application Developer
-- Certified Kubernetes Administrator
+- Currently Senior Software Engineer at Red Hat
+- Previously: Deloitte, A1 Group, Entrecloud (startup), Ixolit group, Docler group
+- Certified Kubernetes Application Developer & Certified Kubernetes Administrator
