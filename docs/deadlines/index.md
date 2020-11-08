@@ -68,6 +68,8 @@ In this sprint you must demonstrate your ability to monitor a varying number of 
     - Your container built from the Dockerfile must accept the `EXOSCALE_KEY`, `EXOSCALE_SECRET`, `EXOSCALE_ZONE` (e.g. `at-vie-1`), `EXOSCALE_ZONE_ID`, `EXOSCALE_INSTANCEPOOL_ID`, and `TARGET_PORT` environment variables as configuration.
     - Your application must write a [Prometheus-compatible service discovery file](https://prometheus.io/docs/guides/file-sd/) to the path `/srv/service-discovery/config.json` inside the container (will be mounted as a volume). (No labels need to be added, only the IP and port.)
     - The service discovery agent must detect changes in the instance pool within 2 minutes and write the appropriate service discovery file.
+    
+    **How the service discovery is tested:** the service discovery agent is tested separately outside of the cluster provisioned by Terraform. The hand in automation builds a container image from the `Dockerfile` located in the `servicediscovery` folder and runs it with the correct environment variables, then observes if the service discovery file (`/srv/service-discovery/config.json`) inside the container contains the correct details as instances are stopped and started.
 
 ## Sprint 3: Autoscaling
 
