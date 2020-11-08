@@ -70,6 +70,8 @@ In this sprint you must demonstrate your ability to monitor a varying number of 
     - The service discovery agent must detect changes in the instance pool within 2 minutes and write the appropriate service discovery file.
     
     **How the service discovery is tested:** the service discovery agent is tested separately outside of the cluster provisioned by Terraform. The hand in automation builds a container image from the `Dockerfile` located in the `servicediscovery` folder and runs it with the correct environment variables, then observes if the service discovery file (`/srv/service-discovery/config.json`) inside the container contains the correct details as instances are stopped and started.
+    
+    We recommend creating an account on the [Docker hub](https://hub.docker.com) to `docker push` your image. You can then pull the image from your `userdata` instead of uploading the code directly.
 
 ## Sprint 3: Autoscaling
 
