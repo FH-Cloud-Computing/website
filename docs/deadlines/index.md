@@ -75,8 +75,8 @@ In this sprint you must demonstrate your ability to monitor a varying number of 
 
 ## Sprint 3: Autoscaling
 
-**Deadline:** 15<sup>th</sup> of December 2020 23:59
+**Deadline:** 15<sup>th</sup> of January 2021 23:59 <strike>15<sup>th</sup> of December 2020 23:59</strike>
 
 In this sprint you must demonstrate your ability to receive a webhook from Grafana and adjust the number of instances in the instance pool from the previous sprint under load.
 
-**Pass criteria:** Your service will be hit with a large number of requests and it must scale up as outlined in the [project work document](/projectwork).
+**Pass criteria:** Your service will be hit with a large number of requests and it must scale up as outlined in the [project work document](/projectwork). Details will be published on the 20<sup>th</sup> of November 2020
