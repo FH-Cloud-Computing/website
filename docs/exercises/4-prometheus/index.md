@@ -130,7 +130,7 @@ To make this work you will have to mount an additional volume for Prometheus:
 docker run \
     -d \
     -p 9090:9090 \
-    -v /srv/service-discovery/:/service-discovery/custom_servers.json \
+    -v /srv/service-discovery/:/service-discovery/ \
     -v /srv/prometheus.yml:/etc/prometheus/prometheus.yml \
     prom/prometheus
 ```
