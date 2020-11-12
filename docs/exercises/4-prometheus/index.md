@@ -103,7 +103,7 @@ sum(rate(node_cpu_seconds_total[1m]))
 
 There is a [wide range of service discovery options available](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file). In our case we will implement the [file SD](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#file_sd_config). The file service discovery periodically checks a file for changes and reads the IP addresses in that file.
 
-Let's extend our configuration my the file SD configuration:
+Let's extend our configuration by the file SD configuration:
 
 ```yaml
 global:
