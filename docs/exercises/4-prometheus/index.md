@@ -34,7 +34,7 @@ docker run \
 !!! warning
     This will run Prometheus on your host machine on port 9090. Prometheus itself does not have any authentication. Make sure to secure your server with security groups as needed.
 
-After running the previous command you can now enter the IP address of your server into your browser and access Prometheus on port 9000. The interface looks like this:
+After running the previous command you can now enter the IP address of your server into your browser and access Prometheus on port 9090. The interface looks like this:
 
 ![An image displaying the Prometheus user interface. It has a navigation bar on top and a query interface below.](prometheus-ui.png)
 
