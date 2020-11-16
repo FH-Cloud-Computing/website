@@ -17,6 +17,9 @@ During the test you will be required to obey the following rules:
 
 **This is a non-exhaustive list.** Use it as a learning guide to be better prepared for the test. Remember: if you don't know something, **ask**. That's what Slack is for.
 
+!!! tip
+    These are typical interview questions for a cloud engineer.
+
 ### Fundamentals
 
 As indicated in the first lecture you will need to demonstrate an understanding of computer networking to the level
