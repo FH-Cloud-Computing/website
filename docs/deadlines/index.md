@@ -79,4 +79,41 @@ In this sprint you must demonstrate your ability to monitor a varying number of 
 
 In this sprint you must demonstrate your ability to receive a webhook from Grafana and adjust the number of instances in the instance pool from the previous sprint under load.
 
-**Pass criteria:** Your service will be hit with a large number of requests and it must scale up as outlined in the [project work document](/projectwork).
+Your service will be hit with a large number of requests and it must scale up as outlined in the [project work document](/projectwork).
+
+??? note "Pass criteria"
+    
+    #### Minimum requirements (5%)
+    
+    **Note:** If you only fulfill your minimum requirements please contact us for a review appointment.
+    
+    - All items from Sprint 1 and 2 must still work.
+    - You must install Grafana on your monitoring server such that it is publicly available on port 3000 of your monitoring server.
+    - You must add your Prometheus server as a datasource to Grafana.
+    - You must create a dashboard in Grafana with two graphs that both show the average CPU usage across all the instances in the instance pool from Sprint 1. The graph must not include the CPU usage of the monitoring server.
+    - One of the graphs must have an alert set to trigger when the average CPU usage is over 80% over 1 minute after 1 minute of "pending".
+    - The second graph must have an alert set to trigger when the average CPU usage is below 20% over 1 minute after 1 minute of "pending".
+    - The 80% alert must trigger send a webhook to the autoscaler of the monitoring host on the `/up` URL. If the CPU usage is still high after 5 minutes the webhook must be repeated. It MUST NOT send a webhook for resolution (when the CPU usage drops below 80%).
+    - The 20% alert must trigger a webhook to the `/down` URL of the autoscaler in the same manner as described above.
+    - When the NLB IP is hit on the `/load` endpoint by a client and the average CPU usage climbs over 80% it must start new instances periodically until the CPU usage drops below 80%.
+    
+    #### Automated solution (+5%)
+    
+    In addition to the criteria above, the entire setup must be fully automated using Terraform, and the Terraform code must be uploaded to a Git repository accessible by the lecturers. The following criteria must also be true:
+    
+    - Your code *must* be on the `master` branch and in the main folder.
+    - `terraform init` must succeed.
+    - `terraform apply` must succeed with the `exoscale_key` and `exoscale_secret` variables passed to it.
+    - `terraform destroy` must succeed and must leave no resources behind.
+    
+    #### Autoscaler implementation (+5%)
+    
+    To achieve this goal, you must implement the autoscaler yourself. (Do not copy code from the Internet or from fellow students.) You can pick the programming language of your choice. 
+    
+    - Upload your code to the repository with the Terraform code in the `autoscaler` folder.
+    - Your code must be containerized with a `Dockerfile`. The `docker build` command must execute successfully.
+    - Your container built from the Dockerfile must accept the `EXOSCALE_KEY`, `EXOSCALE_SECRET`, `EXOSCALE_ZONE` (e.g. `at-vie-1`), `EXOSCALE_ZONE_ID`, `EXOSCALE_INSTANCEPOOL_ID`, and `LISTEN_PORT` environment variables as configuration.
+    - When an HTTP request is sent to the `LISTEN_PORT` on the `/up` endpoint your autoscaler must increase the size of the instance pool given in `EXOSCALE_INSTANCEPOOL_ID` by 1 and respond with a HTTP 200 status code.
+    - When an HTTP request is sent to the `LISTEN_PORT` on the `/down` endpoint your autoscaler must decrease the size of the instance pool given in `EXOSCALE_INSTANCEPOOL_ID` by 1 and respond with a HTTP 200 status code.
+    - If the instance pool size is 1 and scaling down is requested the autoscaler must ignore the request and respond with an HTTP 200 status code.
+    - Your autoscaler must stop gracefully with an exit code of 0 when sent a TERM signal in less than 30 seconds.
