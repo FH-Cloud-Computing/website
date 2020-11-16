@@ -14,8 +14,8 @@
 
 ### Sprint 2:
 
-- 5% for having a working Prometheus and Grafana installation that monitors the instances in the instance pool.
-- 5% for automating the installation procedure of Prometheus and Grafana via Terraform.
+- 5% for having a working Prometheus installation that monitors the instances in the instance pool.
+- 5% for automating the installation procedure of Prometheus via Terraform.
 - 5% for implementing the Prometheus service discovery yourself. (Your solution must be in a different programming language than the provided example, or must be substantially different.)
  
 ### Sprint 3:

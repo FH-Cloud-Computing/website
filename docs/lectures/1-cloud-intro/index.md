@@ -517,7 +517,7 @@ These are:
 1. If the data subject has **given their explicit consent** to process their data for a specific purpose.
 2. If the processing is necessary to **perform a contract** with the data subject. In other words you do not need additional consent if you are processing data in order to fulfill a service to the data subject.
 3. To perform a **legal obligation**. For example, you have to keep an archive of your invoices to show in case of a tax audit.
-4. To protect the **vial interests of the data subject or another natural person**.
+4. To protect the **vital interests of the data subject or another natural person**.
 5. To perform a task which is in the **public interest**, or if an official authority has been vested in the data controller.
 6. For the purposes of a **legitimate interest** of the data controller (with exceptions). This might seem like a catch-all but courts have defined legitimate interests very narrowly. The data controller must show that the legitimate interest exists and cannot be achieved in any other way than with the data processing in question. One good example for the legitimate interests clause would be a webshop that is collecting data about their visitors in order to spot fraudulent orders.
 

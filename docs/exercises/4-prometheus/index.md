@@ -34,7 +34,7 @@ docker run \
 !!! warning
     This will run Prometheus on your host machine on port 9090. Prometheus itself does not have any authentication. Make sure to secure your server with security groups as needed.
 
-After running the previous command you can now enter the IP address of your server into your browser and access Prometheus on port 9000. The interface looks like this:
+After running the previous command you can now enter the IP address of your server into your browser and access Prometheus on port 9090. The interface looks like this:
 
 ![An image displaying the Prometheus user interface. It has a navigation bar on top and a query interface below.](prometheus-ui.png)
 
@@ -103,7 +103,7 @@ sum(rate(node_cpu_seconds_total[1m]))
 
 There is a [wide range of service discovery options available](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file). In our case we will implement the [file SD](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#file_sd_config). The file service discovery periodically checks a file for changes and reads the IP addresses in that file.
 
-Let's extend our configuration my the file SD configuration:
+Let's extend our configuration by the file SD configuration:
 
 ```yaml
 global:
@@ -130,7 +130,7 @@ To make this work you will have to mount an additional volume for Prometheus:
 docker run \
     -d \
     -p 9090:9090 \
-    -v /srv/service-discovery/:/service-discovery/custom_servers.json \
+    -v /srv/service-discovery/:/service-discovery/ \
     -v /srv/prometheus.yml:/etc/prometheus/prometheus.yml \
     prom/prometheus
 ```
