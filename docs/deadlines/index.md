@@ -31,7 +31,7 @@ In this sprint you must demonstrate your ability to set up an instance pool and 
 
 In this sprint you must demonstrate your ability to monitor a varying number of instances set up on an instance pool in the previous sprint using Prometheus.
 
-???+ note "Pass criteria"
+??? note "Pass criteria"
 
     **Note:** Grafana has been moved to Sprint 3.
 
@@ -81,7 +81,7 @@ In this sprint you must demonstrate your ability to receive a webhook from Grafa
 
 Your service will be hit with a large number of requests and it must scale up as outlined in the [project work document](/projectwork).
 
-??? note "Pass criteria"
+???+ note "Pass criteria"
     
     #### Minimum requirements (5%)
     
